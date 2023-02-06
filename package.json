@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/jonaslod/auction-website/issues"
   },
-  "homepage": "https://github.com/jonaslod/auction-website#readme"
+  "homepage": "https://github.com/jonaslod/auction-website#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.3"
+  }
 }
