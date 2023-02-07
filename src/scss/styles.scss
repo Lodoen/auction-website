@@ -1,2 +1,35 @@
 @import "variables.scss";
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "./components/headings";
+@import "./components/hover";
+@import "./components/icons";
+
+.wave-deep {
+  background: repeat center url("../../img/wave.png");
+}
+
+.maxw {
+  &-350 {
+    max-width: 350px;
+  }
+  &-450 {
+    max-width: 450px;
+  }
+  &-650 {
+    max-width: 650px;
+  }
+}
+
+.minh-100 {
+  min-height: 100vh;
+}
+
+* {
+  font-family: Trebuchet MS, Tahoma, sans-serif;
+}
+h1 {
+  font-family: Consolas, monaco, monospace;
+}
+nav {
+  font-family: Verdana, Geneva, sans-serif;
+}

@@ -1,0 +1,11 @@
+.hover {
+  &-underline:hover {
+    text-decoration: underline;
+  }
+
+  &-secondary-white:hover {
+    background-color: $white;
+    color: $secondary;
+    text-decoration: underline;
+  }
+}
