@@ -4,8 +4,33 @@
 @import "./components/hover";
 @import "./components/icons";
 
+body {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
 .wave-deep {
-  background: repeat center url("../../img/wave.png");
+  background: repeat center url("/img/wave.png");
+}
+
+.wave-cta {
+  background: repeat center url("/img/wave-cta.png");
+  min-height: 350px;
+}
+
+.product-showcase {
+  background: no-repeat center url("/img/product.png");
+  height: 130px;
+}
+
+.number-of-credits {
+  border-top-right-radius: 10px;
+  opacity: 0.7;
+}
+
+.number-of-days-left {
+  font-size: 0.8rem;
 }
 
 .maxw {
@@ -18,6 +43,9 @@
   &-650 {
     max-width: 650px;
   }
+  &-900 {
+    max-width: 900px;
+  }
 }
 
 .minh-100 {
@@ -27,7 +55,9 @@
 * {
   font-family: Trebuchet MS, Tahoma, sans-serif;
 }
-h1 {
+h1,
+h2,
+footer h4 {
   font-family: Consolas, monaco, monospace;
 }
 nav {

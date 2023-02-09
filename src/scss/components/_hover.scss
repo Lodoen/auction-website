@@ -1,23 +1,27 @@
 .hover {
-  &-underline:hover {
+  &-underline:hover,
+  &-primary:hover,
+  &-secondary:hover,
+  &-black:hover,
+  &-auction-item:hover h3 {
     text-decoration: underline;
+  }
+
+  &-primary:hover,
+  &-secondary:hover,
+  &-black:hover {
+    background-color: $white;
   }
 
   &-primary:hover {
-    background-color: $white;
     color: $primary;
-    text-decoration: underline;
   }
 
   &-secondary:hover {
-    background-color: $white;
     color: $secondary;
-    text-decoration: underline;
   }
 
   &-black:hover {
-    background-color: $white;
     color: $black;
-    text-decoration: underline;
   }
 }

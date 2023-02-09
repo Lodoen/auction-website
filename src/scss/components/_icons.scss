@@ -3,7 +3,34 @@
   height: 45px;
 }
 
+.nav {
+  &-logo {
+    width: 120px;
+  }
+  &-credits-icon {
+    width: 20px;
+    height: 20px;
+  }
+  &-profile-icon {
+    width: 30px;
+    height: 30px;
+  }
+}
+
 .icon {
   width: 40px;
   height: 40px;
+  &-product {
+    width: 20px;
+    height: 20px;
+    &-tokens {
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
+
+.cta-illustration {
+  max-width: 200px;
+  max-height: 200px;
 }
