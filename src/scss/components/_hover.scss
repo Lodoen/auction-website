@@ -3,9 +3,21 @@
     text-decoration: underline;
   }
 
-  &-secondary-white:hover {
+  &-primary:hover {
+    background-color: $white;
+    color: $primary;
+    text-decoration: underline;
+  }
+
+  &-secondary:hover {
     background-color: $white;
     color: $secondary;
+    text-decoration: underline;
+  }
+
+  &-black:hover {
+    background-color: $white;
+    color: $black;
     text-decoration: underline;
   }
 }
