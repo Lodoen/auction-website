@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta
       name="description"
-      content="View auctions by other users or create your own on the Electroneer homepage"
+      content="View a specific profile to see their listings."
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home | Electroneer</title>
-    <link rel="stylesheet" href="dist/css/styles.css" />
+    <title>Profile name | Electroneer</title>
+    <link rel="stylesheet" href="/dist/css/styles.css" />
   </head>
   <body id="top-of-page">
     <header class="bg-dark">
@@ -18,7 +18,7 @@
         <div class="d-none d-sm-flex align-items-center col-6">
           <a href="/" class="nav-logo"
             ><img
-              src="img/electroneer-logo.png"
+              src="/img/electroneer-logo.png"
               alt="Electroneer logo"
               class="w-100"
           /></a>
@@ -29,7 +29,7 @@
           <div class="d-flex align-items-center d-sm-none icon">
             <a href="/" class="d-flex align-items-center w-100 p-1"
               ><img
-                src="img/icons/logo-white.png"
+                src="/img/icons/logo-white.png"
                 alt="Electroneer icon"
                 class="w-100"
             /></a>
@@ -54,21 +54,23 @@
               >
                 <img
                   class="rounded-circle nav-profile-icon"
-                  src="./img/icons/profile.png"
+                  src="/img/icons/profile.png"
                   alt="Profile icon"
                 />
               </a>
               <ul class="dropdown-menu text-small shadow">
                 <li>
-                  <a href="/" class="dropdown-item text-decoration-underline"
-                    >Home</a
-                  >
+                  <a href="/" class="dropdown-item">Home</a>
                 </li>
                 <li>
                   <a href="/create" class="dropdown-item">Create auction</a>
                 </li>
                 <li>
-                  <a href="/profile" class="dropdown-item">Profile</a>
+                  <a
+                    href="/profile"
+                    class="dropdown-item text-decoration-underline"
+                    >Profile</a
+                  >
                 </li>
                 <li>
                   <hr class="dropdown-divider" />
@@ -83,71 +85,32 @@
       </nav>
     </header>
     <main>
-      <section
-        class="wave-cta bg-primary text-light container-fluid d-flex align-items-center justify-content-center position-relative"
+      <div
+        class="profile-showcase d-flex align-items-end justify-content-center pb-4 text-light"
       >
-        <div class="maxw-650 row d-flex align-items-center">
-          <div class="col-4 d-none d-sm-block">
-            <div class="cta-illustration position-relative w-100">
+        <section class="maxw-650 mx-auto">
+          <div
+            class="icon-profile-wrapper position-relative d-flex align-items-center justify-content-center m-auto"
+          >
+            <div class="icon-profile">
               <img
-                src="/img/bid-illustration.png"
-                alt="Bid illustration"
-                class="w-100"
+                src="/img/icons/profile-big.png"
+                alt="Profile icon"
+                class="maxw maxh d-block m-auto"
               />
             </div>
-          </div>
-          <div class="col-12 col-sm-8 ps-md-4">
-            <div>
-              <h1>Have something to auction?</h1>
-              <p class="m-0">Give new life to old electronics!</p>
-              <p class="m-0">
-                Create a new listing to accept bids from other users.
-              </p>
-            </div>
-            <div class="d-flex align-items-center justify-content-end mt-5">
-              <a
-                href="/create"
-                class="btn btn-light border border-dark hover-black px-3 py-2 rounded-pill"
-                >Create new listing</a
-              >
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="maxw-650 mx-auto container-fluid my-5 pb-3">
-        <div class="row border-dark border-bottom pb-2 mb-4">
-          <h2>Listings</h2>
-          <form class="row d-flex mx-auto">
-            <div class="col-12 col-sm col-md-6 mb-3 ps-sm-0">
-              <label for="search" class="form-label">Search:</label>
-              <input
-                type="text"
-                class="form-control rounded-4"
-                placeholder="Search ..."
-                id="search"
-              />
-            </div>
-            <div class="col-12 col-sm col-md-4 mb-3">
-              <label for="sort" class="form-label">Sort by:</label>
-              <select id="sort" class="form-select rounded-4">
-                <option selected>All listings</option>
-                <option value="active">Still active</option>
-                <option value="price-low-high">Price low-high</option>
-                <option value="price-high-low">Price high-low</option>
-              </select>
-            </div>
-            <div
-              class="col-12 col-sm col-md-2 mb-3 d-flex flex-column justify-content-end pe-sm-0"
+            <button
+              type="button"
+              class="icon btn btn-link p-0 position-absolute top-0 end-0"
             >
-              <button
-                type="submit"
-                class="btn btn-primary hover-primary w-100 rounded-pill"
-              >
-                Search
-              </button>
-            </div>
-          </form>
-        </div>
+              <img src="/img/icons/edit.png" alt="Profile icon" class="w-100" />
+            </button>
+          </div>
+          <h1 class="m-0 text-center text-break">Profile</h1>
+        </section>
+      </div>
+      <section class="container-fluid my-5 maxw-650 mx-auto">
+        <h2>All listings by Username</h2>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
           <div class="col p-3">
             <a
@@ -177,7 +140,7 @@
                 <div class="d-flex align-items-center pb-2">
                   <div class="icon-product d-flex align-items-center me-1">
                     <img
-                      src="img/icons/time-left.png"
+                      src="/img/icons/time-left.png"
                       alt="Time left"
                       class="w-100"
                     />
@@ -215,7 +178,7 @@
                 <div class="d-flex align-items-center pb-2">
                   <div class="icon-product d-flex align-items-center me-1">
                     <img
-                      src="img/icons/time-left.png"
+                      src="/img/icons/time-left.png"
                       alt="Time left"
                       class="w-100"
                     />
@@ -253,7 +216,7 @@
                 <div class="d-flex align-items-center pb-2">
                   <div class="icon-product d-flex align-items-center me-1">
                     <img
-                      src="img/icons/time-left.png"
+                      src="/img/icons/time-left.png"
                       alt="Time left"
                       class="w-100"
                     />
@@ -291,7 +254,7 @@
                 <div class="d-flex align-items-center pb-2">
                   <div class="icon-product d-flex align-items-center me-1">
                     <img
-                      src="img/icons/time-left.png"
+                      src="/img/icons/time-left.png"
                       alt="Time left"
                       class="w-100"
                     />
@@ -329,7 +292,7 @@
                 <div class="d-flex align-items-center pb-2">
                   <div class="icon-product d-flex align-items-center me-1">
                     <img
-                      src="img/icons/time-left.png"
+                      src="/img/icons/time-left.png"
                       alt="Time left"
                       class="w-100"
                     />
@@ -367,7 +330,240 @@
                 <div class="d-flex align-items-center pb-2">
                   <div class="icon-product d-flex align-items-center me-1">
                     <img
-                      src="img/icons/time-left.png"
+                      src="/img/icons/time-left.png"
+                      alt="Time left"
+                      class="w-100"
+                    />
+                  </div>
+                  <p class="m-0 number-of-days-left">1 day left</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="container-fluid pb-5 maxw-650 mx-auto">
+        <h2>All bids by Username</h2>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+          <div class="col p-3">
+            <a
+              class="border border-dark rounded-4 rounded-end-0 overflow-hidden text-decoration-none text-dark d-block hover-auction-item"
+              href="/product"
+            >
+              <div
+                class="product-showcase rounded-top d-flex align-items-end border-dark border-bottom"
+              >
+                <div
+                  class="d-flex align-items-center number-of credits bg-dark text-light p-1"
+                >
+                  <p class="m-0 ps-1">500</p>
+                  <div
+                    class="icon-product-tokens d-flex align-items-center mx-1"
+                  >
+                    <img
+                      src="/img/icons/tokens.png"
+                      alt="credits"
+                      class="w-100"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="py-2 px-3">
+                <h3>This is an active auction</h3>
+                <div class="d-flex align-items-center pb-2">
+                  <div class="icon-product d-flex align-items-center me-1">
+                    <img
+                      src="/img/icons/time-left.png"
+                      alt="Time left"
+                      class="w-100"
+                    />
+                  </div>
+                  <p class="m-0 number-of-days-left">1 day left</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col p-3">
+            <a
+              class="border border-dark rounded-4 rounded-end-0 overflow-hidden text-decoration-none text-dark d-block hover-auction-item"
+              href="/product"
+            >
+              <div
+                class="product-showcase rounded-top d-flex align-items-end border-dark border-bottom"
+              >
+                <div
+                  class="d-flex align-items-center number-of credits bg-dark text-light p-1"
+                >
+                  <p class="m-0 ps-1">500</p>
+                  <div
+                    class="icon-product-tokens d-flex align-items-center mx-1"
+                  >
+                    <img
+                      src="/img/icons/tokens.png"
+                      alt="credits"
+                      class="w-100"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="py-2 px-3">
+                <h3>This is an active auction</h3>
+                <div class="d-flex align-items-center pb-2">
+                  <div class="icon-product d-flex align-items-center me-1">
+                    <img
+                      src="/img/icons/time-left.png"
+                      alt="Time left"
+                      class="w-100"
+                    />
+                  </div>
+                  <p class="m-0 number-of-days-left">1 day left</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col p-3">
+            <a
+              class="border border-dark rounded-4 rounded-end-0 overflow-hidden text-decoration-none text-dark d-block hover-auction-item"
+              href="/product"
+            >
+              <div
+                class="product-showcase rounded-top d-flex align-items-end border-dark border-bottom"
+              >
+                <div
+                  class="d-flex align-items-center number-of credits bg-dark text-light p-1"
+                >
+                  <p class="m-0 ps-1">500</p>
+                  <div
+                    class="icon-product-tokens d-flex align-items-center mx-1"
+                  >
+                    <img
+                      src="/img/icons/tokens.png"
+                      alt="credits"
+                      class="w-100"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="py-2 px-3">
+                <h3>This is an active auction</h3>
+                <div class="d-flex align-items-center pb-2">
+                  <div class="icon-product d-flex align-items-center me-1">
+                    <img
+                      src="/img/icons/time-left.png"
+                      alt="Time left"
+                      class="w-100"
+                    />
+                  </div>
+                  <p class="m-0 number-of-days-left">1 day left</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col p-3">
+            <a
+              class="border border-dark rounded-4 rounded-end-0 overflow-hidden text-decoration-none text-dark d-block hover-auction-item"
+              href="/product"
+            >
+              <div
+                class="product-showcase rounded-top d-flex align-items-end border-dark border-bottom"
+              >
+                <div
+                  class="d-flex align-items-center number-of credits bg-dark text-light p-1"
+                >
+                  <p class="m-0 ps-1">500</p>
+                  <div
+                    class="icon-product-tokens d-flex align-items-center mx-1"
+                  >
+                    <img
+                      src="/img/icons/tokens.png"
+                      alt="credits"
+                      class="w-100"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="py-2 px-3">
+                <h3>This is an active auction</h3>
+                <div class="d-flex align-items-center pb-2">
+                  <div class="icon-product d-flex align-items-center me-1">
+                    <img
+                      src="/img/icons/time-left.png"
+                      alt="Time left"
+                      class="w-100"
+                    />
+                  </div>
+                  <p class="m-0 number-of-days-left">1 day left</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col p-3">
+            <a
+              class="border border-dark rounded-4 rounded-end-0 overflow-hidden text-decoration-none text-dark d-block hover-auction-item"
+              href="/product"
+            >
+              <div
+                class="product-showcase rounded-top d-flex align-items-end border-dark border-bottom"
+              >
+                <div
+                  class="d-flex align-items-center number-of credits bg-dark text-light p-1"
+                >
+                  <p class="m-0 ps-1">500</p>
+                  <div
+                    class="icon-product-tokens d-flex align-items-center mx-1"
+                  >
+                    <img
+                      src="/img/icons/tokens.png"
+                      alt="credits"
+                      class="w-100"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="py-2 px-3">
+                <h3>This is an active auction</h3>
+                <div class="d-flex align-items-center pb-2">
+                  <div class="icon-product d-flex align-items-center me-1">
+                    <img
+                      src="/img/icons/time-left.png"
+                      alt="Time left"
+                      class="w-100"
+                    />
+                  </div>
+                  <p class="m-0 number-of-days-left">1 day left</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col p-3">
+            <a
+              class="border border-dark rounded-4 rounded-end-0 overflow-hidden text-decoration-none text-dark d-block hover-auction-item"
+              href="/product"
+            >
+              <div
+                class="product-showcase rounded-top d-flex align-items-end border-dark border-bottom"
+              >
+                <div
+                  class="d-flex align-items-center number-of credits bg-dark text-light p-1"
+                >
+                  <p class="m-0 ps-1">500</p>
+                  <div
+                    class="icon-product-tokens d-flex align-items-center mx-1"
+                  >
+                    <img
+                      src="/img/icons/tokens.png"
+                      alt="credits"
+                      class="w-100"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="py-2 px-3">
+                <h3>This is an active auction</h3>
+                <div class="d-flex align-items-center pb-2">
+                  <div class="icon-product d-flex align-items-center me-1">
+                    <img
+                      src="/img/icons/time-left.png"
                       alt="Time left"
                       class="w-100"
                     />
@@ -408,19 +604,6 @@
             </button>
           </li>
         </ul>
-        <div>
-          <p class="m-0">
-            <span class="fst-italic"
-              >Credit for illustration used on the top of the page:</span
-            >
-            <a
-              href="https://www.freepik.com/free-vector/auction-online-computer_5974454.htm#query=auction%20house&position=0&from_view=search&track=sph"
-              class="link-light"
-              >Image by macrovector</a
-            >
-            on Freepik
-          </p>
-        </div>
         <p class="m-0">Electroneer 2023. All rights reserved.</p>
       </div>
     </footer>

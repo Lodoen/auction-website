@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Electroneer register" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign up | Electroneer</title>
+    <link rel="stylesheet" href="../dist/css/styles.css" />
+  </head>
+  <body
+    class="minh-100 d-flex h-100 align-items-center wave-deep bg-primary text-break"
+  >
+    <main class="maxw-450 px-5 pt-4 pb-3 rounded-5 m-auto bg-white">
+      <section
+        class="d-flex justify-content-center align-items-center flex-column pt-2"
+      >
+        <div class="login-logo d-flex align-items-center">
+          <img
+            src="../img/icons/logo.png"
+            alt="Electroneer logo"
+            class="w-100 p-0"
+          />
+        </div>
+        <h1 class="d-inline-block m-0">Electroneer register</h1>
+      </section>
+      <div class="form-container">
+        <form action="/profile">
+          <div class="my-3">
+            <label for="name" class="form-label mb-0">Username:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              placeholder="Username ..."
+              pattern="^[\w]+$"
+              maxlength="20"
+              title="Enter a username between 8 and 20 characters long"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label mb-0">Email:</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="name@example.com"
+              pattern="^[\w\-.]+@(stud.)?noroff.no$"
+              title="Only noroff.no or stud.noroff.no email addresses are valid"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label mb-0">Password:</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              placeholder="Password ..."
+              minlength="8"
+              title="Enter a valid password (minimum length of 8 characters)"
+              required
+            />
+          </div>
+          <div>
+            <label for="avatar" class="form-label mb-0">Avatar * :</label>
+            <input
+              type="text"
+              class="form-control"
+              id="avatar"
+              placeholder="Avatar URL ..."
+              aria-describedby="avatarHelp"
+            />
+            <div id="avatarHelp" class="form-text">
+              * Must be a fully formed URL
+            </div>
+          </div>
+          <div class="text-center my-4 hover-underline">
+            <a href="/login" class="text-info fst-italic text-decoration-none"
+              >Already have an account? Login &gt;&gt;</a
+            >
+          </div>
+          <button
+            type="submit"
+            class="btn btn-secondary w-100 rounded-pill hover-secondary"
+          >
+            Sign up
+          </button>
+        </form>
+        <p id="form-feedback"></p>
+      </div>
+    </main>
+  </body>
+</html>
