@@ -24,6 +24,11 @@ body {
   height: 130px;
 }
 
+.profile-showcase {
+  background: no-repeat center url("/img/wave.png");
+  height: 215px;
+}
+
 .number-of {
   opacity: 0.7;
   border-top-right-radius: 10px;
@@ -38,6 +43,8 @@ body {
 }
 
 .maxw {
+  max-width: 100%;
+
   &-450 {
     max-width: 450px;
   }
@@ -47,6 +54,10 @@ body {
   &-750 {
     max-width: 750px;
   }
+}
+
+.maxh {
+  max-height: 100%;
 }
 
 .minh-100 {
