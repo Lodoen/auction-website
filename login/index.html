@@ -24,13 +24,14 @@
         <h1 class="d-inline-block m-0">Electroneer login</h1>
       </section>
       <div class="form-container">
-        <form action="../profile">
+        <form action="../profile/" id="login-form">
           <div class="my-3">
             <label for="email" class="form-label mb-0">Email:</label>
             <input
               type="email"
               class="form-control"
               id="email"
+              name="email"
               placeholder="name@example.com"
               pattern="^[\w\-.]+@(stud.)?noroff.no$"
               title="Only noroff.no or stud.noroff.no email addresses are valid"
@@ -43,8 +44,8 @@
               type="password"
               class="form-control"
               id="password"
+              name="password"
               placeholder="Password ..."
-              minlength="8"
               title="Enter your password (minimum length of 8 characters)"
               required
             />
@@ -63,8 +64,9 @@
             Login
           </button>
         </form>
-        <p id="form-feedback"></p>
+        <p id="form-feedback" class="pt-3"></p>
       </div>
     </main>
+    <script src="../src/js/index.js" type="module"></script>
   </body>
 </html>

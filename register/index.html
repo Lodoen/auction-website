@@ -24,15 +24,17 @@
         <h1 class="d-inline-block m-0">Electroneer register</h1>
       </section>
       <div class="form-container">
-        <form action="../profile">
+        <form id="register-form">
           <div class="my-3">
             <label for="name" class="form-label mb-0">Username:</label>
             <input
               type="text"
               class="form-control"
               id="name"
+              name="name"
               placeholder="Username ..."
               pattern="^[\w]+$"
+              minlength="8"
               maxlength="20"
               title="Enter a username between 8 and 20 characters long"
               required
@@ -44,9 +46,10 @@
               type="email"
               class="form-control"
               id="email"
+              name="email"
               placeholder="name@example.com"
-              pattern="^[\w\-.]+@(stud.)?noroff.no$"
-              title="Only noroff.no or stud.noroff.no email addresses are valid"
+              pattern="^[\w\-.]+@stud\.noroff\.no$"
+              title="Only stud.noroff.no email addresses are valid"
               required
             />
           </div>
@@ -56,6 +59,7 @@
               type="password"
               class="form-control"
               id="password"
+              name="password"
               placeholder="Password ..."
               minlength="8"
               title="Enter a valid password (minimum length of 8 characters)"
@@ -68,6 +72,7 @@
               type="text"
               class="form-control"
               id="avatar"
+              name="avatar"
               placeholder="Avatar URL ..."
               aria-describedby="avatarHelp"
             />
@@ -87,8 +92,9 @@
             Sign up
           </button>
         </form>
-        <p id="form-feedback"></p>
+        <p id="form-feedback" class="pt-3"></p>
       </div>
     </main>
+    <script src="../src/js/index.js" type="module"></script>
   </body>
 </html>
