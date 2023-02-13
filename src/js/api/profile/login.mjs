@@ -2,6 +2,14 @@ import { baseUrl } from "../constants.mjs";
 import storage from "../../storage/index.mjs";
 import display from "../../display/index.mjs";
 
+/**
+ * Sends a post request to the API to login a user
+ * @param {*} profile Data to send in the post request
+ * @example
+ * ```js
+ * login(profileDetails);
+ * ```
+ */
 export default async function login(profile) {
   const feedback = document.getElementById("form-feedback");
 

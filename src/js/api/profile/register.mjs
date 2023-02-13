@@ -1,6 +1,14 @@
 import { baseUrl } from "../constants.mjs";
 import display from "../../display/index.mjs";
 
+/**
+ * Sends a post request to the API to register a new user
+ * @param {*} profile Data to send in the post request
+ * @example
+ * ```js
+ * register(profileDetails);
+ * ```
+ */
 export default async function register(profile) {
   const feedback = document.getElementById("form-feedback");
 

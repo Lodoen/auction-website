@@ -1,5 +1,12 @@
 import login from "../api/profile/login.mjs";
 
+/**
+ * Attaches the login function to the login form
+ * @example
+ * ```js
+ * setLoginListener();
+ * ```
+ */
 export default function setLoginListener() {
   const loginForm = document.getElementById("login-form");
 

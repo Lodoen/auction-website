@@ -1,3 +1,10 @@
+/**
+ * Returns a loading spinner
+ * @example
+ * ```js
+ * feedback.append(display.loading());
+ * ```
+ */
 export default function loading() {
   const spinner = document.createElement("div");
   spinner.setAttribute("class", "spinner-border text-primary");
