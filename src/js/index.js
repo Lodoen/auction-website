@@ -13,4 +13,5 @@ switch (location.pathname) {
   case "/listing/":
   case "/profile/":
     validation.loggedIn();
+    listener.logout();
 }
