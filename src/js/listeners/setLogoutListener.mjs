@@ -1,7 +1,7 @@
 import storage from "../storage/index.mjs";
 
 /**
- * Attaches the logout function to the logout button
+ * Attaches the logout functionality to the logout button
  * @example
  * ```js
  * setLogoutListener();
@@ -9,11 +9,12 @@ import storage from "../storage/index.mjs";
  */
 export default function setLogoutListener() {
   const btn = document.querySelector(".btn-logout");
+  const homeHref = document.querySelector("nav .nav-logo");
   if (btn) {
     btn.addEventListener("click", () => {
       storage.remove("name");
       storage.remove("accessToken");
-      location.reload();
+      homeHref ? location.replace(homeHref.href) : location.reload();
     });
   }
 }

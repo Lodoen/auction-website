@@ -1,6 +1,5 @@
 import listener from "./listeners/index.mjs";
 import validation from "./validation/index.mjs";
-
 switch (location.pathname) {
   case "/register/":
     listener.register();
@@ -8,6 +7,7 @@ switch (location.pathname) {
   case "/login/":
     listener.login();
     break;
+  case "/index.html":
   case "/":
   case "/create/":
   case "/listing/":
