@@ -12,7 +12,7 @@ import display from "../display/index.mjs";
  */
 export default async function loggedIn() {
   const username = storage.get("name");
-  const loggedInUser = await auth.fetch(`/profiles/${username}`);
+  const loggedInUser = username ? await auth.fetch(`/profiles/${username}`) : undefined;
   display.loggedInStatus(loggedInUser);
   return loggedInUser ? true : false;
 }
