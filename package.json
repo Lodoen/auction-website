@@ -7,7 +7,7 @@
     "build": "sass src/scss:dist/css",
     "watch": "sass --watch src/scss:dist/css & live-server",
     "format": "prettier -w src/**/*.js",
-    "lint": "eslint src/**/*.js",
+    "lint": "eslint src/**/*.js & eslint src/**/*.mjs",
     "prepare": "husky install"
   },
   "repository": {
