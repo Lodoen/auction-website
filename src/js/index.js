@@ -1,5 +1,18 @@
 import listener from "./listeners/index.mjs";
 import validation from "./validation/index.mjs";
+import show from "./show/index.mjs";
+
+if (
+  location.pathname == "/index.html" ||
+  location.pathname == "/" ||
+  location.pathname == "/listing/" ||
+  location.pathname == "/create/" ||
+  location.pathname == "/profile/"
+) {
+  validation.loggedIn();
+  listener.logout();
+}
+
 switch (location.pathname) {
   case "/register/":
     listener.register();
@@ -9,9 +22,6 @@ switch (location.pathname) {
     break;
   case "/index.html":
   case "/":
-  case "/create/":
-  case "/listing/":
-  case "/profile/":
-    validation.loggedIn();
-    listener.logout();
+    show.auctionListings();
+    break;
 }

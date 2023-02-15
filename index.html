@@ -127,10 +127,13 @@
           </div>
         </div>
       </section>
-      <section class="maxw-650 mx-auto container-fluid my-5 pb-3">
+      <section
+        class="maxw-650 mx-auto container-fluid my-5 pb-3"
+        id="listings-wrapper"
+      >
         <div class="row border-dark border-bottom pb-2 mb-4">
           <h2>Listings</h2>
-          <form class="row d-flex mx-auto">
+          <form id="search-form" class="row d-flex mx-auto">
             <div class="col-12 col-sm col-md-6 mb-3 ps-sm-0">
               <label for="search" class="form-label">Search:</label>
               <input
@@ -138,12 +141,13 @@
                 class="form-control rounded-4"
                 placeholder="Search ..."
                 id="search"
+                name="search"
               />
             </div>
             <div class="col-12 col-sm col-md-4 mb-3">
               <label for="sort" class="form-label">Sort by:</label>
-              <select id="sort" class="form-select rounded-4">
-                <option selected>All listings</option>
+              <select id="sort" class="form-select rounded-4" name="sort">
+                <option value="all" selected>All listings</option>
                 <option value="active">Still active</option>
                 <option value="price-low-high">Price low-high</option>
                 <option value="price-high-low">Price high-low</option>
@@ -161,234 +165,12 @@
             </div>
           </form>
         </div>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
-          <div class="col p-3">
-            <a
-              class="border border-dark rounded-4 rounded-end-0 overflow-hidden text-decoration-none text-dark d-block hover-auction-item"
-              href="./product"
-            >
-              <div
-                class="product-showcase rounded-top d-flex align-items-end border-dark border-bottom"
-              >
-                <div
-                  class="d-flex align-items-center number-of credits bg-dark text-light p-1"
-                >
-                  <p class="m-0 ps-1">500</p>
-                  <div
-                    class="icon-product-tokens d-flex align-items-center mx-1"
-                  >
-                    <img
-                      src="./img/icons/tokens.png"
-                      alt="credits"
-                      class="w-100"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="py-2 px-3">
-                <h3>This is an active auction</h3>
-                <div class="d-flex align-items-center pb-2">
-                  <div class="icon-product d-flex align-items-center me-1">
-                    <img
-                      src="./img/icons/time-left.png"
-                      alt="Time left"
-                      class="w-100"
-                    />
-                  </div>
-                  <p class="m-0 number-of-days-left">1 day left</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col p-3">
-            <a
-              class="border border-dark rounded-4 rounded-end-0 overflow-hidden text-decoration-none text-dark d-block hover-auction-item"
-              href="./product"
-            >
-              <div
-                class="product-showcase rounded-top d-flex align-items-end border-dark border-bottom"
-              >
-                <div
-                  class="d-flex align-items-center number-of credits bg-dark text-light p-1"
-                >
-                  <p class="m-0 ps-1">500</p>
-                  <div
-                    class="icon-product-tokens d-flex align-items-center mx-1"
-                  >
-                    <img
-                      src="./img/icons/tokens.png"
-                      alt="credits"
-                      class="w-100"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="py-2 px-3">
-                <h3>This is an active auction</h3>
-                <div class="d-flex align-items-center pb-2">
-                  <div class="icon-product d-flex align-items-center me-1">
-                    <img
-                      src="./img/icons/time-left.png"
-                      alt="Time left"
-                      class="w-100"
-                    />
-                  </div>
-                  <p class="m-0 number-of-days-left">1 day left</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col p-3">
-            <a
-              class="border border-dark rounded-4 rounded-end-0 overflow-hidden text-decoration-none text-dark d-block hover-auction-item"
-              href="./product"
-            >
-              <div
-                class="product-showcase rounded-top d-flex align-items-end border-dark border-bottom"
-              >
-                <div
-                  class="d-flex align-items-center number-of credits bg-dark text-light p-1"
-                >
-                  <p class="m-0 ps-1">500</p>
-                  <div
-                    class="icon-product-tokens d-flex align-items-center mx-1"
-                  >
-                    <img
-                      src="./img/icons/tokens.png"
-                      alt="credits"
-                      class="w-100"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="py-2 px-3">
-                <h3>This is an active auction</h3>
-                <div class="d-flex align-items-center pb-2">
-                  <div class="icon-product d-flex align-items-center me-1">
-                    <img
-                      src="./img/icons/time-left.png"
-                      alt="Time left"
-                      class="w-100"
-                    />
-                  </div>
-                  <p class="m-0 number-of-days-left">1 day left</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col p-3">
-            <a
-              class="border border-dark rounded-4 rounded-end-0 overflow-hidden text-decoration-none text-dark d-block hover-auction-item"
-              href="./product"
-            >
-              <div
-                class="product-showcase rounded-top d-flex align-items-end border-dark border-bottom"
-              >
-                <div
-                  class="d-flex align-items-center number-of credits bg-dark text-light p-1"
-                >
-                  <p class="m-0 ps-1">500</p>
-                  <div
-                    class="icon-product-tokens d-flex align-items-center mx-1"
-                  >
-                    <img
-                      src="./img/icons/tokens.png"
-                      alt="credits"
-                      class="w-100"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="py-2 px-3">
-                <h3>This is an active auction</h3>
-                <div class="d-flex align-items-center pb-2">
-                  <div class="icon-product d-flex align-items-center me-1">
-                    <img
-                      src="./img/icons/time-left.png"
-                      alt="Time left"
-                      class="w-100"
-                    />
-                  </div>
-                  <p class="m-0 number-of-days-left">1 day left</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col p-3">
-            <a
-              class="border border-dark rounded-4 rounded-end-0 overflow-hidden text-decoration-none text-dark d-block hover-auction-item"
-              href="./product"
-            >
-              <div
-                class="product-showcase rounded-top d-flex align-items-end border-dark border-bottom"
-              >
-                <div
-                  class="d-flex align-items-center number-of credits bg-dark text-light p-1"
-                >
-                  <p class="m-0 ps-1">500</p>
-                  <div
-                    class="icon-product-tokens d-flex align-items-center mx-1"
-                  >
-                    <img
-                      src="./img/icons/tokens.png"
-                      alt="credits"
-                      class="w-100"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="py-2 px-3">
-                <h3>This is an active auction</h3>
-                <div class="d-flex align-items-center pb-2">
-                  <div class="icon-product d-flex align-items-center me-1">
-                    <img
-                      src="./img/icons/time-left.png"
-                      alt="Time left"
-                      class="w-100"
-                    />
-                  </div>
-                  <p class="m-0 number-of-days-left">1 day left</p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col p-3">
-            <a
-              class="border border-dark rounded-4 rounded-end-0 overflow-hidden text-decoration-none text-dark d-block hover-auction-item"
-              href="./product"
-            >
-              <div
-                class="product-showcase rounded-top d-flex align-items-end border-dark border-bottom"
-              >
-                <div
-                  class="d-flex align-items-center number-of credits bg-dark text-light p-1"
-                >
-                  <p class="m-0 ps-1">500</p>
-                  <div
-                    class="icon-product-tokens d-flex align-items-center mx-1"
-                  >
-                    <img
-                      src="./img/icons/tokens.png"
-                      alt="credits"
-                      class="w-100"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="py-2 px-3">
-                <h3>This is an active auction</h3>
-                <div class="d-flex align-items-center pb-2">
-                  <div class="icon-product d-flex align-items-center me-1">
-                    <img
-                      src="./img/icons/time-left.png"
-                      alt="Time left"
-                      class="w-100"
-                    />
-                  </div>
-                  <p class="m-0 number-of-days-left">1 day left</p>
-                </div>
-              </div>
-            </a>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3" id="listings">
+          <div class="d-flex align-items-center w-100">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="fst-italic my-0 ms-3">Loading auction listings...</p>
           </div>
         </div>
       </section>
