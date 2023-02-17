@@ -13,7 +13,8 @@ export default function listingShowcase({ id, title, media, endsAt, bids }) {
   const productShowcase = document.createElement("img");
   productShowcase.setAttribute("class", "maxw maxh");
   productShowcase.setAttribute("alt", `${title} showcase`);
-  productShowcase.src = media.length > 0 ? media[0] : "./img/no-image-available.png";
+  productShowcase.src =
+    media.length > 0 ? media[0] : "./img/no-image-available.png";
 
   const price = document.createElement("p");
   price.setAttribute("class", "m-0 ps-1");
@@ -24,11 +25,17 @@ export default function listingShowcase({ id, title, media, endsAt, bids }) {
   creditsIcon.setAttribute("alt", "Number of credits");
   creditsIcon.src = "./img/icons/tokens.png";
   const creditsIconWrapper = document.createElement("div");
-  creditsIconWrapper.setAttribute("class", "icon-product-tokens d-flex align-items-center mx-1");
+  creditsIconWrapper.setAttribute(
+    "class",
+    "icon-product-tokens d-flex align-items-center mx-1"
+  );
   creditsIconWrapper.append(creditsIcon);
 
   const creditsWrapper = document.createElement("div");
-  creditsWrapper.setAttribute("class", "d-flex align-items-center position-absolute start-0 bottom-0 number-of bg-dark text-light p-1");
+  creditsWrapper.setAttribute(
+    "class",
+    "d-flex align-items-center position-absolute start-0 bottom-0 number-of bg-dark text-light p-1"
+  );
   creditsWrapper.append(price, creditsIconWrapper);
 
   const productShowcaseWrapper = document.createElement("div");
@@ -46,12 +53,15 @@ export default function listingShowcase({ id, title, media, endsAt, bids }) {
   timeLeftIcon.setAttribute("alt", "Time left");
   timeLeftIcon.src = "./img/icons/time-left.png";
   const timeLeftIconWrapper = document.createElement("div");
-  timeLeftIconWrapper.setAttribute("class", "icon-product d-flex align-items-center me-1");
+  timeLeftIconWrapper.setAttribute(
+    "class",
+    "icon-product d-flex align-items-center me-1"
+  );
   timeLeftIconWrapper.append(timeLeftIcon);
 
   const timeLeft = document.createElement("p");
   timeLeft.setAttribute("class", "m-0 number-of-days-left");
-  timeLeft.innerText = calculations.timeLeft(endsAt);
+  timeLeft.innerText = calculations.timeBetween(endsAt);
 
   const timeLeftWrapper = document.createElement("div");
   timeLeftWrapper.setAttribute("class", "d-flex align-items-center pb-2");

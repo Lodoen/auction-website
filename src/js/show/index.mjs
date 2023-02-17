@@ -1,2 +1,3 @@
 import auctionListings from "./auctionListings.mjs";
-export default { auctionListings };
+import specificListing from "./specificListing.mjs";
+export default { auctionListings, specificListing };

@@ -20,18 +20,30 @@ export default async function setFilterAuctionsListener(unfilteredListings) {
       let filteredAuctions = [...unfilteredListings];
       switch (sort) {
         case "active":
-          filteredAuctions = filteredAuctions.filter(({ endsAt }) => calculations.timeLeft(endsAt) !== "Already ended");
+          filteredAuctions = filteredAuctions.filter(
+            ({ endsAt }) => calculations.timeBetween(endsAt) !== "Already ended"
+          );
           break;
         case "price-low-high":
-          filteredAuctions.sort((a, b) => (calculations.highestBid(a.bids) > calculations.highestBid(b.bids) ? 1 : -1));
+          filteredAuctions.sort((a, b) =>
+            calculations.highestBid(a.bids) > calculations.highestBid(b.bids)
+              ? 1
+              : -1
+          );
           break;
         case "price-high-low":
-          filteredAuctions.sort((a, b) => (calculations.highestBid(a.bids) < calculations.highestBid(b.bids) ? 1 : -1));
+          filteredAuctions.sort((a, b) =>
+            calculations.highestBid(a.bids) < calculations.highestBid(b.bids)
+              ? 1
+              : -1
+          );
           break;
       }
 
       if (search.trim()) {
-        filteredAuctions = filteredAuctions.filter(({ title }) => title.toLowerCase().includes(search.trim()));
+        filteredAuctions = filteredAuctions.filter(({ title }) =>
+          title.toLowerCase().includes(search.trim())
+        );
       }
 
       display.showcases(filteredAuctions);

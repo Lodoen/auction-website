@@ -18,4 +18,7 @@ switch (location.pathname) {
     validation.loggedIn();
     show.auctionListings();
     break;
+  case "/listing/":
+    validation.authenticated(show.specificListing);
+    break;
 }
