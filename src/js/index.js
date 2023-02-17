@@ -2,7 +2,7 @@ import listener from "./listeners/index.mjs";
 import validation from "./validation/index.mjs";
 import show from "./show/index.mjs";
 
-if (location.pathname == "/create/" || location.pathname == "/profile/") {
+if (location.pathname == "/profile/") {
   validation.loggedIn();
 }
 
@@ -20,5 +20,8 @@ switch (location.pathname) {
     break;
   case "/listing/":
     validation.authenticated(show.specificListing);
+    break;
+  case "/create/":
+    validation.authenticated(listener.createAuction);
     break;
 }

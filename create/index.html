@@ -115,11 +115,11 @@
               />
             </div>
             <div class="mb-3">
-              <label for="deadline" class="form-label mb-0">Ends at:</label>
+              <label for="endsAt" class="form-label mb-0">Ends at:</label>
               <input
                 type="date"
-                id="deadline"
-                name="deadline"
+                id="endsAt"
+                name="endsAt"
                 value="2023-01-01"
                 min="2023-01-01"
                 class="form-control"
@@ -144,13 +144,13 @@
                 type="text"
                 class="form-control rounded-0 rounded-start border-end-0"
                 id="media"
-                name="media"
                 aria-describedby="mediaHelp"
                 placeholder="Media ..."
               />
               <button
                 class="border btn btn-link rounded-0 rounded-end border-start-0 py-0 px-2"
                 type="button"
+                id="add-media"
               >
                 <div
                   class="icon-product d-flex align-items-center justify-content-center"
@@ -168,23 +168,7 @@
             </div>
             <div class="my-3">
               <h2>Media list</h2>
-              <ol>
-                <li>
-                  <div class="d-flex align-items-center">
-                    <span class="text-break">https://url.com/image1.jpg</span>
-                    <button
-                      type="button"
-                      class="icon-product ms-3 p-0 btn btn-link d-flex align-items-center"
-                    >
-                      <img
-                        src="../img/icons/remove.png"
-                        alt="Remove media"
-                        class="w-100"
-                      />
-                    </button>
-                  </div>
-                </li>
-              </ol>
+              <ol></ol>
             </div>
           </section>
           <div
@@ -196,12 +180,14 @@
             <button
               type="submit"
               class="btn btn-secondary hover-secondary rounded-pill col-12 col-sm-3"
+              disabled
             >
               Create listing
             </button>
           </div>
         </div>
       </form>
+      <div id="form-feedback"></div>
     </main>
     <footer class="bg-dark text-light px-3 py-4">
       <div class="maxw-650 mx-auto">
