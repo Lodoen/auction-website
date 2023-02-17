@@ -1,3 +1,4 @@
+import listeners from "../listeners/index.mjs";
 /**
  * Updates HTML header to indicate if user is logged in or not
  * @param {*} key Fetched user data from API
@@ -10,7 +11,10 @@ export default function loggedInStatus(loggedInUser) {
   if (!loggedInUser) {
     const userLoginWrapper = document.getElementById("user-login");
     if (userLoginWrapper) {
-      userLoginWrapper.setAttribute("class", "w-100 d-flex justify-content-end align-items-center");
+      userLoginWrapper.setAttribute(
+        "class",
+        "w-100 d-flex justify-content-end align-items-center"
+      );
     }
   } else {
     const { credits, avatar } = loggedInUser;
@@ -26,7 +30,11 @@ export default function loggedInStatus(loggedInUser) {
         creditsWrapper.textContent = credits;
       }
 
-      userInfoWrapper.setAttribute("class", "w-100 d-flex justify-content-end align-items-center");
+      listeners.logout();
+      userInfoWrapper.setAttribute(
+        "class",
+        "w-100 d-flex justify-content-end align-items-center"
+      );
     }
   }
   const userLoadingWrapper = document.getElementById("user-loading");
