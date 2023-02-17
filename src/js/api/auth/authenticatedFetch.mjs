@@ -17,11 +17,7 @@ export default async function authenticatedFetch(url, options = {}) {
       headers: authHeaders(),
       ...options,
     });
-    if (response.ok) {
-      return await response.json();
-    } else {
-      return undefined;
-    }
+    return response.ok ? await response.json() : undefined;
   } catch (error) {
     console.log(error);
   }
