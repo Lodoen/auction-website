@@ -6,7 +6,7 @@ import auth from "../auth/index.mjs";
  * @returns {*} Response of fetch request
  * @example
  * ```js
- * const listing = await getListingsById(id, bid);
+ * const listing = await getListingsById(id);
  * ```
  */
 export default async function getListingsById(id = "undefined") {
