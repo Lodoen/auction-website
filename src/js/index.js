@@ -1,27 +1,28 @@
 import listener from "./listeners/index.mjs";
 import validation from "./validation/index.mjs";
 import show from "./show/index.mjs";
-
-if (location.pathname == "/profile/") {
-  validation.loggedIn();
-}
+import { basePath } from "./constants/index.mjs";
 
 switch (location.pathname) {
-  case "/register/":
+  case `${basePath}/register/`:
+  case `${basePath}/register/index.html`:
     listener.register();
     break;
-  case "/login/":
+  case `${basePath}/login/`:
+  case `${basePath}/login/index.html`:
     listener.login();
     break;
-  case "/index.html":
-  case "/":
+  case `${basePath}/`:
+  case `${basePath}/index.html`:
     validation.loggedIn();
     show.auctionListings();
     break;
-  case "/listing/":
+  case `${basePath}/listing/`:
+  case `${basePath}/listing/index.html`:
     validation.authenticated(show.specificListing);
     break;
-  case "/create/":
+  case `${basePath}/create/`:
+  case `${basePath}/create/index.html`:
     validation.authenticated(listener.createAuction);
     break;
 }
