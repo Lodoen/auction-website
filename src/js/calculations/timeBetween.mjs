@@ -12,10 +12,6 @@ export default function timeBetween(pointInTime, isBid = false) {
   const millisecondsBetween = isBid
     ? new Date() - new Date(pointInTime)
     : new Date(pointInTime) - new Date();
-  if (millisecondsBetween <= 0) {
-    //already ended
-    return isBid ? "Now" : "Already ended";
-  }
   if (millisecondsBetween > 31536000000) {
     //more than a year
     return `More than a year ${isBid ? "ago" : ""}`;
@@ -50,5 +46,5 @@ export default function timeBetween(pointInTime, isBid = false) {
       isBid ? "ago" : ""
     }`;
   }
-  return "Ending shortly";
+  return isBid ? "Now" : "Already ended";
 }
