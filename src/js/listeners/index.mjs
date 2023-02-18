@@ -5,6 +5,8 @@ import filterAuctions from "./setFilterAuctionsListener.mjs";
 import changeMedia from "./setChangeMediaListener.mjs";
 import makeBid from "./setMakeBidListener.mjs";
 import createAuction from "./setCreateAuctionListener.mjs";
+import displayUpdateForm from "./setDisplayUpdateFormListener.mjs";
+import updateAvatar from "./setUpdateAvatarListener.mjs";
 
 export default {
   register,
@@ -14,4 +16,6 @@ export default {
   changeMedia,
   makeBid,
   createAuction,
+  displayUpdateForm,
+  updateAvatar,
 };
