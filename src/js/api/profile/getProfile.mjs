@@ -10,5 +10,5 @@ import auth from "../auth/index.mjs";
  * ```
  */
 export default async function getProfile(name = "") {
-  return await auth.fetch(`/profiles/${name}?_listings=true`);
+  return await auth.fetch(`/profiles/${name}`);
 }
