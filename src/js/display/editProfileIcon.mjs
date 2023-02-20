@@ -1,17 +1,14 @@
 import listeners from "../listeners/index.mjs";
 
 /**
- * Creates HTMl for the edit profile icon button on the profile page
+ * Creates HTML for the edit profile icon button on the profile page
  * @example
  * ```js
  * display.editProfileIcon();
  * ```
  */
-export default async function editProfileIcon() {
-  const editIconWrapper = document.querySelector(
-    "section#profile-image div.icon-profile-wrapper"
-  );
-  if (editIconWrapper) {
+export default async function editProfileIcon(container) {
+  if (container) {
     const icon = document.createElement("img");
     icon.setAttribute("class", "w-100");
     icon.setAttribute("alt", "Edit profile icon");
@@ -24,6 +21,6 @@ export default async function editProfileIcon() {
     button.setAttribute("type", "button");
     listeners.displayUpdateForm(button);
     button.append(icon);
-    editIconWrapper.append(button);
+    container.append(button);
   }
 }
