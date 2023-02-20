@@ -4,7 +4,7 @@ import logout from "./logoutListener.mjs";
 import filterAuctions from "./setFilterAuctionsListener.mjs";
 import changeMedia from "./setChangeMediaListener.mjs";
 import makeBid from "./setMakeBidListener.mjs";
-import createAuction from "./setCreateAuctionListener.mjs";
+import createAuction from "./createAuctionListener.mjs";
 import displayUpdateForm from "./setDisplayUpdateFormListener.mjs";
 import updateAvatar from "./setUpdateAvatarListener.mjs";
 
