@@ -3,6 +3,7 @@ import blueprints from "../blueprints/index.mjs";
 import listeners from "../listeners/index.mjs";
 import storage from "../storage/index.mjs";
 import display from "./index.mjs";
+import { basePath } from "../constants/index.mjs";
 
 /**
  * Populates HTML with details about a specific auction listing, and sets listeners for changing media and for submitting a bid
@@ -21,86 +22,297 @@ export default function listing({
   media,
   title,
 }) {
-  try {
-    const productShowcase = document.getElementById("product-showcase");
-    const formContainer = document.getElementById("form-container");
-    const bidHistory = document.getElementById("bidding-history");
+  const container = document.querySelector("main");
 
-    //Auction details
-    document.title = `${title} | Electroneer`;
-    document.querySelector("h1").innerText = title;
-    document.getElementById("seller").innerText = seller.name;
-    const deadline = new Date(endsAt);
-    const date = deadline.toLocaleDateString("en-GB", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    });
-    const time = deadline.toLocaleTimeString("en-GB", {
-      hour: "2-digit",
-      minute: "2-digit",
-      timeZoneName: "short",
-    });
-    document.getElementById("deadline").innerText = `${date} at ${time}`;
-    const highestBid = calculations.highestBid(bids);
-    document.getElementById("highest-bid").innerText = highestBid;
-    document.getElementById("description").innerText = description
-      ? description
-      : "No description given";
-    document.getElementById("bid").value = highestBid + 1;
-    document.getElementById("bid").min = highestBid + 1;
+  if (container) {
+    try {
+      container.innerHTML = "";
 
-    //Auction media
-    if (media.length > 0) {
-      productShowcase.src = media[0];
-      document.querySelector(
-        ".product-showcase-wrapper p"
-      ).innerText = `1 / ${media.length}`;
-      document
-        .querySelector(".gallery-overview")
-        .append(...media.slice(0, 4).map(blueprints.galleryImage));
-      document
-        .querySelectorAll(".media-button-wrapper button")
-        .forEach((btn) => listeners.changeMedia(btn, media));
-    } else {
-      productShowcase.src = "../img/no-image-available.png";
-      document
-        .querySelectorAll(".media-button-wrapper")
-        .forEach((btn) => (btn.innerHTML = ""));
-    }
+      const productMedia = document.createElement("img");
+      productMedia.setAttribute("class", "mw-100 mh-100");
+      productMedia.setAttribute("alt", "Product media");
+      productMedia.setAttribute("data-position", "0");
+      productMedia.src =
+        media.length > 0 ? media[0] : `${basePath}/img/no-image-available.png`;
 
-    //Owner can not bid on their own auction and user can not bid on outdated auction
-    if (storage.get("name") == seller.name) {
-      formContainer.innerHTML = "";
-      formContainer.append(
-        display.feedback(
-          "You can not make a bid on your own auction listing",
-          "info"
-        )
+      const position = document.createElement("p");
+      position.setAttribute("class", "m-0 px-2");
+      position.innerText = media.length > 0 ? `1 / ${media.length}` : "";
+      const positionWrapper = document.createElement("div");
+      positionWrapper.setAttribute(
+        "class",
+        "position-absolute bottom-0 number-of number-of-media bg-dark text-light"
       );
-    } else if (new Date(endsAt) - new Date() < 0) {
-      formContainer.innerHTML = "";
-      formContainer.append(
-        display.feedback("Auction has already ended", "info")
-      );
-    } else {
-      listeners.makeBid(id);
-    }
+      positionWrapper.append(position);
 
-    //bids
-    bidHistory.innerHTML = "";
-    if (bids.length > 0) {
-      bids.sort((a, b) => (a.amount < b.amount ? 1 : -1));
-      bidHistory.append(...bids.map(blueprints.bid));
-    } else {
-      bidHistory.append(
-        display.feedback(
-          "There are currently no bids on this auction listing",
-          "info"
-        )
+      const productMediaWrapper = document.createElement("div");
+      productMediaWrapper.setAttribute(
+        "class",
+        "col-8 d-flex justify-content-center p-0 position-relative product-showcase-wrapper"
       );
+      productMediaWrapper.append(productMedia, positionWrapper);
+
+      const nextMediaWrapper = document.createElement("div");
+      nextMediaWrapper.setAttribute(
+        "class",
+        "col-2 p-0 d-flex align-items-center justify-content-center media-button-wrapper"
+      );
+
+      const previousMediaWrapper = document.createElement("div");
+      previousMediaWrapper.setAttribute(
+        "class",
+        "col-2 p-0 d-flex align-items-center justify-content-center media-button-wrapper"
+      );
+
+      const galleryWrapper = document.createElement("div");
+      galleryWrapper.setAttribute("class", "col-8 d-block mx-auto p-0");
+
+      if (media.length > 0) {
+        const nextIcon = document.createElement("img");
+        nextIcon.setAttribute("class", "w-100 d-block m-auto");
+        nextIcon.setAttribute("alt", "Next media");
+        nextIcon.src = `${basePath}/img/icons/next.png`;
+        const nextIconWrapper = document.createElement("div");
+        nextIconWrapper.setAttribute("class", "icon-product-media");
+        nextIconWrapper.append(nextIcon);
+
+        const nextMedia = document.createElement("button");
+        nextMedia.setAttribute("type", "button");
+        nextMedia.setAttribute(
+          "class",
+          "w-100 px-0 py-4 btn btn-link d-flex align-items-center justify-content-center"
+        );
+        nextMedia.setAttribute("data-direction", "1");
+        nextMedia.append(nextIconWrapper);
+        listeners.changeMedia(nextMedia, media, productMedia, position);
+        nextMediaWrapper.append(nextMedia);
+
+        const previousIcon = document.createElement("img");
+        previousIcon.setAttribute("class", "w-100 d-block m-auto");
+        previousIcon.setAttribute("alt", "Previous media");
+        previousIcon.src = `${basePath}/img/icons/previous.png`;
+        const previousIconWrapper = document.createElement("div");
+        previousIconWrapper.setAttribute("class", "icon-product-media");
+        previousIconWrapper.append(previousIcon);
+
+        const previousMedia = document.createElement("button");
+        previousMedia.setAttribute("type", "button");
+        previousMedia.setAttribute(
+          "class",
+          "w-100 px-0 py-4 btn btn-link d-flex align-items-center justify-content-center"
+        );
+        previousMedia.setAttribute("data-direction", "-1");
+        previousMedia.append(previousIconWrapper);
+        listeners.changeMedia(previousMedia, media, productMedia, position);
+        previousMediaWrapper.append(previousMedia);
+
+        const gallery = document.createElement("div");
+        gallery.setAttribute(
+          "class",
+          "w-100 d-flex justify-content-between mt-2 mt-sm-3 gallery-overview"
+        );
+        gallery.append(...media.slice(0, 4).map(blueprints.galleryImage));
+        galleryWrapper.append(gallery);
+      }
+
+      const mediaGallery = document.createElement("div");
+      mediaGallery.setAttribute("class", "row mt-3 mb-4 m-sm-0 image-gallery");
+      mediaGallery.append(
+        previousMediaWrapper,
+        productMediaWrapper,
+        nextMediaWrapper,
+        galleryWrapper
+      );
+
+      const mediaGalleryWrapper = document.createElement("div");
+      mediaGalleryWrapper.setAttribute(
+        "class",
+        "d-flex align-items-center justify-content-center col-12 col-sm-5"
+      );
+      mediaGalleryWrapper.append(mediaGallery);
+
+      const border = document.createElement("div");
+      border.setAttribute("class", "border-start");
+      const borderWrapper = document.createElement("div");
+      borderWrapper.setAttribute(
+        "class",
+        "d-none d-sm-flex justify-content-center col-sm-1"
+      );
+      borderWrapper.append(border);
+
+      const h1 = document.createElement("h1");
+      h1.innerText = title;
+
+      const timeLeftIcon = document.createElement("img");
+      timeLeftIcon.setAttribute("class", "w-100 d-block m-auto");
+      timeLeftIcon.setAttribute("alt", "Time left");
+      timeLeftIcon.src = `${basePath}/img/icons/time-left.png`;
+      const timeLeftIconWrapper = document.createElement("span");
+      timeLeftIconWrapper.setAttribute("class", "icon-product me-2");
+      timeLeftIconWrapper.append(timeLeftIcon);
+
+      const endsAtDate = new Date(endsAt);
+      const date = endsAtDate.toLocaleDateString("en-GB", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      });
+      const time = endsAtDate.toLocaleTimeString("en-GB", {
+        hour: "2-digit",
+        minute: "2-digit",
+        timeZoneName: "short",
+      });
+      const deadline = document.createElement("span");
+      deadline.innerText = `${date} at ${time}`;
+
+      const deadlineWrapper = document.createElement("p");
+      deadlineWrapper.setAttribute("class", "m-0 d-flex align-items-center");
+      deadlineWrapper.append(timeLeftIconWrapper, deadline);
+
+      const sellerIcon = document.createElement("img");
+      sellerIcon.setAttribute("class", "w-100 d-block m-auto");
+      sellerIcon.setAttribute("alt", "Seller");
+      sellerIcon.src = `${basePath}/img/icons/profile.png`;
+      const sellerIconWrapper = document.createElement("span");
+      sellerIconWrapper.setAttribute("class", "icon-product me-2");
+      sellerIconWrapper.append(sellerIcon);
+
+      const sellerName = document.createElement("span");
+      sellerName.innerText = seller.name;
+      const sellerNameWrapper = document.createElement("p");
+      sellerNameWrapper.setAttribute("class", "my-2 d-flex align-items-center");
+      sellerNameWrapper.append(sellerIconWrapper, sellerName);
+
+      const creditsIcon = document.createElement("img");
+      creditsIcon.setAttribute("class", "w-100 d-block m-auto");
+      creditsIcon.setAttribute("alt", "Highest bid");
+      creditsIcon.src = `${basePath}/img/icons/tokens-black.png`;
+      const creditsIconWrapper = document.createElement("span");
+      creditsIconWrapper.setAttribute("class", "icon-product me-2");
+      creditsIconWrapper.append(creditsIcon);
+
+      const highestBid = calculations.highestBid(bids);
+      const auctionPrice = document.createElement("span");
+      auctionPrice.innerText = highestBid;
+
+      const auctionPriceWrapper = document.createElement("p");
+      auctionPriceWrapper.setAttribute("class", "d-flex align-items-center");
+      auctionPriceWrapper.append(creditsIconWrapper, auctionPrice);
+
+      const makeBidHeader = document.createElement("h2");
+      makeBidHeader.innerText = "Make a bid";
+
+      const makeBidWrapper = document.createElement("div");
+      if (storage.get("name") == seller.name) {
+        makeBidWrapper.append(
+          display.feedback(
+            "You can not make a bid on your own auction listing",
+            "info"
+          )
+        );
+      } else if (new Date(endsAt) - new Date() < 0) {
+        makeBidWrapper.append(
+          display.feedback("Auction has already ended", "info")
+        );
+      } else {
+        const amountInput = document.createElement("input");
+        amountInput.setAttribute("type", "number");
+        amountInput.setAttribute("value", highestBid + 1);
+        amountInput.setAttribute("min", highestBid + 1);
+        amountInput.setAttribute("class", "form-control");
+        amountInput.setAttribute("id", "bid");
+        amountInput.setAttribute("name", "amount");
+        amountInput.setAttribute("placeholder", "Auction title ...");
+
+        const amountLabel = document.createElement("label");
+        amountLabel.setAttribute("class", "form-label mb-0");
+        amountLabel.setAttribute("for", "amount");
+        amountLabel.innerText = "Number of credits:";
+
+        const amountGroup = document.createElement("div");
+        amountGroup.setAttribute("class", "me-2");
+        amountGroup.append(amountLabel, amountInput);
+
+        const makeBidButton = document.createElement("button");
+        makeBidButton.setAttribute(
+          "class",
+          "btn btn-secondary hover-secondary"
+        );
+        makeBidButton.setAttribute("type", "submit");
+        makeBidButton.innerText = "Make bid";
+
+        const makeBidForm = document.createElement("form");
+        makeBidForm.setAttribute("class", "d-flex align-items-end mb-3");
+        makeBidForm.append(amountGroup, makeBidButton);
+        makeBidForm.addEventListener("submit", (event) =>
+          listeners.makeBid(event, id)
+        );
+
+        makeBidWrapper.append(makeBidForm);
+      }
+
+      const makeBidFeedback = document.createElement("div");
+      makeBidFeedback.setAttribute("id", "form-feedback");
+
+      const bidWrapper = document.createElement("section");
+      bidWrapper.append(makeBidHeader, makeBidWrapper, makeBidFeedback);
+
+      const listingDetails = document.createElement("section");
+      listingDetails.setAttribute("class", "col-12 col-sm-6");
+      listingDetails.append(
+        h1,
+        deadlineWrapper,
+        sellerNameWrapper,
+        auctionPriceWrapper,
+        bidWrapper
+      );
+
+      const listingDetailsWrapper = document.createElement("div");
+      listingDetailsWrapper.setAttribute("class", "row mt-3 mt-sm-5");
+      listingDetailsWrapper.append(
+        mediaGalleryWrapper,
+        borderWrapper,
+        listingDetails
+      );
+
+      const descriptionHeader = document.createElement("h3");
+      descriptionHeader.innerText = "Description";
+      const descriptionContent = document.createElement("p");
+      descriptionContent.innerText = description
+        ? description
+        : "No description given";
+      const descriptionWrapper = document.createElement("div");
+      descriptionWrapper.setAttribute("class", "my-5");
+      descriptionWrapper.append(descriptionHeader, descriptionContent);
+
+      const biddingHistoryHeader = document.createElement("h3");
+      biddingHistoryHeader.innerText = "Bidding history";
+      biddingHistoryHeader.setAttribute("class", "mb-3");
+      const biddingHistory = document.createElement("span");
+      biddingHistory.setAttribute("id", "bidding-history");
+      if (bids.length > 0) {
+        bids.sort((a, b) => (a.amount < b.amount ? 1 : -1));
+        biddingHistory.append(...bids.map(blueprints.bid));
+      } else {
+        biddingHistory.append(
+          display.feedback(
+            "There are currently no bids on this auction listing",
+            "info"
+          )
+        );
+      }
+
+      const biddingHistoryWrapper = document.createElement("div");
+      biddingHistoryWrapper.setAttribute("class", "mb-5 pb-3");
+      biddingHistoryWrapper.append(biddingHistoryHeader, biddingHistory);
+
+      container.append(
+        listingDetailsWrapper,
+        descriptionWrapper,
+        biddingHistoryWrapper
+      );
+    } catch (error) {
+      throw new Error("Something went wrong when loading the auction listing");
     }
-  } catch (error) {
-    throw new Error("Something went wrong when loading the auction listing");
   }
 }
