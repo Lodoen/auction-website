@@ -49,7 +49,11 @@ export default function userDetails({ credits, avatar }) {
   homeHref.setAttribute(
     "class",
     `dropdown-item ${
-      location.pathname.includes("profile") ? "text-decoration-underline" : ""
+      !location.pathname.includes("create") &&
+      !location.pathname.includes("profile") &&
+      !location.pathname.includes("listing")
+        ? "text-decoration-underline"
+        : ""
     }`
   );
   homeHref.setAttribute("href", `${basePath}/`);
