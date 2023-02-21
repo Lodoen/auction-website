@@ -15,15 +15,7 @@ export default async function authenticated(needsToBeAuthenticated) {
     if (!isLoggedIn) {
       document.title = "Not authenticated | Electroneer";
       container.innerHTML = "";
-      container.append(
-        display.feedback(
-          `You have to be authenticated to view the ${location.pathname.replaceAll(
-            "/",
-            ""
-          )} page`,
-          "warning"
-        )
-      );
+      container.append(display.userIsNotAuthenticated());
     } else {
       needsToBeAuthenticated();
     }

@@ -7,6 +7,7 @@ import createSuccess from "./createSuccess.mjs";
 import profile from "./profile.mjs";
 import editProfileIcon from "./editProfileIcon.mjs";
 import updateForm from "./updateForm.mjs";
+import userIsNotAuthenticated from "./userIsNotAuthenticated.mjs";
 
 export default {
   loading,
@@ -18,4 +19,5 @@ export default {
   profile,
   editProfileIcon,
   updateForm,
+  userIsNotAuthenticated,
 };
