@@ -28,6 +28,8 @@ export default function listing({
     try {
       container.innerHTML = "";
 
+      document.title = `${title} | Electroneer`;
+
       const productMedia = document.createElement("img");
       productMedia.setAttribute("class", "mw-100 mh-100");
       productMedia.setAttribute("alt", "Product media");

@@ -21,6 +21,8 @@ export default function profile({ name, avatar, listings, bids }) {
 
     container.innerHTML = "";
 
+    document.title = `${name} | Electroneer`;
+
     const h1 = document.createElement("h1");
     h1.setAttribute("class", "m-0 text-center text-break");
     h1.innerText = name;
