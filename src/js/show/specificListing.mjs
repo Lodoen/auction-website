@@ -19,6 +19,13 @@ export default async function specificListing() {
     }
 
     const listing = await listings.getById(id);
+
+    if (!listing) {
+      throw new Error(
+        "Oops! Seems like there is no auction listing matching the selected ID in our database."
+      );
+    }
+
     display.listing(listing);
   } catch (error) {
     container.innerHTML = "";
