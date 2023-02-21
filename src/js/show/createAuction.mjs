@@ -23,33 +23,56 @@ export default function createAuction() {
     titleInput.setAttribute("class", "form-control");
     titleInput.setAttribute("id", "title");
     titleInput.setAttribute("name", "title");
+    titleInput.setAttribute("max", "280");
     titleInput.setAttribute("placeholder", "Auction title ...");
+    titleInput.setAttribute("required", "true");
+    titleInput.setAttribute(
+      "title",
+      "A valid title is required (must be under 280 characters long)"
+    );
 
     const titleLabel = document.createElement("label");
     titleLabel.setAttribute("class", "form-label mb-0");
     titleLabel.setAttribute("for", "title");
     titleLabel.innerText = "Auction title:";
 
+    const titleFeedback = document.createElement("p");
+    titleFeedback.setAttribute(
+      "class",
+      "form-input-feedback m-0 text-danger fst-italic"
+    );
+
     const titleGroup = document.createElement("div");
     titleGroup.setAttribute("class", "mb-3");
-    titleGroup.append(titleLabel, titleInput);
+    titleGroup.append(titleLabel, titleInput, titleFeedback);
+
+    const dateAndTime = JSON.stringify(new Date()).split("T");
+    const today = dateAndTime[0].replaceAll(`"`, "");
 
     const dateInput = document.createElement("input");
     dateInput.setAttribute("type", "date");
     dateInput.setAttribute("class", "form-control");
     dateInput.setAttribute("id", "endsAt");
     dateInput.setAttribute("name", "endsAt");
-    dateInput.setAttribute("value", "2023-01-01");
-    dateInput.setAttribute("min", "2023-01-01");
+    dateInput.setAttribute("value", today);
+    dateInput.setAttribute("min", today);
+    dateInput.setAttribute("required", "true");
+    dateInput.setAttribute("title", "A valid date is required");
 
     const dateLabel = document.createElement("label");
     dateLabel.setAttribute("class", "form-label mb-0");
     dateLabel.setAttribute("for", "endsAt");
     dateLabel.innerText = "Ends at:";
 
+    const dateFeedback = document.createElement("p");
+    dateFeedback.setAttribute(
+      "class",
+      "form-input-feedback m-0 text-danger fst-italic"
+    );
+
     const dateGroup = document.createElement("div");
     dateGroup.setAttribute("class", "mb-3");
-    dateGroup.append(dateLabel, dateInput);
+    dateGroup.append(dateLabel, dateInput, dateFeedback);
 
     const descriptionInput = document.createElement("textarea");
     descriptionInput.setAttribute("class", "form-control");
@@ -174,6 +197,7 @@ export default function createAuction() {
     form.addEventListener("submit", (event) =>
       listeners.createAuction(event, mediaUrls)
     );
+    listeners.validateFormInputs(form);
 
     const formFeedback = document.createElement("div");
     formFeedback.setAttribute("id", "form-feedback");

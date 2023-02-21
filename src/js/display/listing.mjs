@@ -219,34 +219,50 @@ export default function listing({
         amountInput.setAttribute("type", "number");
         amountInput.setAttribute("value", highestBid + 1);
         amountInput.setAttribute("min", highestBid + 1);
-        amountInput.setAttribute("class", "form-control");
+        amountInput.setAttribute(
+          "class",
+          "rounded py-1 px-2 border border-gray ms-2 ms-sm-0 mb-2 me-sm-2"
+        );
         amountInput.setAttribute("id", "bid");
         amountInput.setAttribute("name", "amount");
         amountInput.setAttribute("placeholder", "Auction title ...");
+        amountInput.setAttribute("required", "true");
+        amountInput.setAttribute(
+          "Title",
+          "A new bid must be higher than the last"
+        );
 
         const amountLabel = document.createElement("label");
-        amountLabel.setAttribute("class", "form-label mb-0");
+        amountLabel.setAttribute("class", " mb-0 d-block");
         amountLabel.setAttribute("for", "amount");
         amountLabel.innerText = "Number of credits:";
 
-        const amountGroup = document.createElement("div");
-        amountGroup.setAttribute("class", "me-2");
-        amountGroup.append(amountLabel, amountInput);
+        const amountFeedback = document.createElement("p");
+        amountFeedback.setAttribute(
+          "class",
+          "form-input-feedback m-0 text-danger fst-italic d-block"
+        );
 
         const makeBidButton = document.createElement("button");
         makeBidButton.setAttribute(
           "class",
-          "btn btn-secondary hover-secondary"
+          "btn btn-secondary hover-secondary ms-2 mb-2 ms-sm-0"
         );
         makeBidButton.setAttribute("type", "submit");
         makeBidButton.innerText = "Make bid";
 
         const makeBidForm = document.createElement("form");
-        makeBidForm.setAttribute("class", "d-flex align-items-end mb-3");
-        makeBidForm.append(amountGroup, makeBidButton);
+        makeBidForm.setAttribute("class", "mb-3");
+        makeBidForm.append(
+          amountLabel,
+          amountInput,
+          makeBidButton,
+          amountFeedback
+        );
         makeBidForm.addEventListener("submit", (event) =>
           listeners.makeBid(event, id)
         );
+        listeners.validateFormInputs(makeBidForm);
 
         makeBidWrapper.append(makeBidForm);
       }

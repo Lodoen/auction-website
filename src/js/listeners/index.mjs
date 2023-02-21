@@ -7,6 +7,7 @@ import makeBid from "./makeBidListener.mjs";
 import createAuction from "./createAuctionListener.mjs";
 import displayUpdateForm from "./setDisplayUpdateFormListener.mjs";
 import updateAvatar from "./setUpdateAvatarListener.mjs";
+import validateFormInputs from "./setValidateFormInputsListener.mjs";
 
 export default {
   register,
@@ -18,4 +19,5 @@ export default {
   createAuction,
   displayUpdateForm,
   updateAvatar,
+  validateFormInputs,
 };

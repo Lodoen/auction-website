@@ -1,4 +1,5 @@
 import login from "../api/profile/login.mjs";
+import listeners from "./index.mjs";
 
 /**
  * Attaches the login function to the login form
@@ -11,6 +12,8 @@ export default function setLoginListener() {
   const loginForm = document.getElementById("login-form");
 
   if (loginForm) {
+    listeners.validateFormInputs(loginForm);
+
     loginForm.addEventListener("submit", (event) => {
       event.preventDefault();
       const formData = new FormData(loginForm);

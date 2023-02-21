@@ -1,4 +1,5 @@
 import register from "../api/profile/register.mjs";
+import listeners from "./index.mjs";
 
 /**
  * Attaches the register function to the register form
@@ -11,6 +12,8 @@ export default function setRegisterListener() {
   const registerForm = document.getElementById("register-form");
 
   if (registerForm) {
+    listeners.validateFormInputs(registerForm);
+
     registerForm.addEventListener("submit", async (event) => {
       event.preventDefault();
       const formData = new FormData(registerForm);
