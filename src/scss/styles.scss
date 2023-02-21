@@ -11,11 +11,11 @@ body {
 }
 
 .wave-deep {
-  background: repeat center url("../../img/wave.png");
+  background: repeat-x center url("../../img/wave.png");
 }
 
 .wave-cta {
-  background: repeat center url("../../img/wave-cta.png");
+  background: repeat-x center url("../../img/wave-cta.png");
   min-height: 350px;
 }
 
@@ -32,7 +32,7 @@ body {
 }
 
 .profile-showcase {
-  background: no-repeat center url("../../img/wave.png");
+  background: repeat-x center url("../../img/wave.png");
   height: 215px;
 }
 
