@@ -1,6 +1,6 @@
-import loggedIn from "./loggedIn.mjs";
-import authenticated from "./authenticated.mjs";
-import formInput from "./formInput.mjs";
+import loggedIn from "./validateLoggedIn.mjs";
+import authenticated from "./validateAuthenticated.mjs";
+import formInput from "./validateFormInput.mjs";
 
 export default {
   loggedIn,

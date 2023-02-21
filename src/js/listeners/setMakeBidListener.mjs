@@ -1,6 +1,5 @@
 import listings from "../api/listings/index.mjs";
 import blueprints from "../blueprints/index.mjs";
-import display from "../display/index.mjs";
 
 /**
  * Attaches the make a bid functionality to the make a bid form
@@ -20,7 +19,7 @@ export default async function setMakeBidListener(id) {
       try {
         event.preventDefault();
         formFeedback.innerHTML = "";
-        formFeedback.append(display.loading());
+        formFeedback.append(blueprints.loading());
 
         const formData = new FormData(form);
         const amount = { amount: parseInt(formData.get("amount")) };
@@ -34,7 +33,7 @@ export default async function setMakeBidListener(id) {
         }
 
         formFeedback.append(
-          display.feedback(`You bid ${amount.amount} credit(s)`, "success")
+          blueprints.feedback(`You bid ${amount.amount} credit(s)`, "success")
         );
 
         const { bids } = response;
@@ -50,7 +49,7 @@ export default async function setMakeBidListener(id) {
         container.innerHTML = "";
         container.append(...bids.map(blueprints.bid));
       } catch (error) {
-        formFeedback.append(display.feedback(error.message, "danger"));
+        formFeedback.append(blueprints.feedback(error.message, "danger"));
       }
     });
     form.querySelector(`button[type="submit"]`).disabled = false;

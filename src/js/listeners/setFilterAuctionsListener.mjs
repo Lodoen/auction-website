@@ -1,4 +1,4 @@
-import display from "../display/index.mjs";
+import render from "../render/index.mjs";
 import calculations from "../calculations/index.mjs";
 
 /**
@@ -46,7 +46,7 @@ export default async function setFilterAuctionsListener(unfilteredListings) {
         );
       }
 
-      display.showcases(filteredAuctions);
+      render.showcases(filteredAuctions);
     });
   }
 }

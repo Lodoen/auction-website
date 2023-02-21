@@ -1,5 +1,5 @@
-import display from "../display/index.mjs";
 import listings from "../api/listings/index.mjs";
+import blueprints from "../blueprints/index.mjs";
 
 /**
  * Attaches the create auction functionality to the create auction form
@@ -14,7 +14,7 @@ export default async function createAuctionListener(event, mediaUrls) {
   if (formFeedback) {
     try {
       formFeedback.innerHTML = "";
-      formFeedback.append(display.loading());
+      formFeedback.append(blueprints.loading());
 
       const formData = new FormData(event.currentTarget);
       const body = Object.fromEntries(formData.entries());
@@ -30,9 +30,9 @@ export default async function createAuctionListener(event, mediaUrls) {
         );
       }
 
-      formFeedback.append(display.createSuccess(response.id));
+      formFeedback.append(blueprints.createSuccess(response.id));
     } catch (error) {
-      formFeedback.append(display.feedback(error.message, "warning"));
+      formFeedback.append(blueprints.feedback(error.message, "warning"));
     }
   }
 }

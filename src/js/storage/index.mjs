@@ -1,5 +1,5 @@
-import save from "./save.mjs";
-import get from "./get.mjs";
-import remove from "./remove.mjs";
+import save from "./saveToStorage.mjs";
+import get from "./getFromStorage.mjs";
+import remove from "./removeFromStorage.mjs";
 
 export default { save, get, remove };

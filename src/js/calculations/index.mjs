@@ -1,4 +1,4 @@
-import timeBetween from "./timeBetween.mjs";
-import highestBid from "./highestBid.mjs";
+import timeBetween from "./calculateTimeBetween.mjs";
+import highestBid from "./calculateHighestBid.mjs";
 
 export default { timeBetween, highestBid };

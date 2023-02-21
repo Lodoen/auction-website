@@ -1,6 +1,6 @@
 import { baseUrl } from "../constants.mjs";
 import storage from "../../storage/index.mjs";
-import display from "../../display/index.mjs";
+import blueprints from "../../blueprints/index.mjs";
 
 /**
  * Sends a post request to the API to login a user
@@ -15,7 +15,7 @@ export default async function login(profile) {
 
   try {
     feedback.innerHTML = "";
-    feedback.append(display.loading());
+    feedback.append(blueprints.loading());
 
     const response = await fetch(`${baseUrl}/auth/login`, {
       headers: {
@@ -36,6 +36,6 @@ export default async function login(profile) {
     window.location.replace("../profile");
   } catch (error) {
     feedback.innerHTML = "";
-    feedback.append(display.feedback(error.message, "danger"));
+    feedback.append(blueprints.feedback(error.message, "danger"));
   }
 }

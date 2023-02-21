@@ -1,6 +1,7 @@
 import listener from "./listeners/index.mjs";
 import validation from "./validation/index.mjs";
-import show from "./show/index.mjs";
+import prepare from "./prepare/index.mjs";
+import render from "./render/index.mjs";
 import { basePath } from "./constants/index.mjs";
 
 switch (location.pathname) {
@@ -15,18 +16,18 @@ switch (location.pathname) {
   case `${basePath}/`:
   case `${basePath}/index.html`:
     validation.loggedIn();
-    show.auctionListings();
+    prepare.auctionListings();
     break;
   case `${basePath}/listing/`:
   case `${basePath}/listing/index.html`:
-    validation.authenticated(show.specificListing);
+    validation.authenticated(prepare.specificAuctionListing);
     break;
   case `${basePath}/create/`:
   case `${basePath}/create/index.html`:
-    validation.authenticated(show.createAuction);
+    validation.authenticated(render.createAuction);
     break;
   case `${basePath}/profile/`:
   case `${basePath}/profile/index.html`:
-    validation.authenticated(show.profile);
+    validation.authenticated(prepare.profile);
     break;
 }

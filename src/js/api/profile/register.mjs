@@ -1,5 +1,5 @@
 import { baseUrl } from "../constants.mjs";
-import display from "../../display/index.mjs";
+import blueprints from "../../blueprints/index.mjs";
 
 /**
  * Sends a post request to the API to register a new user
@@ -13,7 +13,7 @@ export default async function register(profile) {
   const feedback = document.getElementById("form-feedback");
 
   try {
-    feedback.append(display.loading());
+    feedback.append(blueprints.loading());
 
     const response = await fetch(`${baseUrl}/auth/register`, {
       headers: {
@@ -29,8 +29,8 @@ export default async function register(profile) {
       throw new Error("Oops! Something went wrong with the registration.");
     }
 
-    feedback.append(display.feedback("Registration successful!", "success"));
+    feedback.append(blueprints.feedback("Registration successful!", "success"));
   } catch (error) {
-    feedback.append(display.feedback(error.message, "danger"));
+    feedback.append(blueprints.feedback(error.message, "danger"));
   }
 }
