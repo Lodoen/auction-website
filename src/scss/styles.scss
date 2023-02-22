@@ -5,7 +5,6 @@
 @import "./components/icons";
 
 body {
-  min-height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
 }
@@ -36,6 +35,10 @@ body {
   height: 215px;
 }
 
+.product-showcase-modal {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
 .number-of {
   opacity: 0.7;
   border-top-right-radius: 10px;
@@ -50,8 +53,6 @@ body {
 }
 
 .maxw {
-  max-width: 100%;
-
   &-450 {
     max-width: 450px;
   }
@@ -61,14 +62,6 @@ body {
   &-750 {
     max-width: 750px;
   }
-}
-
-.maxh {
-  max-height: 100%;
-}
-
-.minh-100 {
-  min-height: 100vh;
 }
 
 * {

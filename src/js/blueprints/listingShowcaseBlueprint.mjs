@@ -18,7 +18,7 @@ export default function listingShowcaseBlueprint({
   bids,
 }) {
   const productShowcase = document.createElement("img");
-  productShowcase.setAttribute("class", "maxw maxh");
+  productShowcase.setAttribute("class", "mw-100 mh-100");
   productShowcase.setAttribute("alt", `${title} showcase`);
   productShowcase.src =
     media.length > 0 ? media[0] : `${basePath}/img/no-image-available.png`;

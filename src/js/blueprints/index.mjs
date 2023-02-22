@@ -9,6 +9,7 @@ import feedback from "./feedbackBlueprint.mjs";
 import loading from "./loadingBlueprint.mjs";
 import notAuthenticated from "./notAuthenticatedBlueprint.mjs";
 import editProfileIcon from "./editProfileIconButtonBlueprint.mjs";
+import modal from "./modalBlueprint.mjs";
 
 export default {
   listingShowcase,
@@ -22,4 +23,5 @@ export default {
   loading,
   notAuthenticated,
   editProfileIcon,
+  modal,
 };

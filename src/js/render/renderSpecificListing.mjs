@@ -114,6 +114,12 @@ export default function renderSpecificListing({
         );
         gallery.append(...media.slice(0, 4).map(blueprints.galleryImage));
         galleryWrapper.append(gallery);
+
+        productMediaWrapper.addEventListener("click", (event) =>
+          container.append(
+            blueprints.modal(event.currentTarget.querySelector("img").src)
+          )
+        );
       }
 
       const mediaGallery = document.createElement("div");
