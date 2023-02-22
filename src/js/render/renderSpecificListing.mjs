@@ -38,7 +38,7 @@ export default function renderSpecificListing({
 
       const position = document.createElement("p");
       position.setAttribute("class", "m-0 px-2");
-      position.innerText = media.length > 0 ? `1 / ${media.length}` : "";
+      position.innerText = media.length > 1 ? `1 / ${media.length}` : "";
       const positionWrapper = document.createElement("div");
       positionWrapper.setAttribute(
         "class",
@@ -68,7 +68,7 @@ export default function renderSpecificListing({
       const galleryWrapper = document.createElement("div");
       galleryWrapper.setAttribute("class", "col-8 d-block mx-auto p-0");
 
-      if (media.length > 0) {
+      if (media.length > 1) {
         const nextIcon = document.createElement("img");
         nextIcon.setAttribute("class", "w-100 d-block m-auto");
         nextIcon.setAttribute("alt", "Next media");
