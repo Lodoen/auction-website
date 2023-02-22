@@ -91,11 +91,25 @@ export default function userDetailsBlueprint({ credits, avatar }) {
   hrWrapper.append(hr);
 
   const logoutButton = document.createElement("button");
-  logoutButton.setAttribute("class", "btn-logout dropdown-item");
+  logoutButton.setAttribute("class", "dropdown-item");
   logoutButton.innerText = "Log out";
   logoutButton.addEventListener("click", listeners.logout);
   const logoutButtonWrapper = document.createElement("li");
   logoutButtonWrapper.append(logoutButton);
+
+  const footerShortcuts = document.querySelector("footer ul");
+  if (footerShortcuts) {
+    const logoutButtonFooter = document.createElement("button");
+    logoutButtonFooter.setAttribute(
+      "class",
+      "bg-dark border border-0 text-light hover-underline p-0"
+    );
+    logoutButtonFooter.innerText = "Log out";
+    logoutButtonFooter.addEventListener("click", listeners.logout);
+    const logoutFooterListElement = document.createElement("li");
+    logoutFooterListElement.append(logoutButtonFooter);
+    footerShortcuts.append(logoutFooterListElement);
+  }
 
   const ul = document.createElement("ul");
   ul.setAttribute("class", "dropdown-menu text-small shadow");
