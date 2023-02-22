@@ -1,7 +1,7 @@
 /**
  * Creates HTML for a list element in the media list on the create page
  * @param {string} url New url
- * @param {*} bids List of all urls
+ * @param {*} mediaUrls List of all urls
  * @returns {*} HTML for displaying a list element in the media list
  * @example
  * ```js

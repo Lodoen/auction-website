@@ -3,7 +3,7 @@ import { basePath } from "../constants/index.mjs";
 
 /**
  * Creates HTML for a listing showcase
- * @param {*} bids Data to display
+ * @param {*} listing Data to display
  * @returns {*} HTML for displaying a listing showcase
  * @example
  * ```js

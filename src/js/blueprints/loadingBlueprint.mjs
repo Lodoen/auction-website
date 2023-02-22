@@ -1,5 +1,6 @@
 /**
  * Creates HTML for a loading spinner
+ * @returns {*} HTML for a loading spinner
  * @example
  * ```js
  * feedback.append(loadingBlueprint());

@@ -2,6 +2,7 @@ import { basePath } from "../constants/index.mjs";
 
 /**
  * Creates HTML for a not authenticated message and a link to the register page
+ * @returns {*} HTML for a not authenticated message
  * @example
  * ```js
  * const feedback = notAuthenticatedBlueprint();

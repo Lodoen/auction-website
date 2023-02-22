@@ -3,6 +3,7 @@ import render from "../render/index.mjs";
 /**
  * Creates HTML for the edit profile icon button on the profile page
  * @param {*} container Container to render the update form
+ * @returns {*} HTML for displaying the edit profile icon button
  * @example
  * ```js
  * const button = editProfileIconBlueprint(container);

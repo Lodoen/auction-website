@@ -4,6 +4,7 @@ import blueprints from "../blueprints/index.mjs";
 
 /**
  * Attaches the update profile icon functionality to the update profile icon form
+ * @param {*} event event
  * @example
  * ```js
  * form.addEventListener("submit", (event) => listeners.updateAvatar(event));

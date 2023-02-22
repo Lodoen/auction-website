@@ -3,9 +3,11 @@ import blueprints from "../blueprints/index.mjs";
 
 /**
  * Attaches the create auction functionality to the create auction form
+ * @param {*} event event
+ * @param {*} mediaUrls List of media URLs
  * @example
  * ```js
- * createAuctionListener();
+ * form.addEventListener("submit", (event) => listeners.createAuction(event, mediaUrls));
  * ```
  */
 export default async function createAuctionListener(event, mediaUrls) {

@@ -5,6 +5,7 @@ import storage from "../storage/index.mjs";
 
 /**
  * Populates profile page with information about the given profile
+ * @param {*} profile Profile to render
  * @example
  * ```js
  * renderProfile(profile);

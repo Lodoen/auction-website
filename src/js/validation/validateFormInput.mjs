@@ -1,5 +1,6 @@
 /**
  * Gives feedback to the user if an input field is invalid
+ * @param {boolean} isValid If the input is valid or not
  * @example
  * ```js
  * validateFormInput(isValid);

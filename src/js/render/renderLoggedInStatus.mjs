@@ -1,7 +1,7 @@
 import blueprints from "../blueprints/index.mjs";
 /**
  * Renders the header to indicate if user is logged in or not
- * @param {*} key Fetched user data from API
+ * @param {*} loggedInUser User data to render
  * @example
  * ```js
  * renderLoggedInStatus(loggedInUser);
