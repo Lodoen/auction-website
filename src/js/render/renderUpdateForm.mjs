@@ -19,7 +19,6 @@ export default function renderUpdateForm(isOpen, container, updateButtonIcon) {
       container.innerHTML = "";
     } else {
       const header = document.createElement("h2");
-      header.setAttribute("class", "");
       header.innerText = "Update avatar";
 
       const label = document.createElement("label");

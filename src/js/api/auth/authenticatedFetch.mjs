@@ -11,7 +11,7 @@ import { baseUrl } from "../constants.mjs";
  * const loggedInUser = await authenticatedFetch(`/profiles/${username}`);
  * ```
  */
-export default async function authenticatedFetch(url, options = {}) {
+export default async function authenticatedFetch(url = "", options = {}) {
   try {
     const response = await fetch(baseUrl + url, {
       headers: authHeaders(),

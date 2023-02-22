@@ -102,7 +102,7 @@ export default function userDetailsBlueprint({ credits, avatar }) {
     const logoutButtonFooter = document.createElement("button");
     logoutButtonFooter.setAttribute(
       "class",
-      "bg-dark border border-0 text-light hover-underline p-0"
+      "bg-dark border border-0 text-light hover-link p-0"
     );
     logoutButtonFooter.innerText = "Log out";
     logoutButtonFooter.addEventListener("click", listeners.logout);

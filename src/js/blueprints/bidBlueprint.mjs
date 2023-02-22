@@ -1,4 +1,5 @@
 import calculations from "../calculations/index.mjs";
+import { basePath } from "../constants/index.mjs";
 
 /**
  * Creates HTML for a bid in the bid history
@@ -10,9 +11,15 @@ import calculations from "../calculations/index.mjs";
  * ```
  */
 export default function bidBlueprint({ bidderName, amount, created }) {
-  const biddingInfo = document.createElement("span");
-  biddingInfo.setAttribute("class", "");
-  biddingInfo.innerText = `${bidderName} bids ${amount}`;
+  const name = document.createElement("a");
+  name.setAttribute("class", "text-dark hover-link");
+  name.setAttribute("href", `${basePath}/profile/?name=${bidderName}`);
+  name.innerText = bidderName;
+  const nameBids = document.createElement("span");
+  nameBids.innerText = ` bids ${amount}`;
+  const nameWrapper = document.createElement("div");
+  nameWrapper.append(name, nameBids);
+
   const bidIcon = document.createElement("img");
   bidIcon.setAttribute("class", "w-100 d-block m-auto");
   bidIcon.setAttribute("alt", "Number of credits in bid");
@@ -22,7 +29,7 @@ export default function bidBlueprint({ bidderName, amount, created }) {
   bicIconWrapper.setAttribute("class", "icon-product ms-2");
   const biddingInfoWrapper = document.createElement("p");
   biddingInfoWrapper.setAttribute("class", "m-0 d-flex align-items-center");
-  biddingInfoWrapper.append(biddingInfo, bicIconWrapper);
+  biddingInfoWrapper.append(nameWrapper, bicIconWrapper);
 
   const timeIcon = document.createElement("img");
   timeIcon.setAttribute("class", 'w-100 d-block m-auto"');

@@ -184,7 +184,12 @@ export default function renderSpecificListing({
       sellerIconWrapper.setAttribute("class", "icon-product me-2");
       sellerIconWrapper.append(sellerIcon);
 
-      const sellerName = document.createElement("span");
+      const sellerName = document.createElement("a");
+      sellerName.setAttribute("class", "text-dark hover-link");
+      sellerName.setAttribute(
+        "href",
+        `${basePath}/profile/?name=${seller.name}`
+      );
       sellerName.innerText = seller.name;
       const sellerNameWrapper = document.createElement("p");
       sellerNameWrapper.setAttribute("class", "my-2 d-flex align-items-center");
