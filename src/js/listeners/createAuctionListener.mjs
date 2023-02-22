@@ -34,6 +34,7 @@ export default async function createAuctionListener(event, mediaUrls) {
 
       formFeedback.append(blueprints.createSuccess(response.id));
     } catch (error) {
+      formFeedback.innerHTML = "";
       formFeedback.append(blueprints.feedback(error.message, "warning"));
     }
   }

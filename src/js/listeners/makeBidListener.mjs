@@ -59,6 +59,7 @@ export default async function makeBidListener(event, id) {
         container.append(...bids.map(blueprints.bid));
       }
     } catch (error) {
+      formFeedback.innerHTML = "";
       formFeedback.append(blueprints.feedback(error.message, "danger"));
     }
   }

@@ -32,10 +32,10 @@ export default async function prepareProfile() {
     }
 
     const bids = await getBidsByProfile(name);
-    profile["bids"] = bids;
+    profile["bids"] = bids ? bids : [];
 
     const listings = await getListingsByProfile(name);
-    profile["listings"] = listings;
+    profile["listings"] = listings ? listings : [];
 
     render.profile(profile);
   } catch (error) {

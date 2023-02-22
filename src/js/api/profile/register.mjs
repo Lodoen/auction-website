@@ -31,6 +31,7 @@ export default async function register(profile) {
 
     feedback.append(blueprints.feedback("Registration successful!", "success"));
   } catch (error) {
+    feedback.innerHTML = "";
     feedback.append(blueprints.feedback(error.message, "danger"));
   }
 }
