@@ -23,7 +23,7 @@ export default function renderCreateAuction() {
     titleInput.setAttribute("class", "form-control");
     titleInput.setAttribute("id", "title");
     titleInput.setAttribute("name", "title");
-    titleInput.setAttribute("max", "280");
+    titleInput.setAttribute("maxlength", "280");
     titleInput.setAttribute("placeholder", "Auction title ...");
     titleInput.setAttribute("required", "true");
     titleInput.setAttribute(
