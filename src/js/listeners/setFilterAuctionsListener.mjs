@@ -1,5 +1,6 @@
 import render from "../render/index.mjs";
 import calculations from "../calculations/index.mjs";
+import blueprints from "../blueprints/index.mjs";
 
 /**
  * Sets event listener for auction listings filtering
@@ -56,8 +57,18 @@ export default async function setFilterAuctionsListener(unfilteredListings) {
 
         if (search.trim()) {
           filteredAuctions = filteredAuctions.filter(({ title }) =>
-            title.toLowerCase().includes(search.trim())
+            title.toLowerCase().includes(search.toLowerCase().trim())
           );
+        }
+
+        const feedbackContainer = document.getElementById("form-feedback");
+        if (feedbackContainer) {
+          const feedback = blueprints.feedback(
+            "Filtering auctions ...",
+            "info"
+          );
+          feedbackContainer.append(feedback);
+          setTimeout(() => feedback.remove(), 2000);
         }
 
         render.showcases(filteredAuctions);
