@@ -19,12 +19,6 @@ export default async function setFilterAuctionsListener(unfilteredListings) {
         const { search, sort, active } = Object.fromEntries(formData.entries());
         let filteredAuctions = [...unfilteredListings];
 
-        if (active) {
-          filteredAuctions = filteredAuctions.filter(
-            ({ endsAt }) => calculations.timeBetween(endsAt) !== "Already ended"
-          );
-        }
-
         switch (sort) {
           case "price-low-high":
             filteredAuctions.sort((a, b) =>
@@ -40,6 +34,24 @@ export default async function setFilterAuctionsListener(unfilteredListings) {
                 : -1
             );
             break;
+          case "newest":
+            filteredAuctions.sort((a, b) => (a.updated < b.updated ? 1 : -1));
+            break;
+          case "oldest":
+            filteredAuctions.sort((a, b) => (a.updated > b.updated ? 1 : -1));
+            break;
+          case "closest-deadline":
+            filteredAuctions.sort((a, b) => (a.endsAt > b.endsAt ? 1 : -1));
+            break;
+          case "furthest-deadline":
+            filteredAuctions.sort((a, b) => (a.endsAt < b.endsAt ? 1 : -1));
+            break;
+        }
+
+        if (active || sort == "closest-deadline") {
+          filteredAuctions = filteredAuctions.filter(
+            ({ endsAt }) => calculations.timeBetween(endsAt) !== "Already ended"
+          );
         }
 
         if (search.trim()) {
