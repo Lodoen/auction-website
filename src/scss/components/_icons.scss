@@ -40,9 +40,14 @@
       height: 115px;
     }
   }
+  &-modal {
+    width: 60px;
+    height: 60px;
+  }
 }
 
 .cta-illustration {
   max-width: 200px;
   max-height: 200px;
+  top: 7px;
 }

@@ -3,7 +3,8 @@
   &-primary:hover,
   &-secondary:hover,
   &-black:hover,
-  &-auction-item:hover h3 {
+  &-auction-item:hover h3,
+  &-link:hover {
     text-decoration: underline;
   }
 
@@ -23,5 +24,9 @@
 
   &-black:hover {
     color: $black;
+  }
+
+  &-link {
+    text-decoration: none;
   }
 }

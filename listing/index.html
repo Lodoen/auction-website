@@ -7,10 +7,11 @@
       content="View and submit bids to a specific listing."
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Listing name | Electroneer</title>
+    <title>Loading ... | Electroneer</title>
     <link rel="stylesheet" href="../dist/css/styles.css" />
+    <link rel="icon" href="../img/icons/favicon.png" />
   </head>
-  <body id="top-of-page">
+  <body class="min-vh-100" id="top-of-page">
     <header class="bg-dark">
       <nav
         class="d-flex justify-content-between maxw-650 mx-auto container-fluid p-3"
@@ -34,386 +35,46 @@
                 class="w-100"
             /></a>
           </div>
-          <div class="w-100 d-flex justify-content-end">
-            <div class="d-flex align-items-center me-2">
-              <p class="m-0 text-light me-1">1000</p>
-              <div class="d-flex align-items-center nav-credits-icon">
-                <img
-                  src="../img/icons/tokens.png"
-                  alt="Number of tokens"
-                  class="w-100"
-                />
+          <div id="user-details" class="w-100">
+            <div class="d-flex justify-content-end align-items-center">
+              <div class="spinner-border text-light" role="status">
+                <span class="visually-hidden">Loading...</span>
               </div>
-            </div>
-            <div class="ms-1">
-              <a
-                href="#"
-                class="d-block link-light text-decoration-none dropdown-toggle me-3"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <img
-                  class="rounded-circle nav-profile-icon"
-                  src="../img/icons/profile.png"
-                  alt="Profile icon"
-                />
-              </a>
-              <ul class="dropdown-menu text-small shadow">
-                <li>
-                  <a href="../" class="dropdown-item">Home</a>
-                </li>
-                <li>
-                  <a href="../create" class="dropdown-item">Create auction</a>
-                </li>
-                <li>
-                  <a href="../profile" class="dropdown-item">Profile</a>
-                </li>
-                <li>
-                  <hr class="dropdown-divider" />
-                </li>
-                <li>
-                  <button class="btn-logout dropdown-item">Log out</button>
-                </li>
-              </ul>
+              <p class="ms-2 mb-0 text-light">Loading ...</p>
             </div>
           </div>
         </div>
       </nav>
     </header>
     <main class="maxw-650 mx-auto container-fluid">
-      <div class="row mt-3 mt-sm-5">
-        <div
-          class="d-flex align-items-center justify-content-center col-12 col-sm-5"
-        >
-          <div class="row mt-3 mb-4 m-sm-0">
-            <div
-              class="col-2 p-0 d-flex align-items-center justify-content-center"
-            >
-              <button
-                type="button"
-                class="w-100 px-0 py-4 btn btn-link d-flex align-items-center justify-content-center"
-              >
-                <div class="icon-product-media">
-                  <img
-                    src="../img/icons/previous.png"
-                    alt="Previous media"
-                    class="w-100 d-block m-auto"
-                  />
-                </div>
-              </button>
-            </div>
-            <div
-              class="col-8 d-flex justify-content-center p-0 position-relative"
-            >
-              <img
-                src="../img/product.png"
-                alt="Product media 1"
-                class="w-100"
-              />
-              <div
-                class="position-absolute bottom-0 number-of number-of-media bg-dark text-light p-1"
-              >
-                <p class="m-0 px-2">1 / 4</p>
-              </div>
-            </div>
-            <div
-              class="col-2 p-0 d-flex align-items-center justify-content-center"
-            >
-              <button
-                type="button"
-                class="w-100 px-0 py-4 btn btn-link d-flex align-items-center justify-content-center"
-              >
-                <div class="icon-product-media">
-                  <img
-                    src="../img/icons/next.png"
-                    alt="Next media"
-                    class="w-100 d-block m-auto"
-                  />
-                </div>
-              </button>
-            </div>
-            <div class="col-8 d-block mx-auto p-0">
-              <div class="w-100 d-flex justify-content-between mt-2 mt-sm-3">
-                <div class="icon">
-                  <img
-                    src="../img/product.png"
-                    alt="Product media 1"
-                    class="w-100"
-                  />
-                </div>
-                <div class="icon mx-2">
-                  <img
-                    src="../img/product.png"
-                    alt="Product media 2"
-                    class="w-100"
-                  />
-                </div>
-                <div class="icon me-2">
-                  <img
-                    src="../img/product.png"
-                    alt="Product media 3"
-                    class="w-100"
-                  />
-                </div>
-                <div class="icon">
-                  <img
-                    src="../img/product.png"
-                    alt="Product media 4"
-                    class="w-100"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
+      <div class="d-flex align-items-center justify-content-center py-5">
+        <div class="spinner-grow text-primary me-3" role="status">
+          <span class="visually-hidden">Loading...</span>
         </div>
-        <div class="d-none d-sm-flex justify-content-center col-sm-1">
-          <div class="border-start"></div>
-        </div>
-        <section class="col-12 col-sm-6">
-          <h1>Auction item</h1>
-          <p class="m-0 d-flex align-items-center">
-            <span class="icon-product me-2">
-              <img
-                src="../img/icons/time-left.png"
-                alt="Time left"
-                class="w-100 d-block m-auto"
-              />
-            </span>
-            5 days left
-          </p>
-          <p class="my-2 d-flex align-items-center">
-            <span class="icon-product me-2">
-              <img
-                src="../img/icons/profile.png"
-                alt="Profile"
-                class="w-100 d-block m-auto"
-              />
-            </span>
-            Username
-          </p>
-          <p class="d-flex align-items-center">
-            <span class="icon-product me-2">
-              <img
-                src="../img/icons/tokens-black.png"
-                alt="Highest bid"
-                class="w-100 d-block m-auto"
-              />
-            </span>
-            500
-          </p>
-          <section>
-            <h2>Make a bid</h2>
-            <form class="d-flex align-items-end">
-              <div class="me-2">
-                <label for="bid" class="form-label mb-0"
-                  >Number of credits:</label
-                >
-                <input
-                  type="number"
-                  value="501"
-                  min="501"
-                  id="bid"
-                  name="bid"
-                  class="form-control"
-                />
-              </div>
-              <button class="btn btn-secondary hover-secondary">
-                Make bid
-              </button>
-            </form>
-          </section>
-        </section>
+        <h1 class="d-inline m-0">Loading ...</h1>
       </div>
-      <section class="my-5">
-        <h3>Description</h3>
-        <p>
-          This is a description. Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Duis sit amet volutpat augue. Etiam tincidunt eu
-          felis non fringilla. Praesent a sodales risus. Donec rhoncus eros quis
-          quam mattis, at blandit tortor condimentum. Duis nec mi magna. Nunc
-          eros ipsum, fermentum eget tristique mollis, feugiat vel risus. Cras
-          luctus velit mi, a fermentum dui feugiat eu. Praesent pretium turpis
-          et nibh egestas, vitae varius ipsum sodales. Cras consequat vitae nunc
-          eget interdum. Vestibulum ac ornare est. Cras dapibus
-        </p>
-      </section>
-      <section class="mb-5 pb-3">
-        <h3 class="mb-3">Bidding history</h3>
-        <div
-          class="d-flex align-items-center border-dark border-2 border-bottom col-12 col-sm-6 pb-3 mb-3"
-        >
-          <div class="icon me-3">
-            <img
-              src="../img/icons/profile.png"
-              alt="Profile icon"
-              class="w-100"
-            />
-          </div>
-          <div class="pb-1">
-            <div>
-              <p class="m-0 d-flex align-items-center">
-                User bids 500
-                <span class="icon-product ms-2">
-                  <img
-                    src="../img/icons/tokens-black.png"
-                    alt="Highest bid"
-                    class="w-100 d-block m-auto"
-                  />
-                </span>
-              </p>
-              <p class="m-0 d-flex align-items-center number-of-days-left">
-                <span class="icon-product me-2">
-                  <img
-                    src="../img/icons/time-left.png"
-                    alt="Time since bid"
-                    class="w-100 d-block m-auto"
-                  />
-                </span>
-                1 day ago
-              </p>
-            </div>
-          </div>
-        </div>
-        <div
-          class="d-flex align-items-center border-dark border-2 border-bottom col-12 col-sm-6 pb-3 mb-3"
-        >
-          <div class="icon me-3">
-            <img
-              src="../img/icons/profile.png"
-              alt="Profile icon"
-              class="w-100"
-            />
-          </div>
-          <div class="pb-1">
-            <div>
-              <p class="m-0 d-flex align-items-center">
-                User bids 350
-                <span class="icon-product ms-2">
-                  <img
-                    src="../img/icons/tokens-black.png"
-                    alt="Highest bid"
-                    class="w-100 d-block m-auto"
-                  />
-                </span>
-              </p>
-              <p class="m-0 d-flex align-items-center number-of-days-left">
-                <span class="icon-product me-2">
-                  <img
-                    src="../img/icons/time-left.png"
-                    alt="Time since bid"
-                    class="w-100 d-block m-auto"
-                  />
-                </span>
-                2 days ago
-              </p>
-            </div>
-          </div>
-        </div>
-        <div
-          class="d-flex align-items-center border-dark border-2 border-bottom col-12 col-sm-6 pb-3 mb-3"
-        >
-          <div class="icon me-3">
-            <img
-              src="../img/icons/profile.png"
-              alt="Profile icon"
-              class="w-100"
-            />
-          </div>
-          <div class="pb-1">
-            <div>
-              <p class="m-0 d-flex align-items-center">
-                User bids 200
-                <span class="icon-product ms-2">
-                  <img
-                    src="../img/icons/tokens-black.png"
-                    alt="Highest bid"
-                    class="w-100 d-block m-auto"
-                  />
-                </span>
-              </p>
-              <p class="m-0 d-flex align-items-center number-of-days-left">
-                <span class="icon-product me-2">
-                  <img
-                    src="../img/icons/time-left.png"
-                    alt="Time since bid"
-                    class="w-100 d-block m-auto"
-                  />
-                </span>
-                5 days ago
-              </p>
-            </div>
-          </div>
-        </div>
-        <div
-          class="d-flex align-items-center border-dark border-2 border-bottom col-12 col-sm-6 pb-3 mb-3"
-        >
-          <div class="icon me-3">
-            <img
-              src="../img/icons/profile.png"
-              alt="Profile icon"
-              class="w-100"
-            />
-          </div>
-          <div class="pb-1">
-            <div>
-              <p class="m-0 d-flex align-items-center">
-                User bids 100
-                <span class="icon-product ms-2">
-                  <img
-                    src="../img/icons/tokens-black.png"
-                    alt="Highest bid"
-                    class="w-100 d-block m-auto"
-                  />
-                </span>
-              </p>
-              <p class="m-0 d-flex align-items-center number-of-days-left">
-                <span class="icon-product me-2">
-                  <img
-                    src="../img/icons/time-left.png"
-                    alt="Time since bid"
-                    class="w-100 d-block m-auto"
-                  />
-                </span>
-                1 week ago
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
     <footer class="bg-dark text-light px-3 py-4">
       <div class="maxw-650 mx-auto">
         <h4>Shortcuts</h4>
         <ul class="list-unstyled mb-5">
-          <li class="hover-underline">
-            <a href="#top-of-page" class="text-light text-decoration-none"
-              >Top of page</a
-            >
-          </li>
-          <li class="hover-underline">
-            <a href="../" class="text-light text-decoration-none">Home</a>
-          </li>
-          <li class="hover-underline">
-            <a href="../create" class="text-light text-decoration-none"
-              >Create</a
-            >
-          </li>
-          <li class="hover-underline">
-            <a href="../profile" class="text-light text-decoration-none"
-              >Profile</a
-            >
+          <li>
+            <a href="#top-of-page" class="text-light hover-link">Top of page</a>
           </li>
           <li>
-            <button
-              class="btn-logout bg-dark border border-0 text-light hover-underline p-0"
-            >
-              Log out
-            </button>
+            <a href="../" class="text-light hover-link">Home</a>
+          </li>
+          <li>
+            <a href="../create" class="text-light hover-link">Create</a>
+          </li>
+          <li>
+            <a href="../profile" class="text-light hover-link">Profile</a>
           </li>
         </ul>
         <p class="m-0">Electroneer 2023. All rights reserved.</p>
       </div>
     </footer>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../src/js/index.js" type="module"></script>
   </body>
 </html>

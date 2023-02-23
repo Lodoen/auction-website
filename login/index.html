@@ -6,13 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Log in | Electroneer</title>
     <link rel="stylesheet" href="../dist/css/styles.css" />
+    <link rel="icon" href="../img/icons/favicon.png" />
   </head>
   <body
-    class="minh-100 d-flex h-100 align-items-center wave-deep bg-primary text-break"
+    class="min-vh-100 d-flex flex-column h-100 align-items-center wave-deep bg-primary text-break"
   >
-    <main class="maxw-450 px-5 pt-4 pb-3 rounded-5 m-auto bg-white">
-      <section
-        class="d-flex justify-content-center align-items-center flex-column pt-2"
+    <main
+      class="maxw-450 px-4 px-sm-5 pt-3 pt-sm-4 pb-2 rounded-5 m-auto bg-white"
+    >
+      <a
+        href="../"
+        class="d-flex justify-content-center align-items-center flex-column pt-2 hover-link text-dark"
       >
         <div class="login-logo d-flex align-items-center">
           <img
@@ -22,20 +26,22 @@
           />
         </div>
         <h1 class="d-inline-block m-0">Electroneer login</h1>
-      </section>
+      </a>
       <div class="form-container">
-        <form action="../profile">
+        <form action="../profile/" id="login-form">
           <div class="my-3">
             <label for="email" class="form-label mb-0">Email:</label>
             <input
               type="email"
               class="form-control"
               id="email"
+              name="email"
               placeholder="name@example.com"
-              pattern="^[\w\-.]+@(stud.)?noroff.no$"
-              title="Only noroff.no or stud.noroff.no email addresses are valid"
+              pattern="^[\w\-.]+@stud\.noroff\.no$"
+              title="Only stud.noroff.no email addresses are valid"
               required
             />
+            <p class="form-input-feedback m-0 text-danger fst-italic"></p>
           </div>
           <div>
             <label for="password" class="form-label mb-0">Password:</label>
@@ -43,11 +49,12 @@
               type="password"
               class="form-control"
               id="password"
+              name="password"
               placeholder="Password ..."
-              minlength="8"
-              title="Enter your password (minimum length of 8 characters)"
+              title="Enter your password"
               required
             />
+            <p class="form-input-feedback m-0 text-danger fst-italic"></p>
           </div>
           <div class="text-center my-4 hover-underline">
             <a
@@ -63,8 +70,12 @@
             Login
           </button>
         </form>
-        <p id="form-feedback"></p>
+        <p id="form-feedback" class="pt-3 m-0"></p>
       </div>
     </main>
+    <footer class="w-100 text-light text-center">
+      Electroneer 2023. All rights reserved.
+    </footer>
+    <script src="../src/js/index.js" type="module"></script>
   </body>
 </html>

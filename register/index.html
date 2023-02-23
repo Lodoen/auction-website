@@ -6,13 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign up | Electroneer</title>
     <link rel="stylesheet" href="../dist/css/styles.css" />
+    <link rel="icon" href="../img/icons/favicon.png" />
   </head>
   <body
-    class="minh-100 d-flex h-100 align-items-center wave-deep bg-primary text-break"
+    class="min-vh-100 d-flex flex-column h-100 align-items-center wave-deep bg-primary text-break"
   >
-    <main class="maxw-450 px-5 pt-4 pb-3 rounded-5 m-auto bg-white">
-      <section
-        class="d-flex justify-content-center align-items-center flex-column pt-2"
+    <main
+      class="maxw-450 px-4 px-sm-5 pt-3 pt-sm-4 pb-2 rounded-5 m-auto bg-white"
+    >
+      <a
+        href="../"
+        class="d-flex justify-content-center align-items-center flex-column pt-2 hover-link text-dark"
       >
         <div class="login-logo d-flex align-items-center">
           <img
@@ -22,21 +26,23 @@
           />
         </div>
         <h1 class="d-inline-block m-0">Electroneer register</h1>
-      </section>
+      </a>
       <div class="form-container">
-        <form action="../profile">
+        <form id="register-form">
           <div class="my-3">
             <label for="name" class="form-label mb-0">Username:</label>
             <input
               type="text"
               class="form-control"
               id="name"
+              name="name"
               placeholder="Username ..."
               pattern="^[\w]+$"
               maxlength="20"
               title="Enter a username between 8 and 20 characters long"
               required
             />
+            <p class="form-input-feedback m-0 text-danger fst-italic"></p>
           </div>
           <div class="mb-3">
             <label for="email" class="form-label mb-0">Email:</label>
@@ -44,11 +50,13 @@
               type="email"
               class="form-control"
               id="email"
+              name="email"
               placeholder="name@example.com"
-              pattern="^[\w\-.]+@(stud.)?noroff.no$"
-              title="Only noroff.no or stud.noroff.no email addresses are valid"
+              pattern="^[\w\-.]+@stud\.noroff\.no$"
+              title="Only stud.noroff.no email addresses are valid"
               required
             />
+            <p class="form-input-feedback m-0 text-danger fst-italic"></p>
           </div>
           <div class="mb-3">
             <label for="password" class="form-label mb-0">Password:</label>
@@ -56,18 +64,23 @@
               type="password"
               class="form-control"
               id="password"
+              name="password"
               placeholder="Password ..."
               minlength="8"
               title="Enter a valid password (minimum length of 8 characters)"
               required
             />
+            <p class="form-input-feedback m-0 text-danger fst-italic"></p>
           </div>
           <div>
-            <label for="avatar" class="form-label mb-0">Avatar * :</label>
+            <label for="avatar" class="form-label mb-0"
+              >Avatar (optional) * :</label
+            >
             <input
-              type="text"
+              type="url"
               class="form-control"
               id="avatar"
+              name="avatar"
               placeholder="Avatar URL ..."
               aria-describedby="avatarHelp"
             />
@@ -87,8 +100,12 @@
             Sign up
           </button>
         </form>
-        <p id="form-feedback"></p>
+        <p id="form-feedback" class="pt-3 pb-2 m-0"></p>
       </div>
     </main>
+    <footer class="w-100 text-light text-center">
+      Electroneer 2023. All rights reserved.
+    </footer>
+    <script src="../src/js/index.js" type="module"></script>
   </body>
 </html>

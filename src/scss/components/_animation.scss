@@ -1,0 +1,44 @@
+@keyframes illustrationHover {
+  0% {
+    top: 7px;
+  }
+  50% {
+    top: -7px;
+  }
+  100% {
+    top: 7px;
+  }
+}
+
+@keyframes moveWaves {
+  100% {
+    background-position-x: 950px;
+  }
+}
+
+@keyframes moveDeepWaves {
+  100% {
+    background-position-x: 1500px;
+  }
+}
+
+.profile-showcase {
+  animation: 23s infinite linear moveDeepWaves;
+}
+
+.wave-deep {
+  animation: 27s infinite linear moveDeepWaves;
+}
+
+.wave-cta {
+  animation: 10s infinite linear moveWaves;
+}
+
+@media (min-width: 576px) {
+  .wave-cta {
+    animation: none;
+  }
+  .cta-illustration {
+    animation: 3s infinite ease-in-out illustrationHover;
+  }
+}
