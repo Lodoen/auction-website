@@ -67,6 +67,14 @@ export default function renderSpecificListing({
     const galleryWrapper = document.createElement("div");
     galleryWrapper.setAttribute("class", "col-8 d-block mx-auto p-0");
 
+    if (media.length > 0) {
+      productMediaWrapper.addEventListener("click", (event) =>
+        container.append(
+          blueprints.modal(event.currentTarget.querySelector("img").src)
+        )
+      );
+    }
+
     if (media.length > 1) {
       const nextIcon = document.createElement("img");
       nextIcon.setAttribute("class", "w-100 d-block m-auto");
@@ -113,12 +121,6 @@ export default function renderSpecificListing({
       );
       gallery.append(...media.slice(0, 4).map(blueprints.galleryImage));
       galleryWrapper.append(gallery);
-
-      productMediaWrapper.addEventListener("click", (event) =>
-        container.append(
-          blueprints.modal(event.currentTarget.querySelector("img").src)
-        )
-      );
     }
 
     const mediaGallery = document.createElement("div");
