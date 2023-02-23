@@ -16,16 +16,16 @@ export default async function setFilterAuctionsListener(unfilteredListings) {
       try {
         event.preventDefault();
         const formData = new FormData(searchForm);
-        const { search, sort } = Object.fromEntries(formData.entries());
-
+        const { search, sort, active } = Object.fromEntries(formData.entries());
         let filteredAuctions = [...unfilteredListings];
+
+        if (active) {
+          filteredAuctions = filteredAuctions.filter(
+            ({ endsAt }) => calculations.timeBetween(endsAt) !== "Already ended"
+          );
+        }
+
         switch (sort) {
-          case "active":
-            filteredAuctions = filteredAuctions.filter(
-              ({ endsAt }) =>
-                calculations.timeBetween(endsAt) !== "Already ended"
-            );
-            break;
           case "price-low-high":
             filteredAuctions.sort((a, b) =>
               calculations.highestBid(a.bids) > calculations.highestBid(b.bids)
