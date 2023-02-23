@@ -49,7 +49,7 @@ export default function renderProfile({ name, avatar, listings, bids }) {
     const bannerWrapper = document.createElement("div");
     bannerWrapper.setAttribute(
       "class",
-      "bg-primary profile-showcase d-flex align-items-end justify-content-center pb-4 text-light"
+      "bg-primary profile-showcase d-flex align-items-center justify-content-center py-4 text-light"
     );
     bannerWrapper.append(banner);
 
