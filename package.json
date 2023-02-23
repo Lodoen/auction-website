@@ -1,6 +1,6 @@
 {
   "name": "auction-website",
-  "version": "0.15.14",
+  "version": "0.15.15",
   "description": "Auction website for electronics",
   "main": "index.js",
   "scripts": {
