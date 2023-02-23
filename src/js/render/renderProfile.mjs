@@ -1,6 +1,5 @@
 import blueprints from "../blueprints/index.mjs";
 import calculations from "../calculations/index.mjs";
-import { basePath } from "../constants/index.mjs";
 import storage from "../storage/index.mjs";
 
 /**
@@ -25,7 +24,7 @@ export default function renderProfile({ name, avatar, listings, bids }) {
     const icon = document.createElement("img");
     icon.setAttribute("class", "mw-100 mh-100 d-block m-auto ");
     icon.setAttribute("alt", "Profile image");
-    icon.src = avatar ? avatar : `${basePath}/img/icons/profile-big.png`;
+    icon.src = avatar ? avatar : `/img/icons/profile-big.png`;
     const IconWrapper = document.createElement("div");
     IconWrapper.setAttribute("class", "icon-profile d-flex");
     IconWrapper.append(icon);

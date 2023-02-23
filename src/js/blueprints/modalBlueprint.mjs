@@ -1,4 +1,3 @@
-import { basePath } from "../constants/index.mjs";
 import blueprints from "./index.mjs";
 export default function modalBlueprint(src) {
   try {
@@ -22,7 +21,7 @@ export default function modalBlueprint(src) {
     const closeIcon = document.createElement("img");
     closeIcon.setAttribute("class", "mw-100 mh-100");
     closeIcon.setAttribute("alt", "Close modal");
-    closeIcon.src = `${basePath}/img/icons/close.png`;
+    closeIcon.src = `/img/icons/close.png`;
     const closeIconButton = document.createElement("a");
     closeIconButton.setAttribute("class", "btn btn-link icon-modal p-0");
     closeIconButton.append(closeIcon);

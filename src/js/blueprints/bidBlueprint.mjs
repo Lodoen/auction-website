@@ -1,5 +1,4 @@
 import calculations from "../calculations/index.mjs";
-import { basePath } from "../constants/index.mjs";
 
 /**
  * Creates HTML for a bid in the bid history
@@ -13,7 +12,7 @@ import { basePath } from "../constants/index.mjs";
 export default function bidBlueprint({ bidderName, amount, created }) {
   const name = document.createElement("a");
   name.setAttribute("class", "text-dark hover-link");
-  name.setAttribute("href", `${basePath}/profile/?name=${bidderName}`);
+  name.setAttribute("href", `/profile/?name=${bidderName}`);
   name.innerText = bidderName;
   const nameBids = document.createElement("span");
   nameBids.innerText = ` bids ${amount}`;

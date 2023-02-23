@@ -1,5 +1,4 @@
 import listeners from "../listeners/index.mjs";
-import { basePath } from "../constants/index.mjs";
 
 /**
  * Creates HTML for the user details in the HTML header
@@ -18,7 +17,7 @@ export default function userDetailsBlueprint({ credits, avatar }) {
   const creditsIcon = document.createElement("img");
   creditsIcon.setAttribute("class", "w-100");
   creditsIcon.setAttribute("alt", "Number of credits");
-  creditsIcon.src = `${basePath}/img/icons/tokens.png`;
+  creditsIcon.src = `/img/icons/tokens.png`;
   const creditsIconWrapper = document.createElement("div");
   creditsIconWrapper.setAttribute(
     "class",
@@ -33,7 +32,7 @@ export default function userDetailsBlueprint({ credits, avatar }) {
   const profileIcon = document.createElement("img");
   profileIcon.setAttribute("class", "rounded-circle nav-profile-icon");
   profileIcon.setAttribute("alt", "Profile icon");
-  profileIcon.src = avatar ? avatar : `${basePath}/img/icons/profile.png`;
+  profileIcon.src = avatar ? avatar : `/img/icons/profile.png`;
 
   const profileIconWrapper = document.createElement("a");
   profileIconWrapper.setAttribute(
@@ -56,7 +55,7 @@ export default function userDetailsBlueprint({ credits, avatar }) {
         : ""
     }`
   );
-  homeHref.setAttribute("href", `${basePath}/`);
+  homeHref.setAttribute("href", `/`);
   homeHref.innerText = "Home";
   const homeHrefWrapper = document.createElement("li");
   homeHrefWrapper.append(homeHref);
@@ -68,7 +67,7 @@ export default function userDetailsBlueprint({ credits, avatar }) {
       location.pathname.includes("create") ? "text-decoration-underline" : ""
     }`
   );
-  createHref.setAttribute("href", `${basePath}/create`);
+  createHref.setAttribute("href", `/create`);
   createHref.innerText = "Create auction";
   const createHrefWrapper = document.createElement("li");
   createHrefWrapper.append(createHref);
@@ -80,7 +79,7 @@ export default function userDetailsBlueprint({ credits, avatar }) {
       location.pathname.includes("profile") ? "text-decoration-underline" : ""
     }`
   );
-  profileHref.setAttribute("href", `${basePath}/profile`);
+  profileHref.setAttribute("href", `/profile`);
   profileHref.innerText = "Profile";
   const profileHrefWrapper = document.createElement("li");
   profileHrefWrapper.append(profileHref);

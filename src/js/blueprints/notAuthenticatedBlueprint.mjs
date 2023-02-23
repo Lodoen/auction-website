@@ -1,5 +1,3 @@
-import { basePath } from "../constants/index.mjs";
-
 /**
  * Creates HTML for a not authenticated message and a link to the register page
  * @returns {*} HTML for a not authenticated message
@@ -19,7 +17,7 @@ export default function notAuthenticatedBlueprint() {
 
   const link = document.createElement("a");
   link.setAttribute("class", "fst-italic");
-  link.setAttribute("href", `${basePath}/register`);
+  link.setAttribute("href", `/register`);
   link.innerText = "Visit the register page to create a new account";
 
   const messageWrapper = document.createElement("div");

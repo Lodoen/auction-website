@@ -1,5 +1,4 @@
 import calculations from "../calculations/index.mjs";
-import { basePath } from "../constants/index.mjs";
 
 /**
  * Creates HTML for a listing showcase
@@ -21,7 +20,7 @@ export default function listingShowcaseBlueprint({
   productShowcase.setAttribute("class", "mw-100 mh-100");
   productShowcase.setAttribute("alt", `${title} showcase`);
   productShowcase.src =
-    media.length > 0 ? media[0] : `${basePath}/img/no-image-available.png`;
+    media.length > 0 ? media[0] : `/img/no-image-available.png`;
 
   const price = document.createElement("p");
   price.setAttribute("class", "m-0 ps-1");
@@ -30,7 +29,7 @@ export default function listingShowcaseBlueprint({
   const creditsIcon = document.createElement("img");
   creditsIcon.setAttribute("class", "w-100");
   creditsIcon.setAttribute("alt", "Number of credits");
-  creditsIcon.src = `${basePath}/img/icons/tokens.png`;
+  creditsIcon.src = `/img/icons/tokens.png`;
   const creditsIconWrapper = document.createElement("div");
   creditsIconWrapper.setAttribute(
     "class",
@@ -58,7 +57,7 @@ export default function listingShowcaseBlueprint({
   const timeLeftIcon = document.createElement("img");
   timeLeftIcon.setAttribute("class", "w-100");
   timeLeftIcon.setAttribute("alt", "Time left");
-  timeLeftIcon.src = `${basePath}/img/icons/time-left.png`;
+  timeLeftIcon.src = `/img/icons/time-left.png`;
   const timeLeftIconWrapper = document.createElement("div");
   timeLeftIconWrapper.setAttribute(
     "class",
@@ -83,7 +82,7 @@ export default function listingShowcaseBlueprint({
     "class",
     "border border-dark rounded-4 rounded-end-0 overflow-hidden text-decoration-none text-dark d-block hover-auction-item"
   );
-  linkToListing.setAttribute("href", `${basePath}/listing/?id=${id}`);
+  linkToListing.setAttribute("href", `/listing/?id=${id}`);
   linkToListing.append(productShowcaseWrapper, detailsWrapper);
 
   const listing = document.createElement("div");

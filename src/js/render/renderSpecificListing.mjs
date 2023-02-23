@@ -2,7 +2,6 @@ import calculations from "../calculations/index.mjs";
 import blueprints from "../blueprints/index.mjs";
 import listeners from "../listeners/index.mjs";
 import storage from "../storage/index.mjs";
-import { basePath } from "../constants/index.mjs";
 
 /**
  * Renders a specific auction listing, and sets listeners for changing media and for submitting a bid
@@ -29,7 +28,7 @@ export default function renderSpecificListing(
     productMedia.setAttribute("alt", "Product media");
     productMedia.setAttribute("data-position", "0");
     productMedia.src =
-      media.length > 0 ? media[0] : `${basePath}/img/no-image-available.png`;
+      media.length > 0 ? media[0] : `/img/no-image-available.png`;
 
     const position = document.createElement("p");
     position.setAttribute("class", "m-0 px-2");
@@ -75,7 +74,7 @@ export default function renderSpecificListing(
       const nextIcon = document.createElement("img");
       nextIcon.setAttribute("class", "w-100 d-block m-auto");
       nextIcon.setAttribute("alt", "Next media");
-      nextIcon.src = `${basePath}/img/icons/next.png`;
+      nextIcon.src = `/img/icons/next.png`;
       const nextIconWrapper = document.createElement("div");
       nextIconWrapper.setAttribute("class", "icon-product-media");
       nextIconWrapper.append(nextIcon);
@@ -94,7 +93,7 @@ export default function renderSpecificListing(
       const previousIcon = document.createElement("img");
       previousIcon.setAttribute("class", "w-100 d-block m-auto");
       previousIcon.setAttribute("alt", "Previous media");
-      previousIcon.src = `${basePath}/img/icons/previous.png`;
+      previousIcon.src = `/img/icons/previous.png`;
       const previousIconWrapper = document.createElement("div");
       previousIconWrapper.setAttribute("class", "icon-product-media");
       previousIconWrapper.append(previousIcon);
@@ -150,7 +149,7 @@ export default function renderSpecificListing(
     const timeLeftIcon = document.createElement("img");
     timeLeftIcon.setAttribute("class", "w-100 d-block m-auto");
     timeLeftIcon.setAttribute("alt", "Time left");
-    timeLeftIcon.src = `${basePath}/img/icons/time-left.png`;
+    timeLeftIcon.src = `/img/icons/time-left.png`;
     const timeLeftIconWrapper = document.createElement("span");
     timeLeftIconWrapper.setAttribute("class", "icon-product me-2");
     timeLeftIconWrapper.append(timeLeftIcon);
@@ -176,14 +175,14 @@ export default function renderSpecificListing(
     const sellerIcon = document.createElement("img");
     sellerIcon.setAttribute("class", "w-100 d-block m-auto");
     sellerIcon.setAttribute("alt", "Seller");
-    sellerIcon.src = `${basePath}/img/icons/profile.png`;
+    sellerIcon.src = `/img/icons/profile.png`;
     const sellerIconWrapper = document.createElement("span");
     sellerIconWrapper.setAttribute("class", "icon-product me-2");
     sellerIconWrapper.append(sellerIcon);
 
     const sellerName = document.createElement("a");
     sellerName.setAttribute("class", "text-dark hover-link");
-    sellerName.setAttribute("href", `${basePath}/profile/?name=${seller.name}`);
+    sellerName.setAttribute("href", `/profile/?name=${seller.name}`);
     sellerName.innerText = seller.name;
     const sellerNameWrapper = document.createElement("p");
     sellerNameWrapper.setAttribute("class", "my-2 d-flex align-items-center");
@@ -192,7 +191,7 @@ export default function renderSpecificListing(
     const creditsIcon = document.createElement("img");
     creditsIcon.setAttribute("class", "w-100 d-block m-auto");
     creditsIcon.setAttribute("alt", "Highest bid");
-    creditsIcon.src = `${basePath}/img/icons/tokens-black.png`;
+    creditsIcon.src = `/img/icons/tokens-black.png`;
     const creditsIconWrapper = document.createElement("span");
     creditsIconWrapper.setAttribute("class", "icon-product me-2");
     creditsIconWrapper.append(creditsIcon);

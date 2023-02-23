@@ -1,4 +1,3 @@
-import { basePath } from "../constants/index.mjs";
 import listeners from "../listeners/index.mjs";
 import blueprints from "../blueprints/index.mjs";
 
@@ -116,7 +115,7 @@ export default function renderCreateAuction() {
       const addMediaIcon = document.createElement("img");
       addMediaIcon.setAttribute("class", "w-100");
       addMediaIcon.setAttribute("alt", "Add media");
-      addMediaIcon.src = `${basePath}/img/icons/add.png`;
+      addMediaIcon.src = `/img/icons/add.png`;
 
       const addMediaIconWrapper = document.createElement("div");
       addMediaIconWrapper.setAttribute(
