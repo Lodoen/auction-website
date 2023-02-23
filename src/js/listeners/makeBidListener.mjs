@@ -25,7 +25,7 @@ export default async function makeBidListener(event, id) {
 
       formFeedback.innerHTML = "";
       if (!response) {
-        throw new Error(
+        throw blueprints.error(
           "Oops! Something does not seem quite right... A bid must be higher than the last, and you must have enough credits."
         );
       }
@@ -60,7 +60,16 @@ export default async function makeBidListener(event, id) {
       }
     } catch (error) {
       formFeedback.innerHTML = "";
-      formFeedback.append(blueprints.feedback(error.message, "danger"));
+      if (error.isCustomError) {
+        formFeedback.append(blueprints.feedback(error.message, "warning"));
+      } else {
+        formFeedback.append(
+          blueprints.feedback(
+            "Something went wrong with the make a bid form",
+            "warning"
+          )
+        );
+      }
     }
   }
 }

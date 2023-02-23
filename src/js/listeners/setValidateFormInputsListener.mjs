@@ -1,3 +1,4 @@
+import blueprints from "../blueprints/index.mjs";
 import validation from "../validation/index.mjs";
 
 /**
@@ -10,16 +11,29 @@ import validation from "../validation/index.mjs";
  */
 export default function setValidateFormInputsListener(form) {
   if (form) {
-    const inputs = form.querySelectorAll("[required");
-    if (inputs) {
-      inputs.forEach((input) => {
-        input.addEventListener("blur", () => {
-          if (input.checkValidity()) {
-            validation.formInput(true);
-          }
+    try {
+      const inputs = form.querySelectorAll("[required");
+      if (inputs) {
+        inputs.forEach((input) => {
+          input.addEventListener("blur", () => {
+            if (input.checkValidity()) {
+              validation.formInput(true);
+            }
+          });
+          input.addEventListener("invalid", () => validation.formInput());
         });
-        input.addEventListener("invalid", () => validation.formInput());
-      });
+      }
+    } catch (error) {
+      const container = document.querySelector("main");
+      if (container) {
+        container.innerHTML = "";
+        container.append(
+          blueprints.feedback(
+            "We encountered a problem with an input field",
+            "warning"
+          )
+        );
+      }
     }
   }
 }

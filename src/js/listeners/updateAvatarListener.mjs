@@ -20,19 +20,22 @@ export default async function updateAvatarListener(event) {
 
       const formData = new FormData(event.currentTarget);
       const details = Object.fromEntries(formData.entries());
-      console.log(details);
       const name = storage.get("name");
 
       if (!name) {
-        throw new Error("You have to be logged in to update your profile icon");
+        throw blueprints.error(
+          "You have to be logged in to update your profile icon"
+        );
       }
 
       const response = await editProfileIcon(name, details);
       formFeedback.innerHTML = "";
       if (!response) {
-        throw new Error(
-          "Oops! Something does not seem quite right... Are you sure that the image is a fully formed url?"
-        );
+        if (!name) {
+          throw blueprints.error(
+            "Oops! Something does not seem quite right... Are you sure that the image is a fully formed url?"
+          );
+        }
       }
 
       document.querySelector(".profile-showcase .icon-profile img").src =
@@ -42,7 +45,17 @@ export default async function updateAvatarListener(event) {
         blueprints.feedback(`The profile image has been updated!`, "success")
       );
     } catch (error) {
-      formFeedback.append(blueprints.feedback(error.message, "danger"));
+      formFeedback.innerHTML = "";
+      if (error.isCustomError) {
+        formFeedback.append(blueprints.feedback(error.message, "warning"));
+      } else {
+        formFeedback.append(
+          blueprints.feedback(
+            "Something went wrong with the update avatar form",
+            "warning"
+          )
+        );
+      }
     }
   }
 }

@@ -11,27 +11,40 @@ import blueprints from "../../blueprints/index.mjs";
  */
 export default async function register(profile) {
   const feedback = document.getElementById("form-feedback");
+  if (feedback) {
+    try {
+      feedback.append(blueprints.loading());
 
-  try {
-    feedback.append(blueprints.loading());
+      const response = await fetch(`${baseUrl}/auth/register`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify(profile),
+      });
 
-    const response = await fetch(`${baseUrl}/auth/register`, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      method: "POST",
-      body: JSON.stringify(profile),
-    });
+      feedback.innerHTML = "";
 
-    feedback.innerHTML = "";
+      if (!response.ok) {
+        const result = await response.json();
+        throw blueprints.error(result.errors[0].message);
+      }
 
-    if (!response.ok) {
-      throw new Error("Oops! Something went wrong with the registration.");
+      feedback.append(
+        blueprints.feedback("Registration successful!", "success")
+      );
+    } catch (error) {
+      feedback.innerHTML = "";
+      if (error.isCustomError) {
+        feedback.append(blueprints.feedback(error.message, "warning"));
+      } else {
+        feedback.append(
+          blueprints.feedback(
+            "Something went wrong with the register form",
+            "warning"
+          )
+        );
+      }
     }
-
-    feedback.append(blueprints.feedback("Registration successful!", "success"));
-  } catch (error) {
-    feedback.innerHTML = "";
-    feedback.append(blueprints.feedback(error.message, "danger"));
   }
 }

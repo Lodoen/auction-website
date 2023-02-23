@@ -13,20 +13,19 @@ import blueprints from "../blueprints/index.mjs";
  * ```
  */
 export default async function prepareProfile() {
-  const container = document.querySelector("main");
   try {
     const parameters = new URLSearchParams(document.location.search);
     let nameParam = parameters.get("name");
     const name = nameParam ? nameParam : storage.get("name");
 
     if (!name) {
-      throw new Error("Profile page must have valid name");
+      throw blueprints.error("Profile page must have valid name");
     }
 
     const profile = await getProfile(name);
 
     if (!profile) {
-      throw new Error(
+      throw blueprints.error(
         `No profile with the name "${name}" exists in our database`
       );
     }
@@ -39,8 +38,20 @@ export default async function prepareProfile() {
 
     render.profile(profile);
   } catch (error) {
-    container.innerHTML = "";
-    container.setAttribute("class", "maxw-650 mx-auto");
-    container.append(blueprints.feedback(error.message, "warning"));
+    const container = document.querySelector("main");
+    if (container) {
+      container.setAttribute("class", "maxw-650 mx-auto");
+      container.innerHTML = "";
+      if (error.isCustomError) {
+        container.append(blueprints.feedback(error.message, "warning"));
+      } else {
+        container.append(
+          blueprints.feedback(
+            "Something went wrong when rendering the profile page",
+            "warning"
+          )
+        );
+      }
+    }
   }
 }

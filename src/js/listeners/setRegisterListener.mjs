@@ -1,5 +1,6 @@
 import register from "../api/profile/register.mjs";
 import listeners from "./index.mjs";
+import blueprints from "../blueprints/index.mjs";
 
 /**
  * Attaches the register function to the register form
@@ -15,10 +16,22 @@ export default function setRegisterListener() {
     listeners.validateFormInputs(registerForm);
 
     registerForm.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      const formData = new FormData(registerForm);
-      const profileDetails = Object.fromEntries(formData.entries());
-      register(profileDetails);
+      try {
+        event.preventDefault();
+        const formData = new FormData(registerForm);
+        const profileDetails = Object.fromEntries(formData.entries());
+        register(profileDetails);
+      } catch (error) {
+        const container = document.getElementById("form-feedback");
+        if (container) {
+          container.append(
+            blueprints.feedback(
+              "Something went wrong when handling the register form",
+              "warning"
+            )
+          );
+        }
+      }
     });
   }
 }

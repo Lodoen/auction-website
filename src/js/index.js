@@ -15,7 +15,6 @@ switch (location.pathname) {
     break;
   case `${basePath}/`:
   case `${basePath}/index.html`:
-    validation.loggedIn();
     prepare.auctionListings();
     break;
   case `${basePath}/listing/`:

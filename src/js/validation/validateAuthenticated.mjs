@@ -10,22 +10,24 @@ import blueprints from "../blueprints/index.mjs";
  */
 export default async function validateAuthenticated(needsToBeAuthenticated) {
   const container = document.querySelector("main");
-  try {
-    const isLoggedIn = await validation.loggedIn();
-    if (!isLoggedIn) {
-      document.title = "Not authenticated | Electroneer";
+  if (container) {
+    try {
+      const isLoggedIn = await validation.loggedIn();
+      if (!isLoggedIn) {
+        document.title = "Not authenticated | Electroneer";
+        container.innerHTML = "";
+        container.append(blueprints.notAuthenticated());
+      } else {
+        needsToBeAuthenticated();
+      }
+    } catch (error) {
       container.innerHTML = "";
-      container.append(blueprints.notAuthenticated());
-    } else {
-      needsToBeAuthenticated();
+      container.append(
+        blueprints.feedback(
+          "Something went wrong when trying to authenticate your login info",
+          "warning"
+        )
+      );
     }
-  } catch (error) {
-    container.innerHTML = "";
-    container.append(
-      blueprints.feedback(
-        "Something went wrong when trying to authenticate your login info",
-        "warning"
-      )
-    );
   }
 }

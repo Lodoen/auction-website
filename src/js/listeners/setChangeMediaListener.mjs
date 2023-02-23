@@ -17,13 +17,19 @@ export default function setChangeMediaListener(
 ) {
   if (image && positionWrapper) {
     btn.addEventListener("click", (event) => {
-      const position =
-        parseInt(image.dataset.position) +
-        parseInt(event.currentTarget.dataset.direction);
-      if (position >= 0 && position <= media.length - 1) {
-        image.dataset.position = position;
-        image.src = media[position];
-        positionWrapper.innerText = `${position + 1} / ${media.length}`;
+      try {
+        const position =
+          parseInt(image.dataset.position) +
+          parseInt(event.currentTarget.dataset.direction);
+        if (position >= 0 && position <= media.length - 1) {
+          image.dataset.position = position;
+          image.src = media[position];
+          positionWrapper.innerText = `${position + 1} / ${media.length}`;
+        }
+      } catch (error) {
+        positionWrapper.innerHTML = "";
+        positionWrapper.innerText =
+          "We encountered an error with the media element(s)";
       }
     });
   }

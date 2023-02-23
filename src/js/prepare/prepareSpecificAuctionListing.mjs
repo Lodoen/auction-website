@@ -10,26 +10,38 @@ import blueprints from "../blueprints/index.mjs";
  * ```
  */
 export default async function prepareSpecificAuctionListing() {
-  const container = document.querySelector("main");
   try {
     const parameters = new URLSearchParams(document.location.search);
     const id = parameters.get("id");
 
     if (!id) {
-      throw new Error("Auction listing must have a valid ID");
+      throw blueprints.error("Auction listing must have a valid ID");
     }
 
     const listing = await listings.getById(id);
 
     if (!listing) {
-      throw new Error(
+      throw blueprints.error(
         "Oops! Seems like there is no auction listing matching the selected ID in our database."
       );
     }
 
     render.specificListing(listing);
   } catch (error) {
-    container.innerHTML = "";
-    container.append(blueprints.feedback(error.message, "warning"));
+    const container = document.querySelector("main");
+    if (container) {
+      container.innerHTML = "";
+
+      if (error.isCustomError) {
+        container.append(blueprints.feedback(error.message, "warning"));
+      } else {
+        container.append(
+          blueprints.feedback(
+            "Something went wrong when rendering the listing page",
+            "warning"
+          )
+        );
+      }
+    }
   }
 }

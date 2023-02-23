@@ -19,6 +19,6 @@ export default async function authenticatedFetch(url = "", options = {}) {
     });
     return response.ok ? await response.json() : undefined;
   } catch (error) {
-    console.log(error);
+    return undefined;
   }
 }

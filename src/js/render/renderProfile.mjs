@@ -12,13 +12,8 @@ import storage from "../storage/index.mjs";
  * ```
  */
 export default function renderProfile({ name, avatar, listings, bids }) {
-  try {
-    const container = document.querySelector("main");
-
-    if (!container) {
-      throw new Error();
-    }
-
+  const container = document.querySelector("main");
+  if (container) {
     container.innerHTML = "";
 
     document.title = `${name} | Electroneer`;
@@ -125,7 +120,5 @@ export default function renderProfile({ name, avatar, listings, bids }) {
       listingsWrapper,
       bidsWrapper
     );
-  } catch (error) {
-    throw new Error("Something went wrong when loading profile");
   }
 }

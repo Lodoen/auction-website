@@ -27,7 +27,7 @@ export default async function createAuctionListener(event, mediaUrls) {
 
       formFeedback.innerHTML = "";
       if (!response) {
-        throw new Error(
+        throw blueprints.error(
           "Oops! Looks like there is a problem with your auction listing. Look over the details and try again."
         );
       }
@@ -35,7 +35,16 @@ export default async function createAuctionListener(event, mediaUrls) {
       formFeedback.append(blueprints.createSuccess(response.id));
     } catch (error) {
       formFeedback.innerHTML = "";
-      formFeedback.append(blueprints.feedback(error.message, "warning"));
+      if (error.isCustomError) {
+        formFeedback.append(blueprints.feedback(error.message, "warning"));
+      } else {
+        formFeedback.append(
+          blueprints.feedback(
+            "Something went wrong with the create auction form",
+            "warning"
+          )
+        );
+      }
     }
   }
 }

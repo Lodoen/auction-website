@@ -1,3 +1,5 @@
+import blueprints from "./index.mjs";
+
 /**
  * Creates HTML for a list element in the media list on the create page
  * @param {string} url New url
@@ -9,36 +11,49 @@
  * ```
  */
 export default function mediaListElementBlueprint(url, mediaUrls) {
-  const media = document.createElement("span");
-  media.setAttribute("class", "text-break");
-  media.innerText = url;
+  try {
+    const media = document.createElement("span");
+    media.setAttribute("class", "text-break");
+    media.innerText = url;
 
-  const icon = document.createElement("img");
-  icon.setAttribute("class", "w-100");
-  icon.setAttribute("alt", "Remove media");
-  icon.src = "../img/icons/remove.png";
+    const icon = document.createElement("img");
+    icon.setAttribute("class", "w-100");
+    icon.setAttribute("alt", "Remove media");
+    icon.src = "../img/icons/remove.png";
 
-  const button = document.createElement("button");
-  button.setAttribute(
-    "class",
-    "icon-product ms-3 p-0 btn btn-link d-flex align-items-center"
-  );
-  button.setAttribute("type", "button");
-  button.addEventListener("click", () => {
-    const listElement = document.querySelector(`ol li[data-src="${url}"]`);
-    if (listElement && mediaUrls.has(url)) {
-      listElement.remove();
-      mediaUrls.delete(url);
+    const button = document.createElement("button");
+    button.setAttribute(
+      "class",
+      "icon-product ms-3 p-0 btn btn-link d-flex align-items-center"
+    );
+    button.setAttribute("type", "button");
+    button.addEventListener("click", () => {
+      const listElement = document.querySelector(`ol li[data-src="${url}"]`);
+      if (listElement && mediaUrls.has(url)) {
+        listElement.remove();
+        mediaUrls.delete(url);
+      }
+    });
+    button.append(icon);
+
+    const buttonWrapper = document.createElement("div");
+    buttonWrapper.setAttribute("class", "d-flex align-items-center");
+    buttonWrapper.append(media, button);
+
+    const listElementWrapper = document.createElement("li");
+    listElementWrapper.dataset.src = url;
+    listElementWrapper.append(buttonWrapper);
+    return listElementWrapper;
+  } catch (error) {
+    const container = document.querySelector("main");
+    if (container) {
+      container.innerHTML = "";
+      container.append(
+        blueprints.feedback(
+          "Something went wrong when adding media element(s)",
+          "warning"
+        )
+      );
     }
-  });
-  button.append(icon);
-
-  const buttonWrapper = document.createElement("div");
-  buttonWrapper.setAttribute("class", "d-flex align-items-center");
-  buttonWrapper.append(media, button);
-
-  const listElementWrapper = document.createElement("li");
-  listElementWrapper.dataset.src = url;
-  listElementWrapper.append(buttonWrapper);
-  return listElementWrapper;
+  }
 }
