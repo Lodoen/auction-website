@@ -3,40 +3,13 @@
 @import "./components/headings";
 @import "./components/hover";
 @import "./components/icons";
+@import "./components/sizing";
+@import "./components/background.scss";
+@import "./components/fonts.scss";
 
 body {
   display: grid;
   grid-template-rows: auto 1fr auto;
-}
-
-.wave-deep {
-  background: repeat-x center url("../../img/wave.png");
-}
-
-.wave-cta {
-  background: repeat-x center url("../../img/wave-cta.png");
-  min-height: 350px;
-}
-
-.product-showcase {
-  height: 130px;
-}
-
-.product-showcase-wrapper {
-  max-height: 165px;
-}
-
-.image-gallery {
-  max-width: 300px;
-}
-
-.profile-showcase {
-  background: repeat-x center url("../../img/wave.png");
-  height: 215px;
-}
-
-.product-showcase-modal {
-  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .number-of {
@@ -46,32 +19,4 @@ body {
   &-media {
     border-top-left-radius: 10px;
   }
-}
-
-.number-of-days-left {
-  font-size: 0.8rem;
-}
-
-.maxw {
-  &-450 {
-    max-width: 450px;
-  }
-  &-650 {
-    max-width: 650px;
-  }
-}
-
-* {
-  font-family: Trebuchet MS, Tahoma, sans-serif;
-}
-h1,
-h2,
-footer h4 {
-  font-family: Consolas, monaco, monospace;
-}
-nav {
-  font-family: Verdana, Geneva, sans-serif;
-}
-.hover-link {
-  text-decoration: none;
 }
