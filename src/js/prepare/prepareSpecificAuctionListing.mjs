@@ -1,6 +1,7 @@
 import render from "../render/index.mjs";
 import listings from "../api/listings/index.mjs";
 import blueprints from "../blueprints/index.mjs";
+import validation from "../validation/index.mjs";
 
 /**
  * Prepares a specific auction listings (based on id in URL) for rendering
@@ -11,6 +12,7 @@ import blueprints from "../blueprints/index.mjs";
  */
 export default async function prepareSpecificAuctionListing() {
   try {
+    const isLoggedIn = await validation.loggedIn();
     const parameters = new URLSearchParams(document.location.search);
     const id = parameters.get("id");
 
@@ -26,7 +28,7 @@ export default async function prepareSpecificAuctionListing() {
       );
     }
 
-    render.specificListing(listing);
+    render.specificListing(listing, isLoggedIn);
   } catch (error) {
     const container = document.querySelector("main");
     if (container) {

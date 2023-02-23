@@ -110,7 +110,7 @@ export default function renderCreateAuction() {
       mediaInput.setAttribute("placeholder", "Media ...");
 
       const mediaFeedback = document.createElement("p");
-      mediaFeedback.setAttribute("class", "text-danger fst-italic");
+      mediaFeedback.setAttribute("class", "text-danger fst-italic m-0");
       mediaFeedback.innerText = "";
 
       const addMediaIcon = document.createElement("img");
@@ -165,7 +165,7 @@ export default function renderCreateAuction() {
       const mediaList = document.createElement("ol");
 
       const mediaListWrapper = document.createElement("div");
-      mediaListWrapper.setAttribute("class", "my-3");
+      mediaListWrapper.setAttribute("class", "mt-4 mt-sm-3 mb-3");
       mediaListWrapper.append(mediaListHeader, mediaList);
 
       const secondRow = document.createElement("section");

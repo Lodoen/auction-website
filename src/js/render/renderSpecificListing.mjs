@@ -7,20 +7,16 @@ import { basePath } from "../constants/index.mjs";
 /**
  * Renders a specific auction listing, and sets listeners for changing media and for submitting a bid
  * @param {*} listing Listing details to display
+ * @param {boolean} isLoggedIn If the user is logged in
  * @example
  * ```js
  * renderSpecificListing(listing);
  * ```
  */
-export default function renderSpecificListing({
-  id,
-  bids,
-  seller,
-  description,
-  endsAt,
-  media,
-  title,
-}) {
+export default function renderSpecificListing(
+  { id, bids, seller, description, endsAt, media, title },
+  isLoggedIn = false
+) {
   const container = document.querySelector("main");
 
   if (container) {
@@ -213,7 +209,14 @@ export default function renderSpecificListing({
     makeBidHeader.innerText = "Make a bid";
 
     const makeBidWrapper = document.createElement("div");
-    if (storage.get("name") == seller.name) {
+    if (!isLoggedIn) {
+      makeBidWrapper.append(
+        blueprints.feedback(
+          "You have to be logged in to bid on an auction listing",
+          "info"
+        )
+      );
+    } else if (storage.get("name") == seller.name) {
       makeBidWrapper.append(
         blueprints.feedback(
           "You can not make a bid on your own auction listing",

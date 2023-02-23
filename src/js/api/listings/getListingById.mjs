@@ -1,5 +1,4 @@
-import auth from "../auth/index.mjs";
-
+import { baseUrl } from "../constants.mjs";
 /**
  * Sends a GET request to the API to fetch a specific auction listing
  * @param {*} id ID of auction listing
@@ -10,5 +9,12 @@ import auth from "../auth/index.mjs";
  * ```
  */
 export default async function getListingsById(id = "undefined") {
-  return await auth.fetch(`/listings/${id}?_seller=true&_bids=true`);
+  try {
+    const response = await fetch(
+      `${baseUrl}/listings/${id}?_seller=true&_bids=true`
+    );
+    return response.ok ? await response.json() : undefined;
+  } catch (error) {
+    return undefined;
+  }
 }

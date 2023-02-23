@@ -13,7 +13,7 @@ import blueprints from "./index.mjs";
 export default function mediaListElementBlueprint(url, mediaUrls) {
   try {
     const media = document.createElement("span");
-    media.setAttribute("class", "text-break");
+    media.setAttribute("class", "text-break col-10");
     media.innerText = url;
 
     const icon = document.createElement("img");
@@ -24,7 +24,7 @@ export default function mediaListElementBlueprint(url, mediaUrls) {
     const button = document.createElement("button");
     button.setAttribute(
       "class",
-      "icon-product ms-3 p-0 btn btn-link d-flex align-items-center"
+      "icon-product ms-1 p-0 btn btn-link d-flex align-items-center col-2"
     );
     button.setAttribute("type", "button");
     button.addEventListener("click", () => {
@@ -37,7 +37,7 @@ export default function mediaListElementBlueprint(url, mediaUrls) {
     button.append(icon);
 
     const buttonWrapper = document.createElement("div");
-    buttonWrapper.setAttribute("class", "d-flex align-items-center");
+    buttonWrapper.setAttribute("class", "row d-flex align-items-center");
     buttonWrapper.append(media, button);
 
     const listElementWrapper = document.createElement("li");
