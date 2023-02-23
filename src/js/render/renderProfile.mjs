@@ -23,11 +23,11 @@ export default function renderProfile({ name, avatar, listings, bids }) {
     h1.innerText = name;
 
     const icon = document.createElement("img");
-    icon.setAttribute("class", "mw-100 mh-100 d-block m-auto");
+    icon.setAttribute("class", "mw-100 mh-100 d-block m-auto ");
     icon.setAttribute("alt", "Profile image");
     icon.src = avatar ? avatar : `${basePath}/img/icons/profile-big.png`;
     const IconWrapper = document.createElement("div");
-    IconWrapper.setAttribute("class", "icon-profile");
+    IconWrapper.setAttribute("class", "icon-profile d-flex");
     IconWrapper.append(icon);
     const profileImage = document.createElement("div");
     profileImage.setAttribute(
