@@ -1,5 +1,6 @@
 import listeners from "../listeners/index.mjs";
 import blueprints from "../blueprints/index.mjs";
+import "./clearHTML/index.mjs";
 
 /**
  * Renders the publish auction form
@@ -11,7 +12,7 @@ import blueprints from "../blueprints/index.mjs";
 export default function renderPublishAuction(listing = undefined) {
   const container = document.querySelector("main");
   if (container) {
-    container.innerHTML = "";
+    container.clearHTML();
 
     try {
       const h1 = document.createElement("h1");
@@ -240,7 +241,7 @@ export default function renderPublishAuction(listing = undefined) {
 
       container.append(h1, form, formFeedback);
     } catch (error) {
-      container.innerHTML = "";
+      container.clearHTML();
       if (error.isCustomError) {
         container.append(blueprints.feedback(error.message, "warning"));
       } else {

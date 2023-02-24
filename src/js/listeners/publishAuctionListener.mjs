@@ -1,6 +1,7 @@
 import listings from "../api/listings/index.mjs";
 import blueprints from "../blueprints/index.mjs";
 import render from "../render/index.mjs";
+import "../render/clearHTML/index.mjs";
 
 /**
  * Attaches the publish auction functionality to the publish auction form
@@ -20,7 +21,7 @@ export default async function publishAuctionListener(
   const formFeedback = document.getElementById("form-feedback");
   if (formFeedback) {
     try {
-      formFeedback.innerHTML = "";
+      formFeedback.clearHTML();
       formFeedback.append(blueprints.loading());
 
       const formData = new FormData(event.currentTarget);
@@ -32,7 +33,7 @@ export default async function publishAuctionListener(
         ? await listings.update(id, body)
         : await listings.create(body);
 
-      formFeedback.innerHTML = "";
+      formFeedback.clearHTML();
       if (!response) {
         throw blueprints.error(
           "Oops! Looks like there is a problem with your auction listing. Look over the details and try again."
@@ -45,7 +46,7 @@ export default async function publishAuctionListener(
         formFeedback.append(blueprints.createSuccess(response.id));
       }
     } catch (error) {
-      formFeedback.innerHTML = "";
+      formFeedback.clearHTML();
       if (error.isCustomError) {
         formFeedback.append(blueprints.feedback(error.message, "warning"));
       } else {

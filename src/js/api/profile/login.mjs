@@ -1,6 +1,7 @@
 import { baseUrl } from "../constants.mjs";
 import storage from "../../storage/index.mjs";
 import blueprints from "../../blueprints/index.mjs";
+import "../../render/clearHTML/index.mjs";
 
 /**
  * Sends a post request to the API to login a user
@@ -14,7 +15,7 @@ export default async function login(profile) {
   const feedback = document.getElementById("form-feedback");
   if (feedback) {
     try {
-      feedback.innerHTML = "";
+      feedback.clearHTML();
       feedback.append(blueprints.loading());
 
       const response = await fetch(`${baseUrl}/auth/login`, {
@@ -35,7 +36,7 @@ export default async function login(profile) {
       storage.save("accessToken", result.accessToken);
       window.location.replace("../profile");
     } catch (error) {
-      feedback.innerHTML = "";
+      feedback.clearHTML();
       if (error.isCustomError) {
         feedback.append(blueprints.feedback(error.message, "warning"));
       } else {

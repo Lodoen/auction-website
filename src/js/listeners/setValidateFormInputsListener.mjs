@@ -1,5 +1,6 @@
 import blueprints from "../blueprints/index.mjs";
 import validation from "../validation/index.mjs";
+import "../render/clearHTML/index.mjs";
 
 /**
  * Attaches validation to a form input
@@ -26,7 +27,8 @@ export default function setValidateFormInputsListener(form) {
     } catch (error) {
       const container = document.querySelector("main");
       if (container) {
-        container.innerHTML = "";
+        container.clearHTML();
+
         container.append(
           blueprints.feedback(
             "We encountered a problem with an input field",

@@ -1,4 +1,5 @@
 import blueprints from "./index.mjs";
+import "../render/clearHTML/index.mjs";
 
 /**
  * Creates HTML for a list element in the media list on the create page
@@ -47,7 +48,7 @@ export default function mediaListElementBlueprint(url, mediaUrls) {
   } catch (error) {
     const container = document.querySelector("main");
     if (container) {
-      container.innerHTML = "";
+      container.clearHTML();
       container.append(
         blueprints.feedback(
           "Something went wrong when adding media element(s)",

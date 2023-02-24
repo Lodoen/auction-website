@@ -1,3 +1,4 @@
+import "../render/clearHTML/index.mjs";
 /**
  * Attaches the change media functionality to a change media button
  * @param {*} btn Change media button
@@ -30,7 +31,7 @@ export default function setChangeMediaListener(
         image.src = media[position];
         positionWrapper.innerText = `${position + 1} / ${media.length}`;
       } catch (error) {
-        positionWrapper.innerHTML = "";
+        positionWrapper.clearHTML();
         positionWrapper.innerText =
           "We encountered an error with the media element(s)";
       }

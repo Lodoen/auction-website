@@ -3,6 +3,7 @@ import blueprints from "../blueprints/index.mjs";
 import listeners from "../listeners/index.mjs";
 import storage from "../storage/index.mjs";
 import render from "./index.mjs";
+import "./clearHTML/index.mjs";
 
 /**
  * Renders a specific auction listing, and sets listeners for changing media and for submitting a bid
@@ -20,7 +21,7 @@ export default function renderSpecificListing(
   const container = document.querySelector("main");
 
   if (container) {
-    container.innerHTML = "";
+    container.clearHTML();
 
     document.title = `${title} | Electroneer`;
 

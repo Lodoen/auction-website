@@ -1,4 +1,5 @@
 import blueprints from "../blueprints/index.mjs";
+import "../render/clearHTML/index.mjs";
 
 /**
  * Gives feedback to the user if an input field is invalid
@@ -26,7 +27,7 @@ export default function validateFormInput(isValid = false) {
     } catch (error) {
       const container = document.querySelector("main");
       if (container) {
-        container.innerHTML = "";
+        container.clearHTML();
         container.append(
           blueprints.feedback(
             "We encountered an error with an input field",

@@ -3,6 +3,7 @@ import listeners from "../listeners/index.mjs";
 import blueprints from "../blueprints/index.mjs";
 import render from "../render/index.mjs";
 import validation from "../validation/index.mjs";
+import "../render/clearHTML/index.mjs";
 
 /**
  * Prepares auction listings for rendering, and sets event listener for filtering auction listings
@@ -26,7 +27,7 @@ export default async function prepareAuctionListings() {
   } catch (error) {
     const container = document.getElementById("listings-wrapper");
     if (container) {
-      container.innerHTML = "";
+      container.clearHTML();
 
       if (error.isCustomError) {
         container.append(blueprints.feedback(error.message, "warning"));

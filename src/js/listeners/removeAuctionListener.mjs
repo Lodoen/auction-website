@@ -1,5 +1,6 @@
 import listings from "../api/listings/index.mjs";
 import blueprints from "../blueprints/index.mjs";
+import "../render/clearHTML/index.mjs";
 
 /**
  * Attaches the remove auction functionality to the remove auction button
@@ -11,10 +12,10 @@ import blueprints from "../blueprints/index.mjs";
  */
 export default async function removeAuctionListener(id = undefined) {
   const container = document.querySelector("main");
-  try {
-    if (container) {
+  if (container) {
+    try {
       if (window.confirm("Are you sure you want to delete this listing?")) {
-        container.innerHTML = "";
+        container.clearHTML();
         container.append(blueprints.loading());
         const response = await listings.remove(id);
 
@@ -24,7 +25,7 @@ export default async function removeAuctionListener(id = undefined) {
           );
         }
 
-        container.innerHTML = "";
+        container.clearHTML();
         container.append(
           blueprints.feedback(
             "Auction listing was successfully deleted",
@@ -32,19 +33,19 @@ export default async function removeAuctionListener(id = undefined) {
           )
         );
       }
-    }
-  } catch (error) {
-    container.innerHTML = "";
+    } catch (error) {
+      container.clearHTML();
 
-    if (error.isCustomError) {
-      container.append(blueprints.feedback(error.message, "warning"));
-    } else {
-      container.append(
-        blueprints.feedback(
-          "Something went wrong when trying to delete your auction listing",
-          "warning"
-        )
-      );
+      if (error.isCustomError) {
+        container.append(blueprints.feedback(error.message, "warning"));
+      } else {
+        container.append(
+          blueprints.feedback(
+            "Something went wrong when trying to delete your auction listing",
+            "warning"
+          )
+        );
+      }
     }
   }
 }

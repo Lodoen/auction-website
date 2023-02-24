@@ -1,5 +1,6 @@
 import listings from "../api/listings/index.mjs";
 import blueprints from "../blueprints/index.mjs";
+import "../render/clearHTML/index.mjs";
 
 /**
  * Attaches the make a bid functionality to the make a bid form
@@ -16,14 +17,14 @@ export default async function makeBidListener(event, id) {
 
   if (formFeedback) {
     try {
-      formFeedback.innerHTML = "";
+      formFeedback.clearHTML();
       formFeedback.append(blueprints.loading());
 
       const formData = new FormData(event.currentTarget);
       const amount = { amount: parseInt(formData.get("amount")) };
       const response = await listings.makeBid(id, amount);
 
-      formFeedback.innerHTML = "";
+      formFeedback.clearHTML();
       if (!response) {
         throw blueprints.error(
           "Oops! Something does not seem quite right... A bid must be higher than the last, and you must have enough credits."
@@ -55,11 +56,11 @@ export default async function makeBidListener(event, id) {
       if (container) {
         const { bids } = response;
         bids.sort((a, b) => (a.amount < b.amount ? 1 : -1));
-        container.innerHTML = "";
+        container.clearHTML();
         container.append(...bids.map(blueprints.bid));
       }
     } catch (error) {
-      formFeedback.innerHTML = "";
+      formFeedback.clearHTML();
       if (error.isCustomError) {
         formFeedback.append(blueprints.feedback(error.message, "warning"));
       } else {
