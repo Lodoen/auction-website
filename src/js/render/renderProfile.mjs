@@ -36,7 +36,7 @@ export default function renderProfile({ name, avatar, listings, bids }) {
     profileImage.append(IconWrapper);
 
     const updateProfile = document.createElement("section");
-    updateProfile.setAttribute("class", "maxw-650 mx-auto my-4");
+    updateProfile.setAttribute("class", "maxw-650 mx-auto my-4 px-3");
 
     if (storage.get("name") == name) {
       profileImage.append(blueprints.editProfileIcon(updateProfile));
