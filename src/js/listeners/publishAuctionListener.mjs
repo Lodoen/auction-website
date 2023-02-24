@@ -1,16 +1,21 @@
 import listings from "../api/listings/index.mjs";
 import blueprints from "../blueprints/index.mjs";
+import render from "../render/index.mjs";
 
 /**
- * Attaches the create auction functionality to the create auction form
+ * Attaches the publish auction functionality to the publish auction form
  * @param {*} event event
  * @param {*} mediaUrls List of media URLs
  * @example
  * ```js
- * form.addEventListener("submit", (event) => listeners.createAuction(event, mediaUrls));
+ * form.addEventListener("submit", (event) => listeners.publishAuction(event, mediaUrls));
  * ```
  */
-export default async function createAuctionListener(event, mediaUrls) {
+export default async function publishAuctionListener(
+  event,
+  mediaUrls,
+  id = undefined
+) {
   event.preventDefault();
   const formFeedback = document.getElementById("form-feedback");
   if (formFeedback) {
@@ -23,7 +28,9 @@ export default async function createAuctionListener(event, mediaUrls) {
       body["media"] = Array.from(mediaUrls);
       body["tags"] = ["electronics"];
 
-      const response = await listings.create(body);
+      const response = id
+        ? await listings.update(id, body)
+        : await listings.create(body);
 
       formFeedback.innerHTML = "";
       if (!response) {
@@ -32,7 +39,11 @@ export default async function createAuctionListener(event, mediaUrls) {
         );
       }
 
-      formFeedback.append(blueprints.createSuccess(response.id));
+      if (id) {
+        render.specificListing(response, true);
+      } else {
+        formFeedback.append(blueprints.createSuccess(response.id));
+      }
     } catch (error) {
       formFeedback.innerHTML = "";
       if (error.isCustomError) {
@@ -40,7 +51,7 @@ export default async function createAuctionListener(event, mediaUrls) {
       } else {
         formFeedback.append(
           blueprints.feedback(
-            "Something went wrong with the create auction form",
+            "Something went wrong with the publish auction form",
             "warning"
           )
         );

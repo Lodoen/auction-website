@@ -23,7 +23,7 @@ switch (location.pathname) {
     break;
   case "/create/":
   case "/create/index.html":
-    validation.authenticated(render.createAuction);
+    validation.authenticated(render.publishAuction);
     break;
   case "/profile/":
   case "/profile/index.html":

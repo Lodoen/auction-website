@@ -3,7 +3,7 @@ import specificListing from "./renderSpecificListing.mjs";
 import loggedInStatus from "./renderLoggedInStatus.mjs";
 import profile from "./renderProfile.mjs";
 import updateForm from "./renderUpdateForm.mjs";
-import createAuction from "./renderCreateAuction.mjs";
+import publishAuction from "./renderPublishAuction.mjs";
 
 export default {
   showcases,
@@ -11,5 +11,5 @@ export default {
   loggedInStatus,
   profile,
   updateForm,
-  createAuction,
+  publishAuction,
 };

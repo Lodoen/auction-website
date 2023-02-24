@@ -2,6 +2,7 @@ import calculations from "../calculations/index.mjs";
 import blueprints from "../blueprints/index.mjs";
 import listeners from "../listeners/index.mjs";
 import storage from "../storage/index.mjs";
+import render from "./index.mjs";
 
 /**
  * Renders a specific auction listing, and sets listeners for changing media and for submitting a bid
@@ -216,12 +217,26 @@ export default function renderSpecificListing(
         )
       );
     } else if (storage.get("name") == seller.name) {
-      makeBidWrapper.append(
-        blueprints.feedback(
-          "You can not make a bid on your own auction listing",
-          "info"
-        )
+      makeBidHeader.innerText = "Edit listing";
+      const updateListingButton = document.createElement("button");
+      updateListingButton.setAttribute(
+        "class",
+        "btn btn-primary hover-primary"
       );
+      updateListingButton.innerText = "Update";
+      updateListingButton.addEventListener("click", () =>
+        render.publishAuction({ id, description, endsAt, media, title })
+      );
+      const deleteListingButton = document.createElement("button");
+      deleteListingButton.setAttribute(
+        "class",
+        "btn btn-primary hover-primary ms-2"
+      );
+      deleteListingButton.innerText = "Delete";
+      deleteListingButton.addEventListener("click", () =>
+        listeners.removeAuction(id)
+      );
+      makeBidWrapper.append(updateListingButton, deleteListingButton);
     } else if (new Date(endsAt) - new Date() < 0) {
       makeBidWrapper.append(
         blueprints.feedback("Auction has already ended", "info")
