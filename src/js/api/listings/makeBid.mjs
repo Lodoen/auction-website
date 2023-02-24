@@ -2,7 +2,7 @@ import auth from "../auth/index.mjs";
 
 /**
  * Sends a POST request to the API to submit a bid on a listing
- * @param {*} id ID of auction listing
+ * @param {string} id ID of auction listing
  * @param {*} bid Bid information
  * @returns {*} Response of fetch request
  * @example

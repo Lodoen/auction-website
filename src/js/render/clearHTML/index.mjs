@@ -1,6 +1,5 @@
 /**
  * Removes all child elements from a container
- * @param {*} container Container to remove child elements
  * @example
  * ```js
  * container.clearHTML();

@@ -3,7 +3,7 @@ import blueprints from "../blueprints/index.mjs";
 import "../render/clearHTML/index.mjs";
 /**
  * Runs callback function if the user is authenticated (logged in)
- * @param {*} needsToBeAuthenticated function to run if user is authenticated
+ * @param {*} needsToBeAuthenticated Function to run if user is authenticated
  * @example
  * ```js
  * validateAuthenticated(show.specificListing);

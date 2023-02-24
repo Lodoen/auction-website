@@ -4,6 +4,7 @@ import "./clearHTML/index.mjs";
 
 /**
  * Renders the publish auction form
+ * @param {*} listing Listing if the user is updating an existing listing
  * @example
  * ```js
  * renderPublishAuction()

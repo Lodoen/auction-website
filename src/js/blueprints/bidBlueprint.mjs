@@ -3,7 +3,7 @@ import calculations from "../calculations/index.mjs";
 /**
  * Creates HTML for a bid in the bid history
  * @param {*} bid Bid information
- * @returns {*} HTML for displaying a bid in the bid history
+ * @returns {HTMLElement} HTML for displaying a bid in the bid history
  * @example
  * ```js
  * const bid = bidBlueprint(details);

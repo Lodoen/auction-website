@@ -1,6 +1,7 @@
 /**
  * Creates HTML for a success message and link to a specific auction listing
- * @returns {*} HTML for displaying for a success message and link
+ * @param {string} id ID of listing
+ * @returns {HTMLElement} HTML for displaying for a success message and link
  * @example
  * ```js
  * const message = createSuccessBlueprint(id)

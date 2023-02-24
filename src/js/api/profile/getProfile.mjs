@@ -2,7 +2,7 @@ import auth from "../auth/index.mjs";
 
 /**
  * Sends a GET request to the API to fetch a specific profile
- * @param {*} name name of profile
+ * @param {string} name name of profile
  * @returns {*} Response of fetch request
  * @example
  * ```js

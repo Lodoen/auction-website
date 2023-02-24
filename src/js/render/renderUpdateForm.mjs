@@ -5,8 +5,8 @@ import "./clearHTML/index.mjs";
 /**
  * Renders (or hides) the update form on the profile page
  * @param {boolean} isOpen If the update form is closed or not
- * @param {*} container Container to render the update form
- * @param {*} updateButtonIcon Open / close update form button icon
+ * @param {HTMLElement} container Container to render the update form
+ * @param {HTMLElement} updateButtonIcon Open / close update form button icon
  * @example
  * ```js
  * renderUpdateForm(isOpen, container, buttonIcon);

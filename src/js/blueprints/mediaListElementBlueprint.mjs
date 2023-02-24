@@ -5,7 +5,7 @@ import "../render/clearHTML/index.mjs";
  * Creates HTML for a list element in the media list on the create page
  * @param {string} url New url
  * @param {*} mediaUrls List of all urls
- * @returns {*} HTML for displaying a list element in the media list
+ * @returns {HTMLElement} HTML for displaying a list element in the media list
  * @example
  * ```js
  * const listElement = mediaListElement(url, mediaUrls);

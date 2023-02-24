@@ -1,7 +1,7 @@
 /**
  * Creates HTML for an image in the media gallery
  * @param {string} src SRC of the image element
- * @returns {*} HTML for displaying a image in the media gallery
+ * @returns {HTMLElement} HTML for displaying a image in the media gallery
  * @example
  * ```js
  * const image = galleryImageBlueprint(url);

@@ -3,7 +3,7 @@ import "../render/clearHTML/index.mjs";
 
 /**
  * Creates HTML for the modal on the listing page
- * @returns {*} HTML for displaying the modal on the listing page
+ * @returns {HTMLElement} HTML for displaying the modal on the listing page
  * @example
  * ```js
  * const modal = modalBlueprint(src);

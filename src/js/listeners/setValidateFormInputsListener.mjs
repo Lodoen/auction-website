@@ -4,7 +4,7 @@ import "../render/clearHTML/index.mjs";
 
 /**
  * Attaches validation to a form input
- * @param {*} form Form containing the inputs
+ * @param {HTMLElement} form Form containing the inputs
  * @example
  * ```js
  * setValidateFormInputListener(input);

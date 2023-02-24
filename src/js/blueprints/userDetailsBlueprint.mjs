@@ -3,7 +3,7 @@ import listeners from "../listeners/index.mjs";
 /**
  * Creates HTML for the user details in the HTML header
  * @param {*} details User details from API call
- * @returns {*} HTML for displaying the user details in the HTML header
+ * @returns {HTMLElement} HTML for displaying the user details in the HTML header
  * @example
  * ```js
  * const header = userDetails(details);

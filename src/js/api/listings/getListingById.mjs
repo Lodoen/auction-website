@@ -1,7 +1,7 @@
 import { baseUrl } from "../constants.mjs";
 /**
  * Sends a GET request to the API to fetch a specific auction listing
- * @param {*} id ID of auction listing
+ * @param {string} id ID of auction listing
  * @returns {*} Response of fetch request
  * @example
  * ```js

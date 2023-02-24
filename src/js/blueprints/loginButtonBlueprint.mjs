@@ -1,6 +1,6 @@
 /**
  * Creates HTML for the login button in the HTML header
- * @returns {*} HTML for displaying the login button in the HTML header
+ * @returns {HTMLElement} HTML for displaying the login button in the HTML header
  * @example
  * ```js
  * const header = loginButton();
