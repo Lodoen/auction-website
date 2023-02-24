@@ -51,27 +51,27 @@ export default function renderPublishAuction(listing = undefined) {
 
       const dateAndTime = JSON.stringify(new Date()).split("T");
       const today = dateAndTime[0].replaceAll(`"`, "");
-      let deadline = today;
-
-      if (listing) {
-        const givenDeadline = JSON.stringify(listing.endsAt).split("T");
-        deadline = givenDeadline[0].replaceAll(`"`, "");
-      }
 
       const dateInput = document.createElement("input");
       dateInput.setAttribute("type", "date");
       dateInput.setAttribute("class", "form-control");
       dateInput.setAttribute("id", "endsAt");
       dateInput.setAttribute("name", "endsAt");
-      dateInput.setAttribute("value", deadline);
+      dateInput.setAttribute("value", today);
       dateInput.setAttribute("min", today);
       dateInput.setAttribute("required", "true");
       dateInput.setAttribute("title", "A valid date is required");
 
+      if (listing) {
+        dateInput.setAttribute("disabled", "true");
+      }
+
       const dateLabel = document.createElement("label");
       dateLabel.setAttribute("class", "form-label mb-0");
       dateLabel.setAttribute("for", "endsAt");
-      dateLabel.innerText = "Ends at:";
+      dateLabel.innerText = listing
+        ? "Ends at (you cannot change this):"
+        : "Ends at:";
 
       const dateFeedback = document.createElement("p");
       dateFeedback.setAttribute(

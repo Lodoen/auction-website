@@ -18,7 +18,6 @@ switch (location.pathname) {
     break;
   case "/listing/":
   case "/listing/index.html":
-    // validation.authenticated(prepare.specificAuctionListing);
     prepare.specificAuctionListing();
     break;
   case "/create/":

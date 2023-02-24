@@ -210,6 +210,7 @@ export default function renderSpecificListing(
     makeBidHeader.innerText = "Make a bid";
 
     const makeBidWrapper = document.createElement("div");
+    const auctionHasEnded = new Date(endsAt) - new Date() < 0;
     if (!isLoggedIn) {
       makeBidWrapper.append(
         blueprints.feedback(
@@ -219,26 +220,29 @@ export default function renderSpecificListing(
       );
     } else if (storage.get("name") == seller.name) {
       makeBidHeader.innerText = "Edit listing";
-      const updateListingButton = document.createElement("button");
-      updateListingButton.setAttribute(
-        "class",
-        "btn btn-primary hover-primary"
-      );
-      updateListingButton.innerText = "Update";
-      updateListingButton.addEventListener("click", () =>
-        render.publishAuction({ id, description, endsAt, media, title })
-      );
+      if (!auctionHasEnded) {
+        const updateListingButton = document.createElement("button");
+        updateListingButton.setAttribute(
+          "class",
+          "btn btn-primary hover-primary me-2"
+        );
+        updateListingButton.innerText = "Edit";
+        updateListingButton.addEventListener("click", () =>
+          render.publishAuction({ id, description, endsAt, media, title })
+        );
+        makeBidWrapper.append(updateListingButton);
+      }
       const deleteListingButton = document.createElement("button");
       deleteListingButton.setAttribute(
         "class",
-        "btn btn-primary hover-primary ms-2"
+        "btn btn-primary hover-primary"
       );
       deleteListingButton.innerText = "Delete";
       deleteListingButton.addEventListener("click", () =>
         listeners.removeAuction(id)
       );
-      makeBidWrapper.append(updateListingButton, deleteListingButton);
-    } else if (new Date(endsAt) - new Date() < 0) {
+      makeBidWrapper.append(deleteListingButton);
+    } else if (auctionHasEnded) {
       makeBidWrapper.append(
         blueprints.feedback("Auction has already ended", "info")
       );
