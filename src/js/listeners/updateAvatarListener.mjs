@@ -1,6 +1,7 @@
 import storage from "../storage/index.mjs";
 import editProfileIcon from "../api/profile/editProfileIcon.mjs";
 import blueprints from "../blueprints/index.mjs";
+import "../render/clearHTML/index.mjs";
 
 /**
  * Attaches the update profile icon functionality to the update profile icon form
@@ -15,7 +16,7 @@ export default async function updateAvatarListener(event) {
   if (formFeedback) {
     try {
       event.preventDefault();
-      formFeedback.innerHTML = "";
+      formFeedback.clearHTML();
       formFeedback.append(blueprints.loading());
 
       const formData = new FormData(event.currentTarget);
@@ -29,7 +30,7 @@ export default async function updateAvatarListener(event) {
       }
 
       const response = await editProfileIcon(name, details);
-      formFeedback.innerHTML = "";
+      formFeedback.clearHTML();
       if (!response) {
         if (!name) {
           throw blueprints.error(
@@ -45,7 +46,7 @@ export default async function updateAvatarListener(event) {
         blueprints.feedback(`The profile image has been updated!`, "success")
       );
     } catch (error) {
-      formFeedback.innerHTML = "";
+      formFeedback.clearHTML();
       if (error.isCustomError) {
         formFeedback.append(blueprints.feedback(error.message, "warning"));
       } else {

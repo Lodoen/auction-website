@@ -4,9 +4,10 @@ import logout from "./logoutListener.mjs";
 import filterAuctions from "./setFilterAuctionsListener.mjs";
 import changeMedia from "./setChangeMediaListener.mjs";
 import makeBid from "./makeBidListener.mjs";
-import createAuction from "./createAuctionListener.mjs";
+import publishAuction from "./publishAuctionListener.mjs";
 import updateAvatar from "./updateAvatarListener.mjs";
 import validateFormInputs from "./setValidateFormInputsListener.mjs";
+import removeAuction from "./removeAuctionListener.mjs";
 
 export default {
   register,
@@ -15,7 +16,8 @@ export default {
   filterAuctions,
   changeMedia,
   makeBid,
-  createAuction,
+  publishAuction,
   updateAvatar,
   validateFormInputs,
+  removeAuction,
 };

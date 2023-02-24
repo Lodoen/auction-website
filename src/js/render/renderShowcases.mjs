@@ -1,4 +1,5 @@
 import blueprints from "../blueprints/index.mjs";
+import "./clearHTML/index.mjs";
 
 /**
  * Renders the auction listings on the home page
@@ -11,7 +12,7 @@ import blueprints from "../blueprints/index.mjs";
 export default async function renderShowcases(auctionListings) {
   const container = document.getElementById("listings");
   if (container) {
-    container.innerHTML = "";
+    container.clearHTML();
     try {
       if (typeof auctionListings !== "object" || auctionListings.length <= 0) {
         throw blueprints.error(
@@ -20,7 +21,7 @@ export default async function renderShowcases(auctionListings) {
       }
       container.append(...auctionListings.map(blueprints.listingShowcase));
     } catch (error) {
-      container.innerHTML = "";
+      container.clearHTML();
 
       if (error.isCustomError) {
         container.append(blueprints.feedback(error.message, "warning"));

@@ -1,4 +1,14 @@
 import blueprints from "./index.mjs";
+import "../render/clearHTML/index.mjs";
+
+/**
+ * Creates HTML for the modal on the listing page
+ * @returns {HTMLElement} HTML for displaying the modal on the listing page
+ * @example
+ * ```js
+ * const modal = modalBlueprint(src);
+ * ```
+ */
 export default function modalBlueprint(src) {
   try {
     const product = document.createElement("img");
@@ -44,7 +54,7 @@ export default function modalBlueprint(src) {
   } catch (error) {
     const container = document.querySelector("main");
     if (container) {
-      container.innerHTML = "";
+      container.clearHTML();
       container.append(
         blueprints.feedback(
           "Something went wrong when handling the modal",

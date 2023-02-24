@@ -1,11 +1,12 @@
 import blueprints from "../blueprints/index.mjs";
 import listeners from "../listeners/index.mjs";
+import "./clearHTML/index.mjs";
 
 /**
  * Renders (or hides) the update form on the profile page
  * @param {boolean} isOpen If the update form is closed or not
- * @param {*} container Container to render the update form
- * @param {*} updateButtonIcon Open / close update form button icon
+ * @param {HTMLElement} container Container to render the update form
+ * @param {HTMLElement} updateButtonIcon Open / close update form button icon
  * @example
  * ```js
  * renderUpdateForm(isOpen, container, buttonIcon);
@@ -18,7 +19,7 @@ export default function renderUpdateForm(isOpen, container, updateButtonIcon) {
         ? "../img/icons/edit.png"
         : "../img/icons/close.png";
       if (isOpen) {
-        container.innerHTML = "";
+        container.clearHTML();
       } else {
         const header = document.createElement("h2");
         header.innerText = "Update avatar";
@@ -76,7 +77,7 @@ export default function renderUpdateForm(isOpen, container, updateButtonIcon) {
         container.append(header, form, formFeedback);
       }
     } catch (error) {
-      container.innerHTML = "";
+      container.clearHTML();
       container.append(
         blueprints.feedback(
           "We encountered an error with the update avatar form",

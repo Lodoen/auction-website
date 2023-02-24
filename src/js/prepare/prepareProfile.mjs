@@ -4,6 +4,7 @@ import getListingsByProfile from "../api/profile/getListingsByProfile.mjs";
 import render from "../render/index.mjs";
 import storage from "../storage/index.mjs";
 import blueprints from "../blueprints/index.mjs";
+import "../render/clearHTML/index.mjs";
 
 /**
  * Prepares a specific profile for rendering on the profile page
@@ -41,7 +42,7 @@ export default async function prepareProfile() {
     const container = document.querySelector("main");
     if (container) {
       container.setAttribute("class", "maxw-650 mx-auto");
-      container.innerHTML = "";
+      container.clearHTML();
       if (error.isCustomError) {
         container.append(blueprints.feedback(error.message, "warning"));
       } else {

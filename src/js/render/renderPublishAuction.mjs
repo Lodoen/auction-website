@@ -1,22 +1,24 @@
 import listeners from "../listeners/index.mjs";
 import blueprints from "../blueprints/index.mjs";
+import "./clearHTML/index.mjs";
 
 /**
- * Renders the create auction form
+ * Renders the publish auction form
+ * @param {*} listing Listing if the user is updating an existing listing
  * @example
  * ```js
- * renderCreateAuction()
+ * renderPublishAuction()
  * ```
  */
-export default function renderCreateAuction() {
+export default function renderPublishAuction(listing = undefined) {
   const container = document.querySelector("main");
   if (container) {
-    container.innerHTML = "";
+    container.clearHTML();
 
     try {
       const h1 = document.createElement("h1");
       h1.setAttribute("class", "text-center text-sm-start pt-4 pb-3 ps-sm-2");
-      h1.innerText = "Create a new auction";
+      h1.innerText = listing ? "Update auction" : "Create a new auction";
 
       const titleInput = document.createElement("input");
       titleInput.setAttribute("type", "text");
@@ -30,6 +32,7 @@ export default function renderCreateAuction() {
         "title",
         "A valid title is required (must be under 280 characters long)"
       );
+      titleInput.value = listing ? listing.title : "";
 
       const titleLabel = document.createElement("label");
       titleLabel.setAttribute("class", "form-label mb-0");
@@ -48,13 +51,19 @@ export default function renderCreateAuction() {
 
       const dateAndTime = JSON.stringify(new Date()).split("T");
       const today = dateAndTime[0].replaceAll(`"`, "");
+      let deadline = today;
+
+      if (listing) {
+        const givenDeadline = JSON.stringify(listing.endsAt).split("T");
+        deadline = givenDeadline[0].replaceAll(`"`, "");
+      }
 
       const dateInput = document.createElement("input");
       dateInput.setAttribute("type", "date");
       dateInput.setAttribute("class", "form-control");
       dateInput.setAttribute("id", "endsAt");
       dateInput.setAttribute("name", "endsAt");
-      dateInput.setAttribute("value", today);
+      dateInput.setAttribute("value", deadline);
       dateInput.setAttribute("min", today);
       dateInput.setAttribute("required", "true");
       dateInput.setAttribute("title", "A valid date is required");
@@ -79,6 +88,7 @@ export default function renderCreateAuction() {
       descriptionInput.setAttribute("id", "description");
       descriptionInput.setAttribute("name", "description");
       descriptionInput.setAttribute("placeholder", "Description ...");
+      descriptionInput.innerText = listing ? listing.description : "";
 
       const descriptionLabel = document.createElement("label");
       descriptionLabel.setAttribute("class", "form-label mb-0");
@@ -136,23 +146,6 @@ export default function renderCreateAuction() {
       mediaWrapper.setAttribute("class", "d-flex border rounded");
       mediaWrapper.append(mediaInput, addMediaButton);
 
-      const mediaUrls = new Set();
-      addMediaButton.addEventListener("click", () => {
-        if (mediaInput.checkValidity()) {
-          mediaFeedback.innerText = "";
-          mediaWrapper.classList.remove("border-danger");
-
-          const mediaUrl = mediaInput.value.trim();
-          if (mediaUrl && !mediaUrls.has(mediaUrl)) {
-            mediaUrls.add(mediaUrl);
-            mediaList.append(blueprints.mediaListElement(mediaUrl, mediaUrls));
-          }
-        } else {
-          mediaFeedback.innerText = "Must be fully formed URL";
-          mediaWrapper.classList.add("border-danger");
-        }
-      });
-
       const mediaHelp = document.createElement("div");
       mediaHelp.setAttribute("class", "form-text");
       mediaHelp.setAttribute("id", "mediaHelp");
@@ -177,6 +170,32 @@ export default function renderCreateAuction() {
         mediaListWrapper
       );
 
+      const mediaUrls = new Set(listing ? listing.media : []);
+
+      if (mediaUrls.size > 0) {
+        mediaList.append(
+          ...listing.media.map((url) =>
+            blueprints.mediaListElement(url, mediaUrls)
+          )
+        );
+      }
+
+      addMediaButton.addEventListener("click", () => {
+        if (mediaInput.checkValidity()) {
+          mediaFeedback.innerText = "";
+          mediaWrapper.classList.remove("border-danger");
+
+          const mediaUrl = mediaInput.value.trim();
+          if (mediaUrl && !mediaUrls.has(mediaUrl)) {
+            mediaUrls.add(mediaUrl);
+            mediaList.append(blueprints.mediaListElement(mediaUrl, mediaUrls));
+          }
+        } else {
+          mediaFeedback.innerText = "Must be fully formed URL";
+          mediaWrapper.classList.add("border-danger");
+        }
+      });
+
       const borderStart = document.createElement("div");
       borderStart.setAttribute("class", "border-start");
       const borderStartWrapper = document.createElement("div");
@@ -192,7 +211,7 @@ export default function renderCreateAuction() {
         "class",
         "btn btn-secondary hover-secondary rounded-pill col-12 col-sm-3"
       );
-      submitButton.innerText = "Create listing";
+      submitButton.innerText = listing ? "Update listing" : "Create listing";
 
       const submitButtonWrapper = document.createElement("div");
       submitButtonWrapper.setAttribute(
@@ -214,7 +233,7 @@ export default function renderCreateAuction() {
       form.setAttribute("class", "container-fluid");
       form.append(formContent);
       form.addEventListener("submit", (event) =>
-        listeners.createAuction(event, mediaUrls)
+        listeners.publishAuction(event, mediaUrls, listing ? listing.id : "")
       );
       listeners.validateFormInputs(form);
 
@@ -223,7 +242,7 @@ export default function renderCreateAuction() {
 
       container.append(h1, form, formFeedback);
     } catch (error) {
-      container.innerHTML = "";
+      container.clearHTML();
       if (error.isCustomError) {
         container.append(blueprints.feedback(error.message, "warning"));
       } else {

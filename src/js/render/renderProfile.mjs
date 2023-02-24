@@ -1,6 +1,7 @@
 import blueprints from "../blueprints/index.mjs";
 import calculations from "../calculations/index.mjs";
 import storage from "../storage/index.mjs";
+import "./clearHTML/index.mjs";
 
 /**
  * Populates profile page with information about the given profile
@@ -13,7 +14,7 @@ import storage from "../storage/index.mjs";
 export default function renderProfile({ name, avatar, listings, bids }) {
   const container = document.querySelector("main");
   if (container) {
-    container.innerHTML = "";
+    container.clearHTML();
 
     document.title = `${name} | Electroneer`;
 
@@ -36,7 +37,7 @@ export default function renderProfile({ name, avatar, listings, bids }) {
     profileImage.append(IconWrapper);
 
     const updateProfile = document.createElement("section");
-    updateProfile.setAttribute("class", "maxw-650 mx-auto my-4");
+    updateProfile.setAttribute("class", "maxw-650 mx-auto my-4 px-3");
 
     if (storage.get("name") == name) {
       profileImage.append(blueprints.editProfileIcon(updateProfile));

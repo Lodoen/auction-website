@@ -1,6 +1,6 @@
 /**
  * Creates HTML for a customisable feedback message
- * @returns {*} HTML for displaying a customisable feedback message
+ * @returns {HTMLElement} HTML for displaying a customisable feedback message
  * @example
  * ```js
  * const feedback = feedbackBlueprint("Registration successful!", "success");

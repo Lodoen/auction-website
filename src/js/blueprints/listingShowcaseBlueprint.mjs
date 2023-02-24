@@ -3,7 +3,7 @@ import calculations from "../calculations/index.mjs";
 /**
  * Creates HTML for a listing showcase
  * @param {*} listing Data to display
- * @returns {*} HTML for displaying a listing showcase
+ * @returns {HTMLElement} HTML for displaying a listing showcase
  * @example
  * ```js
  * const listing = listingShowcaseBlueprint(listing);

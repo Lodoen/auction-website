@@ -1,6 +1,6 @@
 /**
  * Creates HTML for a not authenticated message and a link to the register page
- * @returns {*} HTML for a not authenticated message
+ * @returns {HTMLElement} HTML for a not authenticated message
  * @example
  * ```js
  * const feedback = notAuthenticatedBlueprint();

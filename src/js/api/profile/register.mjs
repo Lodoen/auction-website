@@ -1,5 +1,6 @@
 import { baseUrl } from "../constants.mjs";
 import blueprints from "../../blueprints/index.mjs";
+import "../../render/clearHTML/index.mjs";
 
 /**
  * Sends a post request to the API to register a new user
@@ -23,7 +24,7 @@ export default async function register(profile) {
         body: JSON.stringify(profile),
       });
 
-      feedback.innerHTML = "";
+      feedback.clearHTML();
 
       if (!response.ok) {
         const result = await response.json();
@@ -34,7 +35,7 @@ export default async function register(profile) {
         blueprints.feedback("Registration successful!", "success")
       );
     } catch (error) {
-      feedback.innerHTML = "";
+      feedback.clearHTML();
       if (error.isCustomError) {
         feedback.append(blueprints.feedback(error.message, "warning"));
       } else {
