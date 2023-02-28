@@ -1,9 +1,9 @@
-import calculations from "../calculations/index.mjs";
-import blueprints from "../blueprints/index.mjs";
-import listeners from "../listeners/index.mjs";
-import storage from "../storage/index.mjs";
-import render from "./index.mjs";
-import "./clearHTML/index.mjs";
+import calculations from "../../calculations/index.mjs";
+import blueprints from "../../blueprints/index.mjs";
+import listeners from "../../listeners/index.mjs";
+import storage from "../../storage/index.mjs";
+import render from "../index.mjs";
+import "../clearHTML/index.mjs";
 
 /**
  * Renders a specific auction listing, and sets listeners for changing media and for submitting a bid

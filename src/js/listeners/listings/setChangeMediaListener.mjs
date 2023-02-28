@@ -1,4 +1,4 @@
-import "../render/clearHTML/index.mjs";
+import "../../render/clearHTML/index.mjs";
 /**
  * Attaches the change media functionality to a change media button
  * @param {HTMLElement} btn Change media button

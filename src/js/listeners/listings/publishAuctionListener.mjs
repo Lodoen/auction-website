@@ -1,7 +1,7 @@
-import listings from "../api/listings/index.mjs";
-import blueprints from "../blueprints/index.mjs";
-import render from "../render/index.mjs";
-import "../render/clearHTML/index.mjs";
+import listings from "../../api/listings/index.mjs";
+import blueprints from "../../blueprints/index.mjs";
+import render from "../../render/index.mjs";
+import "../../render/clearHTML/index.mjs";
 
 /**
  * Attaches the publish auction functionality to the publish auction form
@@ -28,8 +28,6 @@ export default async function publishAuctionListener(
       const body = Object.fromEntries(formData.entries());
       body["media"] = Array.from(mediaUrls);
       body["tags"] = ["electronics"];
-
-      console.log(body);
 
       const response = id
         ? await listings.update(id, body)

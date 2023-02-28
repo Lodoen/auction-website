@@ -1,5 +1,5 @@
-import blueprints from "../blueprints/index.mjs";
-import "./clearHTML/index.mjs";
+import blueprints from "../../blueprints/index.mjs";
+import "../clearHTML/index.mjs";
 /**
  * Renders the header to indicate if user is logged in or not
  * @param {*} loggedInUser User data to render

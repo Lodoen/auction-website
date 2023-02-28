@@ -1,6 +1,6 @@
-import register from "../api/profile/register.mjs";
-import listeners from "./index.mjs";
-import blueprints from "../blueprints/index.mjs";
+import register from "../../api/profile/register.mjs";
+import listeners from "../index.mjs";
+import blueprints from "../../blueprints/index.mjs";
 
 /**
  * Attaches the register function to the register form

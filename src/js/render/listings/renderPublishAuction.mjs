@@ -1,6 +1,6 @@
-import listeners from "../listeners/index.mjs";
-import blueprints from "../blueprints/index.mjs";
-import "./clearHTML/index.mjs";
+import listeners from "../../listeners/index.mjs";
+import blueprints from "../../blueprints/index.mjs";
+import "../clearHTML/index.mjs";
 
 /**
  * Renders the publish auction form

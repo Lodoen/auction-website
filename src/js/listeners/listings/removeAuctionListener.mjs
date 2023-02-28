@@ -1,6 +1,6 @@
-import listings from "../api/listings/index.mjs";
-import blueprints from "../blueprints/index.mjs";
-import "../render/clearHTML/index.mjs";
+import listings from "../../api/listings/index.mjs";
+import blueprints from "../../blueprints/index.mjs";
+import "../../render/clearHTML/index.mjs";
 
 /**
  * Attaches the remove auction functionality to the remove auction button

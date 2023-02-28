@@ -1,7 +1,7 @@
-import blueprints from "../blueprints/index.mjs";
-import calculations from "../calculations/index.mjs";
-import storage from "../storage/index.mjs";
-import "./clearHTML/index.mjs";
+import blueprints from "../../blueprints/index.mjs";
+import calculations from "../../calculations/index.mjs";
+import storage from "../../storage/index.mjs";
+import "../clearHTML/index.mjs";
 
 /**
  * Populates profile page with information about the given profile

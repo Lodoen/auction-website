@@ -1,7 +1,7 @@
-import storage from "../storage/index.mjs";
-import editProfileIcon from "../api/profile/editProfileIcon.mjs";
-import blueprints from "../blueprints/index.mjs";
-import "../render/clearHTML/index.mjs";
+import storage from "../../storage/index.mjs";
+import editProfileIcon from "../../api/profile/editProfileIcon.mjs";
+import blueprints from "../../blueprints/index.mjs";
+import "../../render/clearHTML/index.mjs";
 
 /**
  * Attaches the update profile icon functionality to the update profile icon form
