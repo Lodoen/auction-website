@@ -1,5 +1,5 @@
-import auctionListings from "./prepareAuctionListings.mjs";
+import prepareHome from "./prepareHome.mjs";
 import specificAuctionListing from "./prepareSpecificAuctionListing.mjs";
 import profile from "./prepareProfile.mjs";
 
-export default { auctionListings, specificAuctionListing, profile };
+export default { prepareHome, specificAuctionListing, profile };

@@ -14,7 +14,7 @@ switch (location.pathname) {
     break;
   case "/":
   case "/index.html":
-    prepare.auctionListings();
+    prepare.prepareHome();
     break;
   case "/listing/":
   case "/listing/index.html":

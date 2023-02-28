@@ -5,6 +5,7 @@ import profile from "./renderProfile.mjs";
 import updateForm from "./renderUpdateForm.mjs";
 import publishAuction from "./renderPublishAuction.mjs";
 import bidHistory from "./renderBidHistory.mjs";
+import createCTA from "./renderCreateCTA.mjs";
 
 export default {
   showcases,
@@ -14,4 +15,5 @@ export default {
   updateForm,
   publishAuction,
   bidHistory,
+  createCTA,
 };
