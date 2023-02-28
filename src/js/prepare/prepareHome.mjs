@@ -6,15 +6,16 @@ import validation from "../validation/index.mjs";
 import "../render/clearHTML/index.mjs";
 
 /**
- * Prepares auction listings for rendering, and sets event listener for filtering auction listings
+ * Prepares the home page CTA and auction listings for rendering, and sets event listener for filtering auction listings
  * @example
  * ```js
- * prepareAuctionListings();
+ * prepareHome();
  * ```
  */
-export default async function prepareAuctionListings() {
+export default async function prepareHome() {
   try {
-    await validation.loggedIn();
+    const isLoggedIn = await validation.loggedIn();
+    render.createCTA(isLoggedIn);
 
     const auctions = await listings.getAll();
 
