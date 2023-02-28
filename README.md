@@ -44,6 +44,7 @@ Additionally I implemented:
 - Ability to edit / delete auction listings
 - Ability to view auction listings / bids made by a user
 - A functional media gallery on the listing page
+- A unit / end-to-end test for every required user story
 
 <br />
 
@@ -89,6 +90,35 @@ npm run build
 The project contains the live-server (1.2.2) dependency, which can be activated using (this also activates the sass watch/build script)
 ```
 npm run watch
+```
+
+<br />
+
+### Testing
+The main branch is protected by automated unit and end-to-end tests.<br />
+Every required user story has its own test:
+- Unit tests for authenticated user stories
+- End-to-end tests for unauthenticated user stories
+
+#### Running the tests locally
+Run all unit and e2e tests in CLI
+```
+npm run test
+```
+
+Run all unit tests in CLI
+```
+npm run test-unit
+```
+
+Run all e2e tests in CLI
+```
+npm run test-e2e-cli
+```
+
+Open cypress interface:
+```
+npm run test-e2e
 ```
 
 <br />
