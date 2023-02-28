@@ -1,6 +1,7 @@
 # Auction Website (Semester Project 2)
 ![auction-website-1](https://user-images.githubusercontent.com/95305401/221525729-4f420282-881d-48cc-a12f-cf3b29ea7843.png)
-
+[![Automated Unit Testing](https://github.com/jonaslod/auction-website/actions/workflows/unit-test.yml/badge.svg)](https://github.com/jonaslod/auction-website/actions/workflows/unit-test.yml)
+[![Automated E2E Testing](https://github.com/jonaslod/auction-website/actions/workflows/e2e-test.yml/badge.svg)](https://github.com/jonaslod/auction-website/actions/workflows/e2e-test.yml)
 ## Description
 
 This breif was assigned to me as the second semester project during my Front-End studies. The breif was described as follows:
