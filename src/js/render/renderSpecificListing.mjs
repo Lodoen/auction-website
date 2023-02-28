@@ -338,9 +338,15 @@ export default function renderSpecificListing(
     biddingHistoryHeader.setAttribute("class", "mb-3");
     const biddingHistory = document.createElement("span");
     biddingHistory.setAttribute("id", "bidding-history");
-    if (bids.length > 0) {
-      bids.sort((a, b) => (a.amount < b.amount ? 1 : -1));
-      biddingHistory.append(...bids.map(blueprints.bid));
+    if (!isLoggedIn) {
+      biddingHistory.append(
+        blueprints.feedback(
+          "You have to be logged in to view the bidding history",
+          "info"
+        )
+      );
+    } else if (bids.length > 0) {
+      render.bidHistory(biddingHistory, bids);
     } else {
       biddingHistory.append(
         blueprints.feedback(
