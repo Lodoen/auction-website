@@ -1,5 +1,6 @@
 import listings from "../api/listings/index.mjs";
 import blueprints from "../blueprints/index.mjs";
+import render from "../render/index.mjs";
 import "../render/clearHTML/index.mjs";
 
 /**
@@ -55,9 +56,7 @@ export default async function makeBidListener(event, id) {
       const container = document.getElementById("bidding-history");
       if (container) {
         const { bids } = response;
-        bids.sort((a, b) => (a.amount < b.amount ? 1 : -1));
-        container.clearHTML();
-        container.append(...bids.map(blueprints.bid));
+        render.bidHistory(container, bids);
       }
     } catch (error) {
       formFeedback.clearHTML();
