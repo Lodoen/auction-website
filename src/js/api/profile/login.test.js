@@ -1,14 +1,19 @@
+/**
+ * @jest-environment jsdom
+ */
 import login from "./login.mjs";
+
+const mockObject = {
+  name: "name",
+  email: "email",
+  credits: 1000,
+  avatar: null,
+  accessToken: "token",
+};
 
 const mockFetchSuccess = jest.fn().mockResolvedValue({
   ok: true,
-  json: jest.fn().mockResolvedValue({
-    name: "name",
-    email: "email",
-    credits: 1000,
-    avatar: null,
-    accessToken: "token",
-  }),
+  json: jest.fn().mockResolvedValue(mockObject),
 });
 
 global.fetch = mockFetchSuccess;
@@ -35,14 +40,20 @@ global.localStorage = new LocalStorageMock();
 
 describe("login", () => {
   it("stores a token when provided with valid credentials", async () => {
+    const container = document.createElement("div");
+    container.setAttribute("id", "form-feedback");
+    document.body.append(container);
+
     localStorage.clear();
+
     const user = {
       email: "email",
       password: "password",
     };
+
     await login(user);
-    const accessToken = localStorage.getItem("accessToken");
-    expect(accessToken).not.toBeNull();
     expect(fetch).toHaveBeenCalledTimes(1);
+    expect(localStorage.getItem("accessToken")).not.toBeNull();
+    expect(localStorage.getItem("name")).not.toBeNull();
   });
 });

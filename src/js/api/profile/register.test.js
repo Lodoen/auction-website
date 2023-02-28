@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import register from "./register.mjs";
 
 const mockFetchSuccess = jest.fn().mockResolvedValue({
@@ -15,13 +18,19 @@ global.fetch = mockFetchSuccess;
 
 describe("register", () => {
   it("registers a user with valid credentials", async () => {
-    localStorage.clear();
+    const container = document.createElement("div");
+    container.setAttribute("id", "form-feedback");
+    document.body.append(container);
+
     const user = {
       name: "name",
       email: "email",
       password: "password",
     };
+
     await register(user);
     expect(fetch).toHaveBeenCalledTimes(1);
+    const feedbackContainer = container.querySelector("div.alert");
+    expect(feedbackContainer.innerText).toEqual("Registration successful!");
   });
 });

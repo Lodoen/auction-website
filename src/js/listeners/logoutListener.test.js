@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import logoutListener from "./logoutListener.mjs";
 
 class LocalStorageMock {
@@ -21,9 +24,6 @@ global.localStorage = new LocalStorageMock();
 
 describe("logout", () => {
   it("clears the accessToken and name from local storage", () => {
-    //     document.body.innerHTML = `
-    //     <main>Example</main>
-    //   `;
     logoutListener();
     expect(localStorage.getItem("accessToken")).toBeNull();
     expect(localStorage.getItem("name")).toBeNull();
