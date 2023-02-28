@@ -29,8 +29,6 @@ export default async function publishAuctionListener(
       body["media"] = Array.from(mediaUrls);
       body["tags"] = ["electronics"];
 
-      console.log(body);
-
       const response = id
         ? await listings.update(id, body)
         : await listings.create(body);
