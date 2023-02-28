@@ -1,5 +1,5 @@
-import blueprints from "../blueprints/index.mjs";
-import "./clearHTML/index.mjs";
+import blueprints from "../../blueprints/index.mjs";
+import "../clearHTML/index.mjs";
 /**
  * Renders the bid history of a selected listing
  * @param {HTMLElement} container Container of bidding history

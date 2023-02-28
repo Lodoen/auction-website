@@ -1,4 +1,4 @@
-import render from "../render/index.mjs";
+import render from "../../render/index.mjs";
 
 /**
  * Creates HTML for the edit profile icon button on the profile page

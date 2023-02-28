@@ -1,6 +1,6 @@
-import login from "../api/profile/login.mjs";
-import blueprints from "../blueprints/index.mjs";
-import listeners from "./index.mjs";
+import login from "../../api/profile/login.mjs";
+import blueprints from "../../blueprints/index.mjs";
+import listeners from "../index.mjs";
 
 /**
  * Attaches the login function to the login form

@@ -1,6 +1,6 @@
-import blueprints from "../blueprints/index.mjs";
-import validation from "../validation/index.mjs";
-import "../render/clearHTML/index.mjs";
+import blueprints from "../../blueprints/index.mjs";
+import validation from "../../validation/index.mjs";
+import "../../render/clearHTML/index.mjs";
 
 /**
  * Attaches validation to a form input

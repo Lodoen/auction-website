@@ -1,5 +1,5 @@
-import blueprints from "./index.mjs";
-import "../render/clearHTML/index.mjs";
+import blueprints from "../index.mjs";
+import "../../render/clearHTML/index.mjs";
 
 /**
  * Creates HTML for a list element in the media list on the create page

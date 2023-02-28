@@ -1,5 +1,5 @@
 import blueprints from "./index.mjs";
-import "../render/clearHTML/index.mjs";
+import "../../render/clearHTML/index.mjs";
 
 /**
  * Creates HTML for the modal on the listing page

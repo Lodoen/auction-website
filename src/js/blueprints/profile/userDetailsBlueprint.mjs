@@ -1,4 +1,4 @@
-import listeners from "../listeners/index.mjs";
+import listeners from "../../listeners/index.mjs";
 
 /**
  * Creates HTML for the user details in the HTML header

@@ -1,6 +1,6 @@
-import blueprints from "../blueprints/index.mjs";
-import listeners from "../listeners/index.mjs";
-import "./clearHTML/index.mjs";
+import blueprints from "../../blueprints/index.mjs";
+import listeners from "../../listeners/index.mjs";
+import "../clearHTML/index.mjs";
 
 /**
  * Renders (or hides) the update form on the profile page

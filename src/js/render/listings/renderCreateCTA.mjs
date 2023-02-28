@@ -1,4 +1,4 @@
-import "./clearHTML/index.mjs";
+import "../clearHTML/index.mjs";
 /**
  * Renders the create CTA on the home page
  * @param {boolean} isLoggedIn if the user is logged in

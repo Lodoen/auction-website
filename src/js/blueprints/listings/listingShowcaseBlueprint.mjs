@@ -1,4 +1,4 @@
-import calculations from "../calculations/index.mjs";
+import calculations from "../../calculations/index.mjs";
 
 /**
  * Creates HTML for a listing showcase
