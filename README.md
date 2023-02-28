@@ -92,8 +92,6 @@ The project contains the live-server (1.2.2) dependency, which can be activated 
 npm run watch
 ```
 
-<br />
-
 ### Testing
 The main branch is protected by automated unit and end-to-end tests.<br />
 Every required user story has its own test:
