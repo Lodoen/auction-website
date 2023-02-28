@@ -4,6 +4,7 @@ import loggedInStatus from "./renderLoggedInStatus.mjs";
 import profile from "./renderProfile.mjs";
 import updateForm from "./renderUpdateForm.mjs";
 import publishAuction from "./renderPublishAuction.mjs";
+import bidHistory from "./renderBidHistory.mjs";
 
 export default {
   showcases,
@@ -12,4 +13,5 @@ export default {
   profile,
   updateForm,
   publishAuction,
+  bidHistory,
 };
