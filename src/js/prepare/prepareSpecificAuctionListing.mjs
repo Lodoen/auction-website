@@ -25,7 +25,7 @@ export default async function prepareSpecificAuctionListing() {
 
     if (!listing) {
       throw blueprints.error(
-        "Oops! Seems like there is no auction listing matching the selected ID in our database."
+        "Seems like there is no auction listing matching the selected ID in our database."
       );
     }
 
@@ -40,8 +40,7 @@ export default async function prepareSpecificAuctionListing() {
       } else {
         container.append(
           blueprints.feedback(
-            "Something went wrong when rendering the listing page",
-            "warning"
+            "Something went wrong when rendering the listing page"
           )
         );
       }

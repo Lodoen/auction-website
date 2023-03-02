@@ -26,8 +26,7 @@ export default function setRegisterListener() {
         if (container) {
           container.append(
             blueprints.feedback(
-              "Something went wrong when handling the register form",
-              "warning"
+              "Something went wrong when handling the register form"
             )
           );
         }

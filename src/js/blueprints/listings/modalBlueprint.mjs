@@ -56,10 +56,7 @@ export default function modalBlueprint(src) {
     if (container) {
       container.clearHTML();
       container.append(
-        blueprints.feedback(
-          "Something went wrong when handling the modal",
-          "warning"
-        )
+        blueprints.feedback("Something went wrong when handling the modal")
       );
     }
     return "";

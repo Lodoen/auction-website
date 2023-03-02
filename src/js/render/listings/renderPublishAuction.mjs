@@ -248,8 +248,7 @@ export default function renderPublishAuction(listing = undefined) {
       } else {
         container.append(
           blueprints.feedback(
-            "Something went wrong when handling the create auction form",
-            "warning"
+            "Something went wrong when handling the create auction form"
           )
         );
       }

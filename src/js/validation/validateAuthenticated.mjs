@@ -25,8 +25,7 @@ export default async function validateAuthenticated(needsToBeAuthenticated) {
       container.clearHTML();
       container.append(
         blueprints.feedback(
-          "Something went wrong when trying to authenticate your login info",
-          "warning"
+          "Something went wrong when trying to authenticate your login info"
         )
       );
     }

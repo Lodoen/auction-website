@@ -28,8 +28,7 @@ export default async function renderShowcases(auctionListings) {
       } else {
         container.append(
           blueprints.feedback(
-            "Something went wrong when rendering auction listings",
-            "warning"
+            "Something went wrong when rendering auction listings"
           )
         );
       }

@@ -40,10 +40,7 @@ export default async function register(profile) {
         feedback.append(blueprints.feedback(error.message, "warning"));
       } else {
         feedback.append(
-          blueprints.feedback(
-            "Something went wrong with the register form",
-            "warning"
-          )
+          blueprints.feedback("Something went wrong with the register form")
         );
       }
     }
