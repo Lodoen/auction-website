@@ -20,7 +20,7 @@ export default async function prepareHome() {
     const auctions = await listings.getAll();
 
     if (!auctions) {
-      throw blueprints.error("Could get auctions from database");
+      throw blueprints.error("Could not get auctions from database");
     }
 
     render.showcases([...auctions]);
