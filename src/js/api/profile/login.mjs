@@ -41,10 +41,7 @@ export default async function login(profile) {
         feedback.append(blueprints.feedback(error.message, "warning"));
       } else {
         feedback.append(
-          blueprints.feedback(
-            "Something went wrong with the login page",
-            "warning"
-          )
+          blueprints.feedback("Something went wrong with the login page")
         );
       }
     }

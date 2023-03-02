@@ -25,8 +25,7 @@ export default function setLoginListener() {
         if (container) {
           container.append(
             blueprints.feedback(
-              "Something went wrong when handling the login form",
-              "warning"
+              "Something went wrong when handling the login form"
             )
           );
         }

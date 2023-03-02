@@ -50,10 +50,7 @@ export default function mediaListElementBlueprint(url, mediaUrls) {
     if (container) {
       container.clearHTML();
       container.append(
-        blueprints.feedback(
-          "Something went wrong when adding media element(s)",
-          "warning"
-        )
+        blueprints.feedback("Something went wrong when adding media element(s)")
       );
     }
   }

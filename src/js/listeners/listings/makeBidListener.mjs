@@ -64,10 +64,7 @@ export default async function makeBidListener(event, id) {
         formFeedback.append(blueprints.feedback(error.message, "warning"));
       } else {
         formFeedback.append(
-          blueprints.feedback(
-            "Something went wrong with the make a bid form",
-            "warning"
-          )
+          blueprints.feedback("Something went wrong with the make a bid form")
         );
       }
     }

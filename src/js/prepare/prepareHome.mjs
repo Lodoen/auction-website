@@ -35,8 +35,7 @@ export default async function prepareHome() {
       } else {
         container.append(
           blueprints.feedback(
-            "Something went wrong when rendering the home page",
-            "danger"
+            "Something went wrong when rendering the home page"
           )
         );
       }

@@ -52,8 +52,7 @@ export default async function publishAuctionListener(
       } else {
         formFeedback.append(
           blueprints.feedback(
-            "Something went wrong with the publish auction form",
-            "warning"
+            "Something went wrong with the publish auction form"
           )
         );
       }

@@ -52,8 +52,7 @@ export default async function updateAvatarListener(event) {
       } else {
         formFeedback.append(
           blueprints.feedback(
-            "Something went wrong with the update avatar form",
-            "warning"
+            "Something went wrong with the update avatar form"
           )
         );
       }

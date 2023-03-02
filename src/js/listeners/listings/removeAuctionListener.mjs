@@ -41,8 +41,7 @@ export default async function removeAuctionListener(id = undefined) {
       } else {
         container.append(
           blueprints.feedback(
-            "Something went wrong when trying to delete your auction listing",
-            "warning"
+            "Something went wrong when trying to delete your auction listing"
           )
         );
       }

@@ -48,8 +48,7 @@ export default async function prepareProfile() {
       } else {
         container.append(
           blueprints.feedback(
-            "Something went wrong when rendering the profile page",
-            "warning"
+            "Something went wrong when rendering the profile page"
           )
         );
       }
